@@ -1,0 +1,76 @@
+.session_form_header {
+  color: #1178bd;
+  background: #fff;
+  border-bottom: 1px solid #d6d6d6;
+  display: block;
+}
+
+.session_form_header h1 {
+  margin: auto;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 21px;
+  text-align: center;
+  font-family: Open Sans, Arial, sans-serif;
+}
+
+.session_form_header span {
+
+}
+
+.session_form_body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  background-image: url('../bg_image.jpg');
+  background-size: cover;
+  background-position: -150px;
+}
+
+
+
+.session_form_body form {
+  margin: auto;
+  width: 350px;
+  height: 280px;
+  border: 1px solid black;
+  border-radius: 5px;
+  position: relative;
+  top: 50px;
+  background-image: url('../bg.png');
+  padding: 20px;
+  font-family: Open Sans, Arial, sans-serif;
+}
+
+.session_form_body input {
+  display: block;
+  background: white;
+  margin-bottom: 10px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0px 6px;
+  width: 336px;
+  color: #a9a9a9;
+  border: 1px solid #c3c2c2;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.session_form_body input[type="submit"] {
+  display: block;
+  background: #fd9335;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.session_form_body a {
+  position: absolute;
+  bottom: 15px;
+  left: 20%;
+  color: white;
+}
