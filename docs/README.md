@@ -1,6 +1,6 @@
 # MapMyTrot
 
-  - Trello https://trello.com/b/2ZRrvOR2/mapmytrot
+  - [Trello](https://trello.com/b/2ZRrvOR2/mapmytrot)
 
 ## Minimum Viable Product
 
