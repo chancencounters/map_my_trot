@@ -1,11 +1,17 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import App from './app';
 import SessionFormContainer from './session_form_container';
+import HeaderContainer from './header_container';
 
 const _redirectIfLoggedIn = (nextState, replace) => {
   if (Boolean(window.currentUser)) {
+    replace("/home");
+  }
+};
+
+const _redirectIfLoggedOut = (nextState, replace) => {
+  if (!window.currentUser) {
     replace("/login");
   }
 };
@@ -13,7 +19,8 @@ const _redirectIfLoggedIn = (nextState, replace) => {
 const Root = ({ store }) => (
   <Provider store={ store }>
     <Router history={ hashHistory }>
-      <Route path="/" component={ App }/>
+      <Route path="/" component={ HeaderContainer }/>
+
       <Route
         path="/login"
         component={ SessionFormContainer }
@@ -25,5 +32,6 @@ const Root = ({ store }) => (
     </Router>
   </Provider>
 );
+// <Index Route component={ Splash }
 
 export default Root;

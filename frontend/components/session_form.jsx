@@ -37,22 +37,30 @@ class SessionForm extends React.Component {
 		);
 	}
 
+  renderNameInputBox(formType) {
+    if (formType === 'signup') {
+      return (
+        <div>
+          <input type="text"
+            value={ this.state.first_name }
+            placeholder="First Name"
+            onChange={ this.update("first_name") }/>
+          <input type="text"
+            value={ this.state.last_name }
+            placeholder="Last Name"
+            onChange={ this.update("last_name") }/>
+        </div>
+      );
+    }
+  }
   render () {
     const { formType, errors } = this.props;
 
-    let fName, lName, link, button;
+    let link, button;
     if (formType === 'login') {
-      button = "LOG IN";
       link = <Link to="/signup">New to MapMyTrot? Join Now</Link>;
+        button = "LOG IN";
     } else {
-      fName = <input type="text"
-        value={ this.state.first_name }
-        placeholder="First Name"
-        onChange={ this.update("first_name") }/>;
-      lName = <input type="text"
-        value={ this.state.last_name }
-        placeholder="Last Name"
-        onChange={ this.update("last_name") }/>;
       link = <Link to="/login">Already have an account? Login</Link>;
       button = "JOIN NOW";
     }
@@ -69,18 +77,15 @@ class SessionForm extends React.Component {
         <div className="session_form_body">
           <form onSubmit={ this.handleSubmit }>
             { this.renderErrors() }
-            { fName }
-            { lName }
+            { this.renderNameInputBox(formType) }
             <input type="text"
   						value={ this.state.email }
               placeholder="Email"
   						onChange={ this.update("email") }/>
-
             <input type="password"
 							value={ this.state.password }
               placeholder="Password"
 							onChange={ this.update("password") }/>
-
             <input type="submit" value={ button }/>
             { link }
           </form>
