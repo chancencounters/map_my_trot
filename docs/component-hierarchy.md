@@ -9,24 +9,32 @@
 
 **Shortcuts**
 
-**HomeContainer**
+**Home**
   - Header
   - Shortcuts
+  - ActivityFeedContainer
+  - DashboardContainer
+  - FriendsContainer          
+  - Footer
 
+**ActivityFeedContainer**
   - ActivityFeed
     - ActivityIndex
       - Map
       - ActivityIndexItem
+
+**DashboardContainer**
   - Dashboard
     - RecentTrotIndex
       - RecentTrotIndexItem
         - Map
         - CommentsIndex
           - CommentsIndexItem
+
+**FriendsContainer**
   - Friends
     - FriendsIndex
       - FriendsIndexItem
-  - Footer
 
 **RoutesContainer**
   - Header
@@ -41,15 +49,13 @@
   - CreateRouteForm
     - Map
 
-**LogTrot**
+**LogTrotContainer**
   - Header
   - LogTrotForm
   - Footer
 
-**FriendsContainer**
+**FindFriendsContainer**
   - Header
-  - FriendsIndex
-    - FriendsIndexItem
   - FindFriends
     - Search
       - SearchResults
@@ -63,10 +69,10 @@
 |"/sign-up"	| "AuthFormContainer" |
 |"/sign-in"	| "AuthFormContainer" |
 |"/home" | "HomeContainer" |
-|"/home/activity_feed"	| "ActivityFeed" |
-|"/home/dashboard"	| "Dashboard" |
-|"/home/friends" | "Friends" |
+|"/home/activity_feed"	| "ActivityContainer" |
+|"/home/dashboard"	| "DashboardContainer" |
+|"/home/friends" | "FriendsContainer" |
 |"/routes" | "RoutesContainer" |
 |"/create_route" | "CreateRoute" |
 |"/find_friends" | "FindFriends" |
-|"/logtrot" | "LogTrot" |
+|"/log_trot" | "LogTrotContainer" |

@@ -1,25 +1,25 @@
 # MapMyTrot
 
 
-
 ## Minimum Viable Product
 
-1. New account creation, login, and guest/demo login
+[ ] New account creation, login, and guest/demo login
 
-2. A production README
+[ ] A production README
 
-3. Hosting on Heroku
+[ ] Hosting on Heroku
 
-4. Making running routes using map
+[ ] Making running routes using map
 
-5. Friending
+[ ] Friending
 
-6. Comments on runs
+[ ] Comments on runs
 
-7. Dashboard that tracks completed runs
+[ ] Dashboard that tracks completed runs
 
 ## Design Docs
 
+  - [View Wireframes](wireframes)
   - [Api-Endpoints](api-endpoints.md)
   - [Component-Hierarchy](component-hierarchy.md)
   - [Sample-State](sample-state.md)
@@ -27,7 +27,7 @@
 
 ## Implementation Timeline
 
-### Phase1: Backend setup and Front End User Authentication (2 days)
+### Phase1: Backend setup and Front End User Authentication (1 days)
   Objective: Functioning rails project with front-end Authentication
 
 ### Phase 2: Routes (2 days)

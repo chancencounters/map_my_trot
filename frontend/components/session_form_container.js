@@ -2,10 +2,12 @@ import { connect } from 'react-redux';
 import { login, signup } from '../actions/session_actions';
 import SessionForm from './session_form';
 
-const mapStateToProps = state => ({
-  loggedIn: Boolean(state.session.currentUser),
-  errors: state.session.errors,
-});
+const mapStateToProps = state => {
+  return {
+    loggedIn: Boolean(state.session.currentUser),
+    errors: state.session.errors,
+  };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   if (ownProps.location.pathname === '/login') {

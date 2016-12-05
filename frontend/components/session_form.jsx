@@ -60,12 +60,13 @@ class SessionForm extends React.Component {
     return (
       <div className="session_form_container">
         <header className="session_form_header">
-          <span className="horse_logo"/>
-          <h1>mapmytrot</h1>
+          <div>
+            <img src="/assets/horse_logo.jpg"/>
+            <h1>mapmytrot</h1>
+          </div>
         </header>
 
         <div className="session_form_body">
-          <img src="../assets/images/horse.png"/>
           <form onSubmit={ this.handleSubmit }>
             { this.renderErrors() }
             { fName }

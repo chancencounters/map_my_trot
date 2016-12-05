@@ -13,6 +13,7 @@ button, article, footer, small {
   vertical-align: inherit;
   color: inherit;
   background: transparent;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* --- ELEMENTS --- */

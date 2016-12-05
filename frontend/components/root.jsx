@@ -6,7 +6,7 @@ import SessionFormContainer from './session_form_container';
 
 const _redirectIfLoggedIn = (nextState, replace) => {
   if (Boolean(window.currentUser)) {
-    replace("/");
+    replace("/login");
   }
 };
 

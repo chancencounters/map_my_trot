@@ -5,17 +5,27 @@
   display: block;
 }
 
-.session_form_header h1 {
+.session_form_header div {
   margin: auto;
-  font-weight: bold;
-  font-size: 24px;
-  padding: 21px;
-  text-align: center;
-  font-family: Open Sans, Arial, sans-serif;
+  width: 200px;
+  height: 59px;
+  padding-top: 10px;
 }
 
-.session_form_header span {
+.session_form_header h1 {
+  font-weight: bold;
+  font-size: 24px;
+  font-family: Open Sans, Arial, sans-serif;
+  display: inline;
+  margin-left: 5px;
+  vertical-align: middle;
+}
 
+.session_form_header img {
+  width: 50px;
+  height: auto;
+  display: inline;
+  vertical-align: middle;
 }
 
 .session_form_body {
@@ -28,14 +38,12 @@
   background-position: -150px;
 }
 
-
-
 .session_form_body form {
   margin: auto;
   width: 350px;
   height: 280px;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 8px;
   position: relative;
   top: 50px;
   background-image: url('../bg.png');
@@ -57,15 +65,20 @@
   font-size: 12px;
 }
 
+.session_form_body input:focus {
+  outline: #1178bd auto 5px;
+  outline-offset: -2px;
+}
+
 .session_form_body input[type="submit"] {
   display: block;
   background: #fd9335;
   color: white;
   border: none;
   font-size: 16px;
-  font-weight: bold;
   text-align: center;
-
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .session_form_body a {
