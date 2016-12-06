@@ -1,0 +1,44 @@
+.profile_tabs {
+  margin: 0 auto;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  color: #1178bd;
+  width: 960px;
+}
+
+.profile_tabs li {
+  border-bottom: 1px solid #d9d9d9;
+  margin-top: 20px;
+  width: 300px;
+  line-height: 42px;
+  text-align: center;
+  background: #f6f6f6;
+  border-right: 1px solid #d9d9d9;
+  border-top: 1px solid #d9d9d9;
+}
+
+.profile_tabs li:first-child {
+  border-left: 1px solid #d9d9d9;
+}
+
+.profile_tabs li:hover {
+  border-bottom: none;
+  opacity: .5;
+  border-top: 3px solid #2aa5ef;
+}
+
+.profile_tabs .placeholder {
+  border-bottom: 1px solid #d9d9d9;
+  width: 200px;
+  background: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.profile_tabs .placeholder:hover {
+  opacity: 1;
+  border-top: none;
+  border-bottom: 1px solid #d9d9d9;
+}
