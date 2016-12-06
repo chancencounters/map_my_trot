@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(() => this.props.router.push('/'));
+    this.props.processForm(user).then(() => this.props.router.push('/home'));
   }
 
   update(field) {
@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
     let link, button;
     if (formType === 'login') {
       link = <Link to="/signup">New to MapMyTrot? Join Now</Link>;
-        button = "LOG IN";
+      button = "LOG IN";
     } else {
       link = <Link to="/login">Already have an account? Login</Link>;
       button = "JOIN NOW";
@@ -86,7 +86,9 @@ class SessionForm extends React.Component {
 							value={ this.state.password }
               placeholder="Password"
 							onChange={ this.update("password") }/>
-            <input type="submit" value={ button }/>
+            <input type="submit"
+              onClick={ this.handleSubmit }
+              value={ button }/>
             { link }
           </form>
         </div>
@@ -96,4 +98,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);
