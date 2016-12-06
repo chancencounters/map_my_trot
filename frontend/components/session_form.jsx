@@ -37,7 +37,7 @@ class SessionForm extends React.Component {
 		);
 	}
 
-  renderNameInputBox(formType) {
+  renderNameInputBoxes(formType) {
     if (formType === 'signup') {
       return (
         <div>
@@ -77,7 +77,7 @@ class SessionForm extends React.Component {
         <div className="session_form_body">
           <form onSubmit={ this.handleSubmit }>
             { this.renderErrors() }
-            { this.renderNameInputBox(formType) }
+            { this.renderNameInputBoxes(formType) }
             <input type="text"
   						value={ this.state.email }
               placeholder="Email"

@@ -16,11 +16,11 @@ const _redirectIfLoggedOut = (nextState, replace) => {
   }
 };
 
+// <IndexRoute component={ WelcomeContainer } />
 const Root = ({ store }) => (
   <Provider store={ store }>
     <Router history={ hashHistory }>
       <Route path="/" component={ HeaderContainer }/>
-
       <Route
         path="/login"
         component={ SessionFormContainer }

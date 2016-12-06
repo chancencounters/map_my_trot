@@ -18,9 +18,10 @@ button, article, footer, small {
 
 /* --- ELEMENTS --- */
 
+
 body {
   box-sizing: content-box;
-  font-family: Open Sans, Arial, sans-serif
+  font-family: Open Sans, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.1666666666;
   background: #eee;
@@ -35,4 +36,10 @@ img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
 }

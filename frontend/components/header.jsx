@@ -1,29 +1,54 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const Header = ({ currentUser, logout }) => {
-  return (
-    <header className="main_header">
-      <div className="main_header_inner">
-        <img src="/assets/horse_logo.jpg"/>
-        <h1>mapmytrot</h1>
-        <span>Trots</span>
-        <span>Routes</span>
-        if (currentUser) {
-          <div>
-            <button onClick={ logout }>Logout</button>
-            <img src="/assets/default_prof_pic.jpg"/>
-          </div>
-        } else {
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.renderNavLinks = this.renderNavLinks.bind(this);
+  }
+
+  renderNavLinks() {
+    const { currentUser, logout } = this.props;
+
+    if (Boolean(currentUser)) {
+      return (
+        <nav className="main_header_nav_links">
+          <button onClick={ logout }>Logout</button>
+          <img src="/assets/default_prof_pic.jpg"/>
+        </nav>
+      );
+    } else {
+      return(
+        <nav className="main_header_nav_links">
           <div>
             <Link to="/signup">Sign Up</Link>
-            <Link to="/login">Log In</Link>
           </div>
-        }
-      </div>
-    </header>
-  )
-};
+          <Link to="/login">Log In</Link>
+        </nav>
+      );
+    }
+  }
+
+  render () {
+    return (
+      <header className="main_header">
+        <div className="main_header_inner group">
+          <nav className="main_header_nav">
+            <nav className="nav_logo">
+              <img src="/assets/horse_logo.jpg"/>
+              <h1>mapmytrot</h1>
+            </nav>
+            <nav className="nav_menu">
+              <span>Trots</span>
+              <span>Routes</span>
+            </nav>
+          </nav>
+          { this.renderNavLinks() }
+        </div>
+      </header>
+    );
+  }
+}
 
 
 export default Header;
