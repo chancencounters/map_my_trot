@@ -6,7 +6,7 @@ import SessionFormContainer from './sessions/session_form_container';
 import HeaderContainer from './headers/header_container';
 import Welcome from './welcome';
 import App from './app';
-import Home from './home';
+import Home from './home/home';
 
 const _redirectIfLoggedIn = (nextState, replace) => {
   if (Boolean(window.currentUser)) {

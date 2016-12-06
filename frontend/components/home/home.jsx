@@ -1,5 +1,6 @@
 import React from 'react';
-import Shortcuts from './shortcuts';
+import Shortcuts from '../shortcuts';
+import ProfileTabs from './profile_tabs';
 
 class Home extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class Home extends React.Component {
     return (
       <div>
         <Shortcuts />
+        <ProfileTabs />
         { children }
       </div>
     );
