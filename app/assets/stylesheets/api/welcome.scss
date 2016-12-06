@@ -1,0 +1,46 @@
+.splash_background {
+  background-image: url('../bg_image.jpg');
+  background-size: cover;
+  height: 100vh;
+  background-position: bottom;
+  color: white;
+  position: relative;
+}
+
+.splash_background .greeting {
+  position: absolute;
+  top: 150px;
+  right: 150px;
+  color: black;
+  font-weight: bold;
+}
+
+.splash_background p:first-child {
+  width: 600px;
+  font-size: 45px;
+}
+
+.splash_background p {
+  margin-top: 20px;
+  width: 500px;
+}
+
+.splash_background .splash_links {
+  position: absolute;
+  top: 400px;
+  right: 300px;
+}
+
+.splash_background .login {
+  background: #4195d7;
+  padding: 10px 70px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.splash_background .signup {
+  background: #fd9235;
+  padding: 10px 75px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
