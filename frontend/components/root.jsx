@@ -6,7 +6,7 @@ import SessionFormContainer from './sessions/session_form_container';
 import HeaderContainer from './headers/header_container';
 import Welcome from './welcome';
 import App from './app';
-import HomeContainer from './home_container';
+import Home from './home';
 
 const _redirectIfLoggedIn = (nextState, replace) => {
   if (Boolean(window.currentUser)) {
@@ -25,7 +25,7 @@ const Root = ({ store }) => (
     <Router history={ hashHistory }>
       <Route path="/" component={ App }>
         <IndexRoute component={ Welcome } onEnter={ _redirectIfLoggedIn }/>
-        <Route path="/home" component={ HomeContainer } />
+        <Route path="/home" component={ Home } />
       </Route>
       <Route
         path="/login"
