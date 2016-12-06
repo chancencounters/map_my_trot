@@ -1,13 +1,54 @@
 .main_header {
-  background: #000;
+  background: white;
   height: 70px;
 }
 
 .main_header_inner {
   width: 960px;
+  margin: auto;
+}
+
+.main_header_inner .nav_logo {
+  line-height: 70px;
+  float: left;
+}
+
+.main_header_inner .nav_menu {
+  float: left;
+  line-height: 70px;
+}
+
+.nav_menu span {
+  font-size: 14px;
+  padding: 0 20px;
+  text-transform: uppercase;
 }
 
 .main_header_inner img {
   width: 50px;
   height: auto;
+  display: inline;
+  vertical-align: middle;
+}
+
+.main_header_inner h1 {
+  font-weight: bold;
+  font-size: 24px;
+  font-family: Open Sans, Arial, sans-serif;
+  display: inline;
+  margin-left: 5px;
+  vertical-align: middle;
+  color: #1178bd;
+}
+
+.main_header_nav_links {
+  float: right;
+  line-height: 70px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.main_header_nav_links a {
+  float: right;
+  margin-left: 20px;
 }
