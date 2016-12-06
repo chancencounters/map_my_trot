@@ -7,7 +7,7 @@ import App from './app';
 import Home from './home/home';
 import SessionFormContainer from './sessions/session_form_container';
 import HeaderContainer from './headers/header_container';
-
+// import CreateRouteContainer from './create_route_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -33,9 +33,6 @@ const Root = ({ store }) => {
             component={ Home }
             onEnter={ _redirectIfLoggedOut }>
 
-            <Route path="/create_map"
-              component={ CreateMap }
-              onEnter={ _redirectIfLoggedOut }/>
 
           </Route>
         </Route>
@@ -52,5 +49,8 @@ const Root = ({ store }) => {
   );
 };
 
+// <Route path="/create_map"
+//   component={ CreateRouteContainer }
+//   onEnter={ _redirectIfLoggedOut }/>
 
 export default Root;
