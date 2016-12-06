@@ -37,6 +37,7 @@ export function login(user) {
 
 export function logout() {
   return (dispatch) => {
+    window.currentUser = null;
     return Util.logout().then(
       (currentUser) => dispatch(receiveCurrentUser(null)),
       (errors) => dispatch(receiveErrors(errors.responseJSON))

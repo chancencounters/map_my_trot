@@ -1,10 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
     this.renderNavLinks = this.renderNavLinks.bind(this);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (!newProps.currentUser) {
+      this.props.router.push("/login");
+    }
   }
 
   renderNavLinks() {
@@ -51,4 +57,4 @@ class Header extends React.Component {
 }
 
 
-export default Header;
+export default withRouter(Header);
