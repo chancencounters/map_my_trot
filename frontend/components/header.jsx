@@ -20,7 +20,7 @@ class Header extends React.Component {
     } else {
       return(
         <nav className="main_header_nav_links">
-          <div>
+          <div className="sign_up_button">
             <Link to="/signup">Sign Up</Link>
           </div>
           <Link to="/login">Log In</Link>
@@ -39,8 +39,8 @@ class Header extends React.Component {
               <h1>mapmytrot</h1>
             </nav>
             <nav className="nav_menu">
-              <span>Trots</span>
-              <span>Routes</span>
+              <Link to="/trots">Trots</Link>
+              <Link to="/routes">Routes</Link>
             </nav>
           </nav>
           { this.renderNavLinks() }

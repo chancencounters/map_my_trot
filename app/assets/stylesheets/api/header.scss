@@ -1,6 +1,7 @@
 .main_header {
   background: white;
   height: 70px;
+  border-bottom: 1px solid #eee;
 }
 
 .main_header_inner {
@@ -9,19 +10,8 @@
 }
 
 .main_header_inner .nav_logo {
-  line-height: 70px;
+  line-height: 65px;
   float: left;
-}
-
-.main_header_inner .nav_menu {
-  float: left;
-  line-height: 70px;
-}
-
-.nav_menu span {
-  font-size: 14px;
-  padding: 0 20px;
-  text-transform: uppercase;
 }
 
 .main_header_inner img {
@@ -41,14 +31,80 @@
   color: #1178bd;
 }
 
+.main_header_inner .nav_menu {
+  float: left;
+  line-height: 70px;
+  letter-spacing: -1px;
+}
+
+.nav_menu a {
+  font-size: 14px;
+  padding-left: 40px;
+  text-transform: uppercase;
+  color: #9297a3;
+}
+
+.nav_menu a:hover {
+  color: black;
+}
+
 .main_header_nav_links {
   float: right;
-  line-height: 70px;
   text-transform: uppercase;
   font-size: 14px;
+  position: relative;
+  color: #9297a3;
+  height: 70px;
+  width: 200px;
 }
 
 .main_header_nav_links a {
   float: right;
   margin-left: 20px;
+  position: relative;
+  top: 30px;
+  letter-spacing: -1px;
+}
+
+.main_header_nav_links a:hover {
+  color: black;
+}
+
+.sign_up_button {
+  float: right;
+}
+
+.sign_up_button a {
+  position: relative;
+  line-height: 35px;
+  background: #98bd2a;
+  color: white;
+  border-radius: 2px;
+  padding: 0 10px;
+  top: 20px;
+  margin-right: 20px;
+}
+
+.sign_up_button a:hover {
+  color: white;
+}
+
+.main_header_nav_links img {
+  float: left;
+  position: absolute;
+  top: 10px;
+  left: 25px;
+}
+
+.main_header_nav_links button {
+  float: left;
+  background: #98bd2a;
+  color: white;
+  border-radius: 2px;
+  line-height: 35px;
+  padding: 0 10px;
+  top: 20px;
+  left: 100px;
+  text-transform: uppercase;
+  position: relative;
 }
