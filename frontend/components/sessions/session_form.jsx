@@ -53,6 +53,7 @@ class SessionForm extends React.Component {
       );
     }
   }
+
   render () {
     const { formType, errors } = this.props;
 

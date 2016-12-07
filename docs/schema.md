@@ -45,4 +45,3 @@ description | string    | not null
 string    | integer   | not null
 date        | date      | not null
 duration    | string    | not null
-map_info    | text      | not null

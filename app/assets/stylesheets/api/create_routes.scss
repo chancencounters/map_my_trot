@@ -1,0 +1,17 @@
+.create_route_container {
+  height: 655px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#create_route_map {
+  height: 100%;
+  width: 70%;
+}
+
+.create_route_form_container {
+  width: 30%;
+  height: 100%;
+  background: gray
+}
