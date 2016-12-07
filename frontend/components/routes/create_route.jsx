@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import RouteManager from '../../util/route_manager';
 
 const _getMapOptions = (pos) => ({
   center: {
@@ -7,24 +8,24 @@ const _getMapOptions = (pos) => ({
     lng: pos.coords.longitude
   },
 
-  zoom: 13
+  zoom: 17
 });
 
 let _defaultMapOptions = {
   center: {lat: 37.773972 , lng: -122.431297},
-  zoom: 13
+  zoom: 17
 };
 
 class CreateRoute extends React.Component {
   constructor(props) {
     super(props);
-
-    this.handleClick = this.handleClick.bind(this);
     this.state = {
       name: "",
       map_info: "",
       search: "",
     };
+    this.handleSearch = this.handleSearch.bind(this);
+    this.initMap = this.initMap.bind(this);
   }
 
   update(field) {
@@ -36,15 +37,27 @@ class CreateRoute extends React.Component {
   componentDidMount() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((pos) => {
-        this.map = new google.maps.Map(this.mapNode, _getMapOptions(pos));
-        console.log(this.map);
+        this.initMap(_getMapOptions(pos));
       });
     } else {
-      this.map = new google.maps.Map(this.mapNode, _defaultMapOptions)
+      this.initMap(_defaultMapOptions);
     }
   }
 
-  handleClick() {
+  initMap(mapOptions) {
+    this.map = new google.maps.Map(this.mapNode, mapOptions);
+    this.directionsService = new google.maps.DirectionsService;
+    this.directionsDisplay = new google.maps.DirectionsRenderer({
+      map: this.map,
+      suppressMarkers: true,
+    });
+    this.RouteManager = new RouteManager(this.directionsDisplay, this.directionsService, this.map);
+    this.map.addListener('click', (e) => {
+      this.RouteManager.renderRoute(e.latLng);
+    });
+    }
+
+  handleSearch() {
     const geocoder = new google.maps.Geocoder();
     geocoder.geocode({'address': this.state.search}, (results, status) =>
       this.map.setCenter(results[0].geometry.location)
@@ -64,7 +77,7 @@ class CreateRoute extends React.Component {
           placeholder='Address or Zip/Postal Code'/>
         <input
           type='submit'
-          onClick={ this.handleClick }
+          onClick={ this.handleSearch }
           value='Search'/>
       </form>
     );
