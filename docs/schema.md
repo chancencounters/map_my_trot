@@ -30,9 +30,8 @@ commentable      | polymorphic| not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users), indexed
+user_id   | integer   | not null, foreign key (references users), indexed
 name        | string    | not null
-description | string    | not null
 distance    | string    | not null
 map_info    | text      | not null
 
@@ -40,10 +39,10 @@ map_info    | text      | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users), indexed
+user_id   | integer   | not null, foreign key (references users), indexed
 name        | string    | not null
 description | string    | not null
-distance    | integer   | not null
+string    | integer   | not null
 date        | date      | not null
 duration    | string    | not null
 map_info    | text      | not null
