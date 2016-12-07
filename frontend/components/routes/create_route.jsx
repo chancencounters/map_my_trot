@@ -19,10 +19,11 @@ class CreateRoute extends React.Component {
   constructor(props) {
     super(props);
 
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       name: "",
-      search: "",
       map_info: "",
+      search: "",
     };
   }
 
@@ -36,40 +37,64 @@ class CreateRoute extends React.Component {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((pos) => {
         this.map = new google.maps.Map(this.mapNode, _getMapOptions(pos));
+        console.log(this.map);
       });
     } else {
       this.map = new google.maps.Map(this.mapNode, _defaultMapOptions)
     }
   }
 
+  handleClick() {
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode({'address': this.state.search}, (results, status) =>
+      this.map.setCenter(results[0].geometry.location)
+    );
+
+    this.setState( {search: ""} );
+  }
+
+  searchLocForm() {
+    return (
+      <form className='search_loc_form'>
+        <h3>Choose a map location</h3>
+        <input
+          type='text'
+          value={ this.state.search }
+          onChange={ this.update('search') }
+          placeholder='Address or Zip/Postal Code'/>
+        <input
+          type='submit'
+          onClick={ this.handleClick }
+          value='Search'/>
+      </form>
+    );
+  }
+
+  createRouteForm() {
+    return (
+      <form className='create_route_form'>
+        <h2>Route Details</h2>
+        <input
+          type='text'
+          value={ this.state.name }
+          onChange={ this.update('name') }
+          placeholder='Name this map'
+          />
+        <input type='submit'
+          onClick={ this.handleSubmit }
+          value='Save Route'/>
+      </form>
+    );
+  }
+
   render() {
     return (
       <div className='create_route_container'>
-        <div className='create_route_form_container'>
-          <form className='search_loc_form'>
-            <input
-              type='text'
-              value={ this.state.search }
-              onChange={ this.update('search') }
-              placeholder='Address or Zip/Postal Code'/>
-            <input
-              type='submit'
-              onClick={ this.handleClick }
-              placeholder='Search'/>
-          </form>
-          <form className='create_route_form'>
-            <input
-              type='text'
-              value={ this.state.name }
-              onChange={ this.update('name') }
-              placeholder='Name this map'
-              />
-            <input type='submit'
-              onClick={ this.handleSubmit }
-              value='Save Route'/>
-          </form>
+        <div className='create_route_forms_container'>
+          { this.searchLocForm() }
+          { this.createRouteForm() }
         </div>
-          
+
         <div id='create_route_map' ref={ map => this.mapNode = map }>
         </div>
       </div>
