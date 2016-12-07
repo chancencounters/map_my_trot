@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
       last_name: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGuestLogin = this.handleGuestLogin.bind(this);
   }
 
   handleSubmit(e) {
@@ -23,18 +24,6 @@ class SessionForm extends React.Component {
 		return e => this.setState({
 			[field]: e.currentTarget.value
 		});
-	}
-
-  renderErrors() {
-		return(
-			<ul>
-				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
-			</ul>
-		);
 	}
 
   renderNameInputBoxes(formType) {
@@ -54,15 +43,36 @@ class SessionForm extends React.Component {
     }
   }
 
+  handleGuestLogin(e) {
+    e.preventDefault();
+    this.props.guestLogin().then(() => this.props.router.push('/home'));
+  }
+
+  renderErrors() {
+		return(
+			<ul>
+				{this.props.errors.map((error, i) => (
+					<li key={`error-${i}`}>
+						{error}
+					</li>
+				))}
+			</ul>
+		);
+	}
+
   render () {
     const { formType, errors } = this.props;
 
-    let link, button;
+    let link, button, error;
     if (formType === 'login') {
-      link = <Link to="/signup">New to MapMyTrot? Join Now</Link>;
+      link = <Link to="/signup" onClick={ this.props.clearErrors }>
+        New to MapMyTrot? Join Now
+      </Link>;
       button = "LOG IN";
     } else {
-      link = <Link to="/login">Already have an account? Login</Link>;
+      link = <Link to="/login" onClick={ this.props.clearErrors }>
+        Already have an account? Login
+      </Link>;
       button = "JOIN NOW";
     }
 
@@ -77,7 +87,6 @@ class SessionForm extends React.Component {
 
         <div className="session_form_body">
           <form onSubmit={ this.handleSubmit }>
-            { this.renderErrors() }
             { this.renderNameInputBoxes(formType) }
             <input type="text"
   						value={ this.state.email }
@@ -87,9 +96,11 @@ class SessionForm extends React.Component {
 							value={ this.state.password }
               placeholder="Password"
 							onChange={ this.update("password") }/>
+            { this.renderErrors() }
             <input type="submit"
               onClick={ this.handleSubmit }
               value={ button }/>
+            <button onClick={ this.handleGuestLogin }>GUEST</button>
             { link }
           </form>
         </div>

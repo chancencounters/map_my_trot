@@ -9,7 +9,7 @@ class Api::SessionsController < ApplicationController
       sign_in(@user)
       render "api/users/show"
     else
-      render json: ["User Not Found"], status: 404 unless signed_in?
+      render json: ["Incorrect email and password combination."], status: 404 unless signed_in?
     end
   end
 
