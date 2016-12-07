@@ -1,0 +1,2 @@
+class RoutesController < ApplicationController
+end
