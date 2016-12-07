@@ -79,8 +79,8 @@ class SessionForm extends React.Component {
     return (
       <div className="session_form_container">
         <header className="session_form_header">
-          <div>
-            <img src="/assets/horse_logo.jpg"/>
+          <div className="header_logo">
+            <div></div>
             <h1>mapmytrot</h1>
           </div>
         </header>
