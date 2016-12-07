@@ -14,18 +14,21 @@
   float: left;
 }
 
-.main_header_inner img {
+.nav_logo > div {
   width: 50px;
-  height: auto;
-  display: inline;
+  background-image: image-url('horse_logo.jpg');
+  background-size: cover;
+  height: 50px;
+  float: left;
   vertical-align: middle;
+  margin-top: 10px;
 }
 
 .nav_logo > a {
   font-weight: bold;
   font-size: 24px;
   font-family: Open Sans, Arial, sans-serif;
-  display: inline;
+  float: left;
   margin-left: 5px;
   vertical-align: middle;
   color: #1178bd;
@@ -94,6 +97,8 @@
   position: absolute;
   top: 10px;
   left: 25px;
+  width: 50px;
+  height: auto;
 }
 
 .main_header_nav_links button {

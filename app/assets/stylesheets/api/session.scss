@@ -5,27 +5,29 @@
   display: block;
 }
 
-.session_form_header div {
+.session_form_header .header_logo {
   margin: auto;
   width: 200px;
-  height: 59px;
-  padding-top: 10px;
+  height: 64px;
+
 }
 
 .session_form_header h1 {
   font-weight: bold;
   font-size: 24px;
   font-family: Open Sans, Arial, sans-serif;
-  display: inline;
+  float: left;
   margin-left: 5px;
-  vertical-align: middle;
+  line-height: 65px;
 }
 
-.session_form_header img {
+.session_form_header .header_logo div {
   width: 50px;
-  height: auto;
-  display: inline;
-  vertical-align: middle;
+  background-image: image-url('horse_logo.jpg');
+  background-size: cover;
+  height: 50px;
+  float: left;
+  margin-top: 10px;
 }
 
 .session_form_body {

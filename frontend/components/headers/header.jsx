@@ -41,7 +41,7 @@ class Header extends React.Component {
         <div className="main_header_inner group">
           <nav className="main_header_nav">
             <nav className="nav_logo">
-              <img src="/assets/horse_logo.jpg"/>
+              <div></div>
               <Link to="/home">mapmytrot</Link>
             </nav>
             <nav className="nav_menu">
