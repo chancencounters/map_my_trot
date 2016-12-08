@@ -12,5 +12,5 @@
 #
 
 class Route < ApplicationRecord
-  validates :user, :name, :distance, :map_info
+  validates :user, :name, :distance, :map_info, presence: true
 end
