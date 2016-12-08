@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207011514) do
+ActiveRecord::Schema.define(version: 20161208162816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,15 @@ ActiveRecord::Schema.define(version: 20161207011514) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name",                                                     null: false
-    t.string "last_name",                                                      null: false
-    t.string "email",                                                          null: false
-    t.string "session_token",                                                  null: false
-    t.string "password_digest",                                                null: false
-    t.string "image_url",       default: "assets/images/default_prof_pic.jpg"
+    t.string   "first_name",          null: false
+    t.string   "last_name",           null: false
+    t.string   "email",               null: false
+    t.string   "session_token",       null: false
+    t.string   "password_digest",     null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 

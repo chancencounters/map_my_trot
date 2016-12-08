@@ -7,7 +7,7 @@ const initialState = {
   route: [],
 };
 
-const SessionReducer = (state = initialState, action) => {
+const errorReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_SESSION_ERRORS:
@@ -30,4 +30,4 @@ const SessionReducer = (state = initialState, action) => {
   }
 };
 
-export default SessionReducer;
+export default errorReducer;
