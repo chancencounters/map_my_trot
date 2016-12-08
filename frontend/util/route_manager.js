@@ -25,9 +25,22 @@ export default class RouteManager {
       }, (response, status) => {
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
+          this.polyline = response.routes[0].overview_polyline;
+          this.distance = response.routes[0].legs[0].distance.text;
+          this.origin = response.routes[0].legs[0].start_address;
+          this.destination = response.routes[0].legs[0].end_address;
         }
       });
     }
+  }
+
+  getRouteInfo() {
+    return ({
+      polyline: this.polyline,
+      distance: this.distance,
+      origin: this.origin,
+      destination: this.destination,
+    });
   }
 
   _createMarker(pos) {
