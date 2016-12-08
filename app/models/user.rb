@@ -17,9 +17,12 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, presence: true, uniqueness: true
 
-  attr_reader :password
+  has_attached_file :avatar, default_url: "default_prof_pic.jpg"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
+  has_many :routes
   after_initialize :ensure_session_token
+  attr_reader :password
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

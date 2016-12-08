@@ -1,4 +1,11 @@
-export const createRoute = (route) => {
+export const fetchRoutes = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/routes',
+  });
+};
+
+export const postRoute = (route) => {
   return $.ajax({
     method: 'POST',
     url: '/api/routes',

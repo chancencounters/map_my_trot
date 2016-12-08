@@ -20,7 +20,7 @@ class Header extends React.Component {
       return (
         <nav className="main_header_nav_links">
           <button onClick={ logout }>Logout</button>
-          <img src="/assets/default_prof_pic.jpg"/>
+          <img src={ currentUser.image_url}/>
         </nav>
       );
     } else {

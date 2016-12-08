@@ -53,11 +53,15 @@ class CreateRoute extends React.Component {
       map: this.map,
       suppressMarkers: true,
     });
-    this.RouteManager = new RouteManager(this.directionsDisplay, this.directionsService, this.map);
+    this.RouteManager = new RouteManager(
+      this.directionsDisplay,
+      this.directionsService,
+      this.map
+    );
     this.map.addListener('click', (e) => {
       this.RouteManager.renderRoute(e.latLng);
     });
-    }
+  }
 
 
   searchLocForm() {

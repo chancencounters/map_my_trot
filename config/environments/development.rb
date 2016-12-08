@@ -1,3 +1,5 @@
+Paperclip.options[:command_path] = "/usr/local/bin/"
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -41,7 +43,6 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 

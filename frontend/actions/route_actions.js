@@ -1,27 +1,42 @@
 import * as Util from '../util/route_api_util';
 import { receiveRouteErrors } from './error_actions';
 
-export const RECEIVE_ROUTE = "RECEIVE_ROUTE";
-export const DESTROY_ROUTE = "DESTROY_ROUTE";
+export const RECEIVE_NEW_ROUTE = "RECEIVE_NEW_ROUTE";
+export const RECEIVE_SINGLE_ROUTE = "RECEIVE_SINGLE_ROUTE";
+export const RECEIVE_ALL_ROUTES = "RECEIVE_ALL_ROUTES";
+export const CREATE_ROUTE = "CREATE_ROUTE";
 
-export const receiveRoute = (route) => {
-  return {
-    type: RECEIVE_ROUTE,
-    route
-  };
-};
+export const receiveAllRoutes = () => ({
+  type: RECEIVE_ALL_ROUTES,
+});
 
-export const destroyRoute = (id) => {
-  return {
-    type: RECEIVE_ROUTE,
-    id
-  };
-};
+export const receiveSingleRoute = (route) => ({
+  type: RECEIVE_SINGLE_ROUTE,
+  route
+});
+export const receiveNewRoute = (route) => ({
+  type: RECEIVE_NEW_ROUTE,
+  route
+});
 
-export function createRoute(route) {
+export const createRoute = (route) => ({
+  type: CREATE_ROUTE,
+  route
+});
+
+
+export function fetchRoutes() {
   return (dispatch) => {
-    return Util.createRoute(route).then(
-      (currentUser) => dispatch(receiveRoute(route)),
+    return Util.fetchRoutes().then(
+      () => dispatch(receiveAllRoutes())
+    );
+  };
+}
+
+export function postRoute(route) {
+  return (dispatch) => {
+    return Util.postRoute(route).then(
+      (route) => dispatch(receiveNewRoute(route)),
       (errors) => dispatch(receiveRouteErrors(errors.responseJSON))
     );
   };
@@ -30,7 +45,7 @@ export function createRoute(route) {
 export function deleteRoute(id) {
   return (dispatch) => {
     return Util.deleteRoute(id).then(
-      (currentUser) => dispatch(deleteRoute(id)),
+      (route) => dispatch(receiveSingleRoute(null)),
       (errors) => dispatch(receiveRouteErrors(errors.responseJSON))
     );
   };

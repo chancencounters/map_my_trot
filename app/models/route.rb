@@ -13,4 +13,6 @@
 
 class Route < ApplicationRecord
   validates :user, :name, :distance, :map_info, presence: true
+
+  belongs_to :user
 end
