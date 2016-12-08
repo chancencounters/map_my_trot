@@ -24,7 +24,7 @@ class CreateRoute extends React.Component {
       map_info: "",
       search: "",
     };
-    
+
     this.initMap = this.initMap.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);

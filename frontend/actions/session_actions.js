@@ -1,8 +1,7 @@
 import * as Util from '../util/session_api_util';
+import { receiveSessionErrors } from './error_actions';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 export const receiveCurrentUser = (currentUser) => {
   return {
@@ -11,24 +10,11 @@ export const receiveCurrentUser = (currentUser) => {
   };
 };
 
-export const receiveErrors = (errors) => {
-  return {
-    type: RECEIVE_ERRORS,
-    errors
-  };
-};
-
-export const clearErrors = () => {
-  return {
-    type: CLEAR_ERRORS,
-  };
-};
-
 export function signup(user) {
   return (dispatch) => {
     return Util.signup(user).then(
       (currentUser) => dispatch(receiveCurrentUser(currentUser)),
-      (errors) => dispatch(receiveErrors(errors.responseJSON))
+      (errors) => dispatch(receiveSessionErrors(errors.responseJSON))
     );
   };
 }
@@ -37,7 +23,7 @@ export function login(user) {
   return (dispatch) => {
     return Util.login(user).then(
       (currentUser) => dispatch(receiveCurrentUser(currentUser)),
-      (errors) => dispatch(receiveErrors(errors.responseJSON))
+      (errors) => dispatch(receiveSessionErrors(errors.responseJSON))
     );
   };
 }
@@ -47,7 +33,7 @@ export function logout() {
     window.currentUser = null;
     return Util.logout().then(
       (currentUser) => dispatch(receiveCurrentUser(null)),
-      (errors) => dispatch(receiveErrors(errors.responseJSON))
+      (errors) => dispatch(receiveSessionErrors(errors.responseJSON))
     );
   };
 }
