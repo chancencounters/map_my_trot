@@ -21,7 +21,10 @@ class CreateRoute extends React.Component {
     super(props);
     this.state = {
       name: "",
-      map_info: "",
+      distance: "",
+      origin: "",
+      destination: "",
+      polyline: "",
       search: "",
     };
 
@@ -98,6 +101,10 @@ class CreateRoute extends React.Component {
     );
   }
 
+  setRouteInfo(routeInfo) {
+
+  }
+
   handleSearch() {
     const geocoder = new google.maps.Geocoder();
     geocoder.geocode({'address': this.state.search}, (results, status) =>
@@ -107,8 +114,14 @@ class CreateRoute extends React.Component {
     this.setState( {search: ""} );
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
 
+    this.setState(
+      this.RouteManager.getRouteInfo(),
+      () => this.props.postRoute(this.state)
+        .then(() => this.props.router.push("/home"))
+    );
   }
 
   render() {

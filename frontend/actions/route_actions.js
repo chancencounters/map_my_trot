@@ -36,7 +36,7 @@ export function fetchRoutes() {
 export function postRoute(route) {
   return (dispatch) => {
     return Util.postRoute(route).then(
-      (route) => dispatch(receiveNewRoute(route)),
+      (currentRoute) => dispatch(receiveNewRoute(currentRoute)),
       (errors) => dispatch(receiveRouteErrors(errors.responseJSON))
     );
   };

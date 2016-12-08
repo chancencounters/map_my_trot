@@ -3,7 +3,9 @@ import { RECEIVE_NEW_ROUTE } from '../actions/error_actions';
   const initialState = {
     name: "",
     distance: "",
-    map_info: "",
+    polyline: "",
+    origin: "",
+    destination: "",
   };
 
 const routeDetailReducer = (state = initialState, action) => {
