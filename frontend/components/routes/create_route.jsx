@@ -24,8 +24,10 @@ class CreateRoute extends React.Component {
       map_info: "",
       search: "",
     };
-    this.handleSearch = this.handleSearch.bind(this);
+    
     this.initMap = this.initMap.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -57,14 +59,6 @@ class CreateRoute extends React.Component {
     });
     }
 
-  handleSearch() {
-    const geocoder = new google.maps.Geocoder();
-    geocoder.geocode({'address': this.state.search}, (results, status) =>
-      this.map.setCenter(results[0].geometry.location)
-    );
-
-    this.setState( {search: ""} );
-  }
 
   searchLocForm() {
     return (
@@ -98,6 +92,19 @@ class CreateRoute extends React.Component {
           value='Save Route'/>
       </form>
     );
+  }
+
+  handleSearch() {
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode({'address': this.state.search}, (results, status) =>
+      this.map.setCenter(results[0].geometry.location)
+    );
+
+    this.setState( {search: ""} );
+  }
+
+  handleSubmit() {
+
   }
 
   render() {
