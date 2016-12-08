@@ -12,11 +12,11 @@ class RoutesController < ApplicationController
 
   def create
     @route = current_user.routes.new(route_params)
-    
-    if @routes.save
+
+    if @route.save
       render :show
     else
-      render json: @routes.errors.full_messages, status: 404 unless signed_in?
+      render json: @route.errors.full_messages, status: 422
     end
   end
 
