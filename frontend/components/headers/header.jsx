@@ -20,6 +20,7 @@ class Header extends React.Component {
 
   render () {
     const { currentUser } = this.props;
+    
     return (
       <header className="main_header">
         <div className="main_header_inner">
