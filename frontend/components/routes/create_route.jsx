@@ -25,6 +25,7 @@ class CreateRoute extends React.Component {
       origin: "",
       destination: "",
       polyline: "",
+      bounds: {},
       search: "",
     };
 
@@ -117,7 +118,8 @@ class CreateRoute extends React.Component {
     this.setState(
       this.RouteManager.getRouteInfo(),
       () => this.props.postRoute(this.state)
-        .then(() => this.props.router.push("/home"))
+        .then(() => this.props.fetchRoutes())
+        .then(() => this.props.router.push("/routes"))
     );
 
     this.props.clearErrors();
