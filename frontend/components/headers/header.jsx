@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.renderNavLinks = this.renderNavLinks.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
   }
 
@@ -19,43 +18,27 @@ class Header extends React.Component {
     this.props.logout();
   }
 
-  renderNavLinks() {
-    const { currentUser } = this.props;
 
-    if (Boolean(currentUser)) {
-      return (
-        <nav className="main_header_nav_links">
-          <button onClick={ this.handleLogout }>Logout</button>
-          <img src={ currentUser.image_url}/>
-        </nav>
-      );
-    } else {
-      return(
-        <nav className="main_header_nav_links">
-          <div className="sign_up_button">
-            <Link to="/signup">Sign Up</Link>
-          </div>
-          <Link to="/login">Log In</Link>
-        </nav>
-      );
-    }
-  }
 
   render () {
+    const { currentUser } = this.props;
     return (
       <header className="main_header">
-        <div className="main_header_inner group">
+        <div className="main_header_inner">
           <nav className="main_header_nav">
             <nav className="nav_logo">
               <div></div>
               <Link to="/home">mapmytrot</Link>
             </nav>
             <nav className="nav_menu">
-              <Link to="/trots">Trots</Link>
-              <Link to="/routes">Routes</Link>
+              <Link to="/trots">TROTS</Link>
+              <Link to="/routes">ROUTES</Link>
+            </nav>
+            <nav className="main_header_nav_links">
+              <button onClick={ this.handleLogout }>LOGOUT</button>
+              <img src={ currentUser.image_url}/>
             </nav>
           </nav>
-          { this.renderNavLinks() }
         </div>
       </header>
     );
