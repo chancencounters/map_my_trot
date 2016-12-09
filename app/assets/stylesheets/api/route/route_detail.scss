@@ -1,0 +1,139 @@
+.route_detail_container {
+  width: 960px;
+  margin: auto;
+
+  .route_detail_main {
+    width: 620px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    float: left;
+
+
+    .route_detail_header {
+      display: block;
+      font-size: 12px;
+
+      a {
+        position: relative;
+        float: left;
+        color: #0083d5;
+        margin-right: 20px;
+
+
+        &::after  {
+          position: absolute;
+          content: "";
+          width: 0;
+          height: 0;
+          top: 2px;
+          right: -18px;
+          background: transparent;
+          border-top: 5px solid transparent;
+          border-bottom: 5px solid transparent;
+          border-left: 5px solid #e4e4e4;
+          border-right: 5px solid transparent;
+        }
+
+      }
+
+      div {
+        color: #8c8c8c;
+      }
+    }
+
+    h1 {
+      display: block;
+      font: 30px/16px "Open Sans", sans-serif;
+      color: #444444;
+      font-weight: 600;
+      line-height: 1;
+      padding: 10px 0;
+      border-bottom: 1px solid #c3c2c2;
+    }
+  }
+
+  .route_detail_body {
+    border-bottom: 1px solid #c3c2c2;
+
+    .route_detail_body_aside {
+      border: 1px solid #c3c2c2;
+      width: 110px;
+      text-align: center;
+      padding: 20px 0;
+      margin-right: 20px;
+      margin-top: 20px;
+      float: left;
+      margin-bottom: 80px;
+      background: linear-gradient(to bottom, #f6f4f4 0, #fbf9f9 100%);
+
+      div {
+
+        &:first-child {
+          display: block;
+          color: #999999;
+          font-size: 12px;
+          margin-bottom: 5px;
+          font-weight: 400;
+        }
+
+        &:last-child {
+          display: block;
+          color: #8c8c8c;
+          font-weight: 500;
+          font-size: 24px;
+        }
+      }
+
+    }
+
+    .route_detail_body_main {
+      margin-top: 20px;
+      width: 400px;
+      float: left;
+
+      &> div {
+        display: block;
+        float: left;
+        margin-bottom: 15px;
+        font-weight: 600;
+        font-size: 14px;
+
+        span {
+          box-sizing: padding-box;
+          font-weight: 700;
+          font-size: 14px;
+          color: #333;
+          display: block;
+          width: 120px;
+          padding: 3px 0 0;
+          height: 60px;
+        }
+
+        div {
+          box-sizing: margin-box;
+          height: 60px;
+          display: block;
+          width: 280px;
+          padding: 3px 0 0;
+          word-wrap: break-word;
+          font-size: 13px;
+          color: #666666;
+        }
+      }
+    }
+
+    .route_detail_aside {
+      width: 300px;
+      float: right;
+    }
+  }
+
+  #route_detail_map {
+    margin-left: 10px;
+    height: 300px;
+    width: 620px;
+    float: left;
+  }
+
+}
