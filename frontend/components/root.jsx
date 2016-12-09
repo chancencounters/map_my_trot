@@ -1,6 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router,
+  Route,
+  IndexRoute,
+  hashHistory,
+  IndexRedirect } from 'react-router';
 
 import Welcome from './welcome';
 import App from './app';
@@ -9,6 +13,9 @@ import SessionFormContainer from './sessions/session_form_container';
 import HeaderContainer from './headers/header_container';
 import CreateRouteContainer from './routes/create_route_container';
 import RouteIndexContainer from './routes/route_index_container';
+import ActivityFeedContainer from './home/activity_feed';
+import DashboardContainer from './home/dashboard_container';
+import FriendsContainer from './home/friends_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -32,7 +39,22 @@ const Root = ({ store }) => {
           <Route
             path="/home"
             component={ Home }
-            onEnter={ _redirectIfLoggedOut }/>
+            onEnter={ _redirectIfLoggedOut }>
+            <IndexRedirect to="/home/activity_feed"/>
+            <Route
+              path="activity_feed"
+              component={ ActivityFeedContainer }
+              onEnter={ _redirectIfLoggedOut }/>
+            <Route
+              path="dashboard"
+              component={ DashboardContainer }
+              onEnter={ _redirectIfLoggedOut }/>
+            <Route
+              path="friends"
+              component={ FriendsContainer }
+              onEnter={ _redirectIfLoggedOut }/>
+          </Route>
+
 
           <Route path="/create_route"
             component={ CreateRouteContainer }
