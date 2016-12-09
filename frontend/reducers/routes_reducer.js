@@ -12,8 +12,8 @@ const RoutesReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_ALL_ROUTES:
       return action.routes;
-    case RECEIVE_NEW_ROUTE:
-      return merge({}, state, action.route);
+    // case RECEIVE_NEW_ROUTE:
+    //   return merge({}, state, action.route);
     case REMOVE_ROUTE:
       const keys = Object.keys(state);
       const newRoutes = {};
@@ -22,7 +22,7 @@ const RoutesReducer = (state = {}, action) => {
           newRoutes.assign(state[key]);
         }
       });
-      
+
       return newRoutes;
     default:
       return state;

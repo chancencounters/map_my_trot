@@ -26,9 +26,9 @@ class RouteIndex extends React.Component {
           <li className="title_options">Options</li>
         </ul>
         <ul className="routes_index">
-          { this.props.routes.map((route) => (
+          { this.props.routes.map((route, idx) => (
             <RouteIndexItem
-              key={ route.id }
+              key={ idx }
               route={ route }
               deleteRoute={ this.props.deleteRoute }/>
             ))

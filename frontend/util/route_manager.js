@@ -8,13 +8,13 @@ export default class RouteManager {
     this.renderRoute = this.renderRoute.bind(this);
     this._createMarker = this._createMarker.bind(this);
     this._createWaypoints = this._createWaypoints.bind(this);
+    this._getBounds = this._getBounds.bind(this);
   }
 
   renderRoute(pos) {
     this._createMarker(pos);
 
     if (this.markerArray.length > 1) {
-
       const waypoints = this._createWaypoints();
       this.directionsService.route({
         origin: this.markerArray[0].position,
@@ -29,9 +29,21 @@ export default class RouteManager {
           this.distance = response.routes[0].legs[0].distance.text;
           this.origin = response.routes[0].legs[0].start_address;
           this.destination = response.routes[0].legs[0].end_address;
+          this.bounds = this._getBounds(response);
         }
       });
     }
+  }
+
+  _getBounds(response) {
+    const bounds = response.routes[0].bounds;
+
+    return {
+      east: bounds.f.b,
+      west: bounds.f.f,
+      north: bounds.b.b,
+      south: bounds.b.f
+    };
   }
 
   getRouteInfo() {
@@ -40,6 +52,7 @@ export default class RouteManager {
       distance: this.distance,
       origin: this.origin,
       destination: this.destination,
+      bounds: this.bounds,
     });
   }
 
