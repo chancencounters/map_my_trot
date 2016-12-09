@@ -31,6 +31,6 @@ class Api::RoutesController < ApplicationController
   def route_params
     params
       .require(:route)
-      .permit(:name, :origin, :destination, :distance, :polyline)
+      .permit(:name, :origin, :destination, :distance, :polyline, :bounds)
   end
 end

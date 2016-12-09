@@ -18,22 +18,26 @@ class RouteIndex extends React.Component {
           <h2>MY ROUTES</h2>
           <Link to="/create_route">CREATE A ROUTE</Link>
         </div>
-        <ul className="routes_index_header">
-          <li className="title_route">Route</li>
-          <li className="title_created">Created</li>
-          <li className="title_distance">Distance</li>
-          <li className="title_name">Name</li>
-          <li className="title_options">Options</li>
-        </ul>
-        <ul className="routes_index">
-          { this.props.routes.map((route, idx) => (
-            <RouteIndexItem
-              key={ idx }
-              route={ route }
-              deleteRoute={ this.props.deleteRoute }/>
-            ))
-          }
-        </ul>
+        <table className="routes_index_table">
+          <thead>
+            <tr className="routes_index_header">
+              <th className="route_title">Route</th>
+              <th className="route_created">Created</th>
+              <th className="route_distance">Distance</th>
+              <th className="route_name">Name</th>
+              <th className="route_origin">Origin</th>
+              <th className="route_options">Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            { this.props.routes.map((route) => (
+              <RouteIndexItem
+                key={ route.id }
+                route= { route }
+                deleteRoute={ this.props.deleteRoute }/>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }
