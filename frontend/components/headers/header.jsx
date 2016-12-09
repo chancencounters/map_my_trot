@@ -5,6 +5,7 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.renderNavLinks = this.renderNavLinks.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -13,13 +14,18 @@ class Header extends React.Component {
     }
   }
 
+  handleLogout() {
+    this.props.clearErrors();
+    this.props.logout();
+  }
+
   renderNavLinks() {
-    const { currentUser, logout } = this.props;
+    const { currentUser } = this.props;
 
     if (Boolean(currentUser)) {
       return (
         <nav className="main_header_nav_links">
-          <button onClick={ logout }>Logout</button>
+          <button onClick={ this.handleLogout }>Logout</button>
           <img src={ currentUser.image_url}/>
         </nav>
       );

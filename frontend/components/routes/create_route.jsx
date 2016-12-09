@@ -101,10 +101,6 @@ class CreateRoute extends React.Component {
     );
   }
 
-  setRouteInfo(routeInfo) {
-
-  }
-
   handleSearch() {
     const geocoder = new google.maps.Geocoder();
     geocoder.geocode({'address': this.state.search}, (results, status) =>
@@ -112,6 +108,7 @@ class CreateRoute extends React.Component {
     );
 
     this.setState( {search: ""} );
+    this.props.clearErrors();
   }
 
   handleSubmit(e) {
@@ -122,6 +119,8 @@ class CreateRoute extends React.Component {
       () => this.props.postRoute(this.state)
         .then(() => this.props.router.push("/home"))
     );
+
+    this.props.clearErrors();
   }
 
   render() {
@@ -132,8 +131,7 @@ class CreateRoute extends React.Component {
           { this.createRouteForm() }
         </div>
 
-        <div id='create_route_map' ref={ map => this.mapNode = map }>
-        </div>
+        <div id='create_route_map' ref={ map => this.mapNode = map }/>
       </div>
     );
   }
