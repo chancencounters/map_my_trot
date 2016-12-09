@@ -7,43 +7,8 @@ class RouteIndexItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.initMap();
-  // }
-  //
-  // initMap() {
-  //   const { route } = this.props;
-  //   const coords = JSON.parse(route.bounds);
-  //   const bounds = new google.maps.LatLngBounds();
-  //   const decodedPath = google.maps.geometry
-  //   .encoding
-  //   .decodePath(route.polyline);
-  //
-  //   this.map = new google.maps.Map(this.mapNode, {
-  //     center: { lat: coords.north, lng: coords.east },
-  //     zoom: 15,
-  //     disableDefaultUI: true,
-  //   });
-  //
-  //   const poly = new google.maps.Polyline({
-  //     path: decodedPath,
-  //     strokeColor: '#fd605f',
-  //     strokeOpacity: 1.0,
-  //     strokeWeight: 4
-  //   });
-  //
-  //   poly.setMap(this.map);
-  //
-  //   const path = poly.getPath();
-  //   for (let i = 0; i < path.length; i++) {
-  //     bounds.extend(path.getAt(i));
-  //   }
-  //
-  //   this.map.fitBounds(bounds);
-  //   this.map.setZoom(this.map.getZoom() + 4);
-  // }
   handleClick() {
-    this.props.router.push(`/route/${id}`);
+    this.props.router.push(`/route/${this.props.route.id}`);
   }
 
   render() {

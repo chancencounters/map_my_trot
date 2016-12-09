@@ -66,8 +66,8 @@ const Root = ({ store }) => {
             onEnter={ _redirectIfLoggedOut }/>
 
           <Route path="/route/:id"
-            component={ RouteContainer }
-            onEnter={ _redirectIfLoggedIn }/>
+            component={ RouteDetailContainer }
+            onEnter={ _redirectIfLoggedOut }/>
         </Route>
         <Route
           path="/login"
