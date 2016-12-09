@@ -5,11 +5,11 @@ const Shortcuts = () => {
   return (
     <nav className="shortcuts">
       <div className="shortcuts_inner">
-        <ul className="shortcut_links">
-          <li><Link to='/create_route'>Create Route</Link></li>
-          <li><Link to='/log_trot'>Log Trot</Link></li>
-          <li><Link to='/find_friends'>Find Friends</Link></li>
-        </ul>
+        <div className="shortcut_links">
+          <Link to='/create_route'>Create Route</Link>
+          <Link to='/log_trot'>Log Trot</Link>
+          <Link to='/find_friends'>Find Friends</Link>
+        </div>
       </div>
     </nav>
   );

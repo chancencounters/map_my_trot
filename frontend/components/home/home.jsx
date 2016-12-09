@@ -8,12 +8,12 @@ class Home extends React.Component {
   }
 
   render() {
-    const { children } = this.props;
-
+    const { children, location } = this.props;
+    
     return (
       <div>
         <Shortcuts />
-        <ProfileTabs />
+        <ProfileTabs location={ location.pathname } />
         { children }
       </div>
     );

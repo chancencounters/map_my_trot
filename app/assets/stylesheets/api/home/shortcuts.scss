@@ -2,30 +2,30 @@
   border-bottom: 2px solid #d9d9d9;
   color: #7a7e86;
   background: #f0f2f4;
-}
 
-.shortcuts_inner {
-  width: 960px;
-  margin: 0 auto;
-  height: 42px;
-  border-left: 1px solid #d9d9d9;
-}
+  .shortcuts_inner {
+    width: 960px;
+    margin: 0 auto;
+    height: 42px;
+    border-left: 1px solid #d9d9d9;
 
-.shortcuts_inner ul {
-  display: flex;
-  flex-direction: row;
-}
+    .shortcut_links {
+      display: flex;
+      flex-direction: row;
 
-.shortcuts_inner li {
-  line-height: 42px;
-  text-align: center;
-  flex-grow: 1;
-  border-right: 1px solid #d9d9d9;
-  letter-spacing: -1px;
-  border-bottom: 2px solid #9297a4;
-}
+      a {
+        line-height: 42px;
+        text-align: center;
+        flex-grow: 1;
+        border-right: 1px solid #d9d9d9;
+        letter-spacing: -1px;
+        border-bottom: 2px solid #9297a4;
 
-.shortcuts_inner li:hover {
-  color: black;
-  border-bottom: 2px solid #6d717a;
+        &:hover {
+          color: #222628;
+          border-bottom: 2px solid #6d717a;
+        }
+      }
+    }
+  }
 }
