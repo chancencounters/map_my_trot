@@ -6,6 +6,7 @@
     json.origin route.origin
     json.destination route.destination
     json.polyline route.polyline
+    json.bounds route.bounds
     json.created_at route.created_at.strftime("%Y-%m-%d")
   end
 end

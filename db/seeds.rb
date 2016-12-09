@@ -8,3 +8,5 @@
 
 User.destroy_all
 User.create!(first_name: "Zack", last_name: "Yu", email: "demo_account@admin.com", password: "password")
+
+Route.destroy_all

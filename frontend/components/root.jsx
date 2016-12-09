@@ -16,6 +16,7 @@ import RouteIndexContainer from './routes/route_index_container';
 import ActivityFeedContainer from './home/activity_feed';
 import DashboardContainer from './home/dashboard_container';
 import FriendsContainer from './home/friends_container';
+import RouteDetailContainer from './routes/route_detail_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -64,6 +65,9 @@ const Root = ({ store }) => {
             component={ RouteIndexContainer }
             onEnter={ _redirectIfLoggedOut }/>
 
+          <Route path="/route/:id"
+            component={ RouteContainer }
+            onEnter={ _redirectIfLoggedIn }/>
         </Route>
         <Route
           path="/login"

@@ -6,6 +6,7 @@ import { RECEIVE_ROUTE, RECEIVE_NEW_ROUTE } from '../actions/route_actions';
     polyline: "",
     origin: "",
     destination: "",
+    bounds: "",
   };
 
 const routeDetailReducer = (state = initialState, action) => {

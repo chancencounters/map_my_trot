@@ -32,50 +32,49 @@
     }
   }
 
-  .routes_index_header {
+  .routes_index_table {
     margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    border-left: 1px solid #e6e6e5;
-    border-top: 1px solid #e6e6e5;
-    border-bottom: 1px solid #e6e6e5;
-    background: #f9f9f9;
 
-    li {
-      padding: 15px 10px;
-      font-weight: 400;
-      border-right: 1px solid #e6e6e5;
+    .routes_index_header {
+      border-left: 1px solid #e6e6e5;
+      border-top: 1px solid #e6e6e5;
+      border-bottom: 1px solid #e6e6e5;
+      background: #f9f9f9;
+
+      th {
+        padding: 15px 10px;
+        font-weight: 400;
+        border-right: 1px solid #e6e6e5;
+      }
+
+      .route_title {
+        width: 40px;
+      }
+
+      .route_created {
+        width: 130px;
+      }
+
+      .route_distance {
+        width: 80px;
+      }
+
+      .route_name {
+        width: 150px;
+      }
+
+      .route_origin {
+        width: 170px;
+      }
+
+      .route_options {
+        width: 80px;
+      }
     }
-
-    .title_route {
-      width: 75px;
-    }
-
-    .title_created {
-      width: 199px
-    }
-
-    .title_distance {
-      width: 170px
-    }
-
-    .title_name {
-      width: 260px
-    }
-
-    .title_options {
-      width: 150px
-    }
-  }
-
-  .routes_index {
-    border-left: 1px solid #e6e6e5;
 
     .route_index_item {
-      border-bottom: 1px solid #e6e6e5;
-      display: flex;
-      flex-direction: row;
-      line-height: 105px;
+      border-right: 1px solid #e6e6e5;
+
 
       &:nth-child(2n) {
         background: #f9f9f9;
@@ -85,45 +84,32 @@
         background: #ececec;
       }
 
-      #route_map {
-        width: 75px;
-        height: 75px;
-        margin: 15px 10px;
+      .route_map_container {
+        width: 80px;
+        height: 80px;
+        padding: 10px 5px;
       }
 
-      span {
-        border-right: 1px solid #e6e6e5;
-        font-size: 14px;
+      td {
+        text-align: center;
+        border-left: 1px solid #e6e6e5;
+        border-bottom: 1px solid #e6e6e5;
       }
 
       .route_index_item_date {
-        width: 209px;
         color: #0076c0;
-        padding-left: 10px;
       }
 
       .route_index_item_distance {
-        width: 180px;
         color: #6cb448;
         font-weight: 600;
-        padding-left: 10px;
-      }
-
-      .route_index_item_name {
-        width: 270px;
-        color: #0076c0;
-        padding-left: 10px;
       }
 
       .route_index_item_delete {
-        width: 160px;
         color: #0076c0;
-        padding-left: 10px;
-
-        &:hover {
-          cursor: pointer;
-        }
+        cursor: pointer;
       }
     }
+
   }
 }

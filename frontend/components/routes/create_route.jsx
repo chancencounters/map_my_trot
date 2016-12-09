@@ -62,8 +62,11 @@ class CreateRoute extends React.Component {
       this.directionsService,
       this.map
     );
+
     this.map.addListener('click', (e) => {
       this.RouteManager.renderRoute(e.latLng);
+      const bounds = JSON.stringify(this.map.getBounds());
+      this.setState({bounds: bounds});
     });
   }
 
