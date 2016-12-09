@@ -23,7 +23,7 @@ class Api::RoutesController < ApplicationController
   def destroy
     @route = Route.find(params[:id])
     @route.destroy
-    render json: {}
+    render json: @route.id
   end
 
   private

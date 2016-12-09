@@ -37,18 +37,19 @@
 .main_header_inner .nav_menu {
   float: left;
   line-height: 70px;
-  letter-spacing: -1px;
+  letter-spacing: -1.2px;
 }
 
 .nav_menu a {
   font-size: 14px;
   padding-left: 40px;
+  font-weight: 600;
   text-transform: uppercase;
-  color: #7a7e86;
+  color: #9297a3;
 }
 
 .nav_menu a:hover {
-  color: black;
+  color: #424242;
 }
 
 .main_header_nav_links {
@@ -96,7 +97,7 @@
   float: left;
   position: absolute;
   top: 10px;
-  left: 25px;
+  left: 45px;
   width: 50px;
   height: auto;
 }
@@ -109,7 +110,7 @@
   line-height: 35px;
   padding: 0 10px;
   top: 20px;
-  left: 100px;
+  left: 122px;
   text-transform: uppercase;
   position: relative;
   cursor: pointer;

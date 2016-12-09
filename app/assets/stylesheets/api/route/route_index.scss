@@ -1,0 +1,129 @@
+.routes_index_container {
+  width: 960px;
+  margin: auto;
+  color: black;
+
+  .routes_index_title_container {
+    display: flex;
+    padding: 30px 0;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+
+    h2 {
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    a {
+      color: #fff;
+      text-align: center;
+      letter-spacing: .05em;
+      background: linear-gradient(to bottom,#ff9628 5%,#ff8714 100%);
+      padding: 15px 10px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 600;
+
+      &:hover {
+        background: #e56e06;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .routes_index_header {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    border-left: 1px solid #e6e6e5;
+    border-top: 1px solid #e6e6e5;
+    border-bottom: 1px solid #e6e6e5;
+    background: #f9f9f9;
+
+    li {
+      padding: 15px 10px;
+      font-weight: 400;
+      border-right: 1px solid #e6e6e5;
+    }
+
+    .title_route {
+      width: 75px;
+    }
+
+    .title_created {
+      width: 199px
+    }
+
+    .title_distance {
+      width: 170px
+    }
+
+    .title_name {
+      width: 260px
+    }
+
+    .title_options {
+      width: 150px
+    }
+  }
+
+  .routes_index {
+    border-left: 1px solid #e6e6e5;
+
+    .route_index_item {
+      border-bottom: 1px solid #e6e6e5;
+      display: flex;
+      flex-direction: row;
+      line-height: 105px;
+
+      &:nth-child(2n) {
+        background: #f9f9f9;
+      }
+
+      &:hover {
+        background: #ececec;
+      }
+
+      #route_map {
+        width: 75px;
+        height: 75px;
+        margin: 15px 10px;
+      }
+
+      span {
+        border-right: 1px solid #e6e6e5;
+        font-size: 14px;
+      }
+
+      .route_index_item_date {
+        width: 209px;
+        color: #0076c0;
+        padding-left: 10px;
+      }
+
+      .route_index_item_distance {
+        width: 180px;
+        color: #6cb448;
+        font-weight: 600;
+        padding-left: 10px;
+      }
+
+      .route_index_item_name {
+        width: 270px;
+        color: #0076c0;
+        padding-left: 10px;
+      }
+
+      .route_index_item_delete {
+        width: 160px;
+        color: #0076c0;
+        padding-left: 10px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

@@ -5,6 +5,13 @@ export const fetchRoutes = () => {
   });
 };
 
+export const fetchRoute = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/routes/${id}`,
+  });
+};
+
 export const postRoute = (route) => {
   return $.ajax({
     method: 'POST',
@@ -16,6 +23,6 @@ export const postRoute = (route) => {
 export const deleteRoute = (id) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/route/${id}`,
+    url: `/api/routes/${id}`,
   });
 };

@@ -8,6 +8,7 @@ import Home from './home/home';
 import SessionFormContainer from './sessions/session_form_container';
 import HeaderContainer from './headers/header_container';
 import CreateRouteContainer from './routes/create_route_container';
+import RouteIndexContainer from './routes/route_index_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -36,7 +37,11 @@ const Root = ({ store }) => {
           <Route path="/create_route"
             component={ CreateRouteContainer }
             onEnter={ _redirectIfLoggedOut }/>
-          
+
+          <Route path="/routes"
+            component={ RouteIndexContainer }
+            onEnter={ _redirectIfLoggedOut }/>
+
         </Route>
         <Route
           path="/login"
