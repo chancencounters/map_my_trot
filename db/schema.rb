@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210171459) do
+ActiveRecord::Schema.define(version: 20161210180212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20161210171459) do
   create_table "trots", force: :cascade do |t|
     t.integer  "user_id",     null: false
     t.integer  "route_id",    null: false
-    t.string   "name",        null: false
     t.string   "description", null: false
     t.date     "date",        null: false
     t.string   "duration",    null: false

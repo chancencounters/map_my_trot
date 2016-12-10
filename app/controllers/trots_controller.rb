@@ -32,6 +32,6 @@ class Api::TrotsController < ApplicationController
   def trot_params
     params
       .require(:trot)
-      .permit(:name, :description, :duration, :date)
+      .permit(:description, :duration, :date)
   end
 end

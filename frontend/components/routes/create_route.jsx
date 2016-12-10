@@ -27,11 +27,20 @@ class CreateRoute extends React.Component {
       polyline: "",
       bounds: {},
       search: "",
+      trot: {
+        routeId: "",
+        description: "",
+        date: "",
+        hours: "",
+        minutes: "",
+        seconds: "",
+      }
     };
 
     this.initMap = this.initMap.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleRouteSubmit = this.handleRouteSubmit.bind(this);
+    this.handleTrotSubmit = this.handleTrotSubmit.bind(this);
   }
 
   update(field) {
@@ -39,6 +48,14 @@ class CreateRoute extends React.Component {
 			[field]: e.currentTarget.value
 		});
 	}
+
+  updateTrot(field) {
+    return e => this.setState({
+			trot: {
+        [field]: e.currentTarget.value
+      }
+		});
+  }
 
   componentDidMount() {
     if (navigator.geolocation) {
@@ -48,6 +65,8 @@ class CreateRoute extends React.Component {
     } else {
       this.initMap(_defaultMapOptions);
     }
+
+    document.getElementById('datePicker').value = new Date().toDateInputValue();
   }
 
   initMap(mapOptions) {
@@ -99,10 +118,61 @@ class CreateRoute extends React.Component {
           placeholder='Name this map'
           />
         <input type='submit'
-          onClick={ this.handleSubmit }
+          onClick={ this.handleRouteSubmit }
           value='Save Route'/>
       </form>
     );
+  }
+
+  createLogTrotForm() {
+    return (
+      <form className='log_trot_form'>
+        <h2>Log as a Trot</h2>
+        <input
+          type='text'
+          value={ this.state.description }
+          onChange={ this.updateTrot('description') }
+          placeholder='Describe your trot'
+        />
+        <input type='number'
+          value={ this.updateTrot('hours') }
+          onChange={ this.updateTrot('hours') }
+          min="0" max="999"
+          placeholder="hh"
+        />
+        <input type='number'
+          value={ this.updateTrot('minutes') }
+          onChange={ this.updateTrot('minutes') }
+          min="0" max="59"
+          placeholder="mm"
+        />
+        <input type='number'
+          value={ this.updateTrot('seconds') }
+          onChange={ this.updateTrot('seconds') }
+          min="0" max="59"
+          placeholder="ss"
+        />
+        <input id="datePicker" type='date'
+          value={ this.updateTrot('date') }
+          onChange={ this.updateTrot('date') }
+        />
+        <input type='submit'
+          onClick={ this.handleTrotSubmit }
+          value='Save Route'/>
+      </form>
+    );
+  }
+
+  handleTrotSubmit() {
+    this.setState(
+      { routeId: this.props.routeId },
+      () => this.props.postRoute(this.state)
+        .then(() => this.props.postTrot(this.state.trot))
+        .then(() => this.props.fetchRoutes())
+        .then(() => this.props.router.push("/routes"))
+    );
+
+    this.props.clearErrors();
   }
 
   handleSearch() {
@@ -115,9 +185,7 @@ class CreateRoute extends React.Component {
     this.props.clearErrors();
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-
+  handleRouteSubmit() {
     this.setState(
       this.RouteManager.getRouteInfo(),
       () => this.props.postRoute(this.state)
@@ -134,6 +202,7 @@ class CreateRoute extends React.Component {
         <div className='create_route_forms_container'>
           { this.searchLocForm() }
           { this.createRouteForm() }
+          { this.createLogTrotForm() }
         </div>
 
         <div id='create_route_map' ref={ map => this.mapNode = map }/>
