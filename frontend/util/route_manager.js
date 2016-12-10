@@ -29,6 +29,7 @@ export default class RouteManager {
           const dist = route.legs[0].distance.value;
           this.polyline = route.overview_polyline;
           this.distance = this._convertMeterToMiles(dist);
+          console.log(this.distance);
           this.origin = route.legs[0].start_address;
           this.destination = route.legs[0].end_address;
         }
@@ -37,7 +38,7 @@ export default class RouteManager {
   }
 
   _convertMeterToMiles(meters) {
-    return Math.round((meters * 0.000621371) * 100) / 100;
+    return (Math.round((meters * 0.000621371) * 100)) / 100;
   }
 
   getRouteInfo() {
@@ -58,7 +59,7 @@ export default class RouteManager {
   }
 
   _createWaypoints() {
-    // Create waypoint objects by removing the origin and destination 
+    // Create waypoint objects by removing the origin and destination
     const markerWaypoints = this.markerArray.slice(1, this.markerArray.length - 1);
     return markerWaypoints.map((marker) => {
       const lat = marker.position.lat();
