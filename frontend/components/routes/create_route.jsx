@@ -7,7 +7,6 @@ const _getMapOptions = (pos) => ({
     lat: pos.coords.latitude,
     lng: pos.coords.longitude
   },
-
   zoom: 17
 });
 
@@ -167,13 +166,14 @@ class CreateRoute extends React.Component {
   }
 
   handleTrotSubmit() {
+    // Posts to routes and then posts a trot.
     this.setState(
-      { routeId: this.props.routeId },
+      this.RouteManager.getRouteInfo(),
       () => this.props.postRoute(this.state)
-        .then(() => this.props.postTrot(this.state.trot))
-        .then(() => this.props.fetchRoutes())
-        .then(() => this.props.router.push("/routes"))
-    );
+        .then(() => this.setState({ trot: { routeId: this.props.routeId }},
+          () => this.props.postTrot(this.state.trot)
+          .then(() => this.props.router.push("/routes"))
+    )));
 
     this.props.clearErrors();
   }
@@ -192,7 +192,6 @@ class CreateRoute extends React.Component {
     this.setState(
       this.RouteManager.getRouteInfo(),
       () => this.props.postRoute(this.state)
-        .then(() => this.props.fetchRoutes())
         .then(() => this.props.router.push("/routes"))
     );
 
