@@ -1,7 +1,7 @@
 .splash_background {
   background-image: image-url('bg_image.jpg');
   background-size: cover;
-  height: 492px;
+  height: 700px;
   width: 100%;
   background-position: center;
   color: white;
@@ -10,7 +10,7 @@
 
 .splash_background .greeting {
   position: absolute;
-  top: 40px;
+  top: 100px;
   right: 150px;
   color: white;
 }
@@ -28,7 +28,7 @@
 
 .splash_background .splash_links {
   position: absolute;
-  top: 300px;
+  top: 350px;
   right: 300px;
   font-weight: 700;
 }

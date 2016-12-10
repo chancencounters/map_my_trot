@@ -1,6 +1,7 @@
 .route_detail_container {
   width: 960px;
   margin: auto;
+  margin-top: 20px;
 
   .route_detail_main {
     width: 620px;
@@ -8,7 +9,6 @@
     margin-left: 10px;
     margin-bottom: 20px;
     float: left;
-
 
     .route_detail_header {
       display: block;
@@ -47,6 +47,7 @@
       font: 30px/16px "Open Sans", sans-serif;
       color: #444444;
       font-weight: 600;
+      text-transform: uppercase;
       line-height: 1;
       padding: 10px 0;
       border-bottom: 1px solid #c3c2c2;
@@ -126,10 +127,11 @@
   }
 
   #route_detail_map {
-    margin-top: 10px;
+    margin-top: 30px;
     height: 300px;
     width: 620px;
     float: left;
+    border: 1px solid #c3c2c2;
   }
 
   .route_detail_aside {

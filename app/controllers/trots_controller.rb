@@ -12,9 +12,10 @@ class Api::TrotsController < ApplicationController
 
   def create
     @trot = current_user.trots.new(trot_params)
-    @trot.route_id = params[:route_id]
+    @trot.route_id = params[:routeId]
 
     if @trot.save
+      debugger
       render 'api/trots/show'
     else
       render json: @trot.errors.full_messages, status: 422
