@@ -33,10 +33,12 @@ class CreateRoute extends React.Component {
         hours: "",
         minutes: "",
         seconds: "",
+        duration: "",
       }
     };
 
     this.initMap = this.initMap.bind(this);
+    this._duration = this._duration.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleRouteSubmit = this.handleRouteSubmit.bind(this);
     this.handleTrotSubmit = this.handleTrotSubmit.bind(this);
@@ -165,12 +167,19 @@ class CreateRoute extends React.Component {
     );
   }
 
+  _duration() {
+    return this.trot.hours + this.trot.minutes + this.trot.seconds
+  }
+
   handleTrotSubmit() {
     // Posts to routes and then posts a trot.
     this.setState(
       this.RouteManager.getRouteInfo(),
       () => this.props.postRoute(this.state)
-        .then(() => this.setState({ trot: { routeId: this.props.routeId }},
+        .then(() => this.setState({
+          trot: {
+            duration: this._duration(), routeId: this.props.routeId
+          }},
           () => this.props.postTrot(this.state.trot)
           .then(() => this.props.router.push("/routes"))
     )));
