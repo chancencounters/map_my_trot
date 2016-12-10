@@ -1,0 +1,2 @@
+module TrotsHelper
+end
