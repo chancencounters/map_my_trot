@@ -24,13 +24,20 @@ export default class RouteManager {
       }, (response, status) => {
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
-          this.polyline = response.routes[0].overview_polyline;
-          this.distance = response.routes[0].legs[0].distance.text;
-          this.origin = response.routes[0].legs[0].start_address;
-          this.destination = response.routes[0].legs[0].end_address;
+
+          const route = response.routes[0];
+          const dist = route.legs[0].distance.value;
+          this.polyline = route.overview_polyline;
+          this.distance = this._convertMeterToMiles(dist);
+          this.origin = route.legs[0].start_address;
+          this.destination = route.legs[0].end_address;
         }
       });
     }
+  }
+
+  _convertMeterToMiles(meters) {
+    return Math.round((meters * 0.000621371) * 100) / 100;
   }
 
   getRouteInfo() {
@@ -51,11 +58,11 @@ export default class RouteManager {
   }
 
   _createWaypoints() {
+    // Create waypoint objects by removing the origin and destination 
     const markerWaypoints = this.markerArray.slice(1, this.markerArray.length - 1);
     return markerWaypoints.map((marker) => {
       const lat = marker.position.lat();
       const lng = marker.position.lng();
-
       return {
         location: new google.maps.LatLng(lat, lng),
         stopover: true
