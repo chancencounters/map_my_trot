@@ -12,6 +12,7 @@ class RouteIndex extends React.Component {
   }
 
   render() {
+    debugger
     return (
       <div className="routes_index_container">
         <div className="routes_index_title_container">

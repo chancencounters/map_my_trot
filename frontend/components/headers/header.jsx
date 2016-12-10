@@ -18,13 +18,28 @@ class Header extends React.Component {
     this.props.logout();
   }
 
-  render () {
+  renderNavLinks() {
     const { currentUser } = this.props;
-    let avatar = <img/>;
     if (Boolean(currentUser)) {
-      avatar = <img src={ currentUser.image_url}/>;
+      return (
+        <nav className="main_header_nav_links">
+          <button onClick={ this.handleLogout }>Logout</button>
+          <img src={ currentUser.image_url}/>
+        </nav>
+      );
+    } else {
+      return(
+        <nav className="main_header_nav_links">
+          <div className="sign_up_button">
+            <Link to="/signup">SIGN UP</Link>
+          </div>
+          <Link to="/login">LOG IN</Link>
+        </nav>
+      );
     }
+  }
 
+  render () {
     return (
       <header className="main_header">
         <div className="main_header_inner">
@@ -37,10 +52,7 @@ class Header extends React.Component {
               <Link to="/trots">TROTS</Link>
               <Link to="/routes">ROUTES</Link>
             </nav>
-            <nav className="main_header_nav_links">
-              <button onClick={ this.handleLogout }>LOGOUT</button>
-              { avatar }
-            </nav>
+            { this.renderNavLinks() }
           </nav>
         </div>
       </header>
