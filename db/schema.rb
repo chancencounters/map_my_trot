@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161210144440) do
+ActiveRecord::Schema.define(version: 20161210171459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 20161210144440) do
     t.string   "destination", null: false
     t.json     "bounds",      null: false
     t.index ["user_id"], name: "index_routes_on_user_id", using: :btree
+  end
+
+  create_table "trots", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "route_id",    null: false
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.date     "date",        null: false
+    t.string   "duration",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id", "route_id"], name: "index_trots_on_user_id_and_route_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  user_id     :integer          not null
 #  name        :string           not null
-#  distance    :string           not null
+#  distance    :integer          not null
 #  polyline    :text             not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

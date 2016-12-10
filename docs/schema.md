@@ -39,9 +39,9 @@ map_info    | text      | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-user_id   | integer   | not null, foreign key (references users), indexed
+user_id     | integer   | not null, foreign key (references users), indexed
+route_id    | integer   | not null, foreign key (references users), indexed
 name        | string    | not null
 description | string    | not null
-string    | integer   | not null
 date        | date      | not null
 duration    | string    | not null

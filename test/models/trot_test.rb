@@ -1,22 +1,21 @@
 # == Schema Information
 #
-# Table name: routes
+# Table name: trots
 #
 #  id          :integer          not null, primary key
 #  user_id     :integer          not null
+#  route_id    :integer          not null
 #  name        :string           not null
-#  distance    :integer          not null
-#  polyline    :text             not null
+#  description :string           not null
+#  date        :date             not null
+#  duration    :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  origin      :string           not null
-#  destination :string           not null
-#  bounds      :json             not null
 #
 
 require 'test_helper'
 
-class RouteTest < ActiveSupport::TestCase
+class TrotTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
