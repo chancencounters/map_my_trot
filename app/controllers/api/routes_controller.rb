@@ -12,7 +12,7 @@ class Api::RoutesController < ApplicationController
 
   def create
     @route = current_user.routes.new(route_params)
-
+    
     if @route.save
       render 'api/routes/show'
     else
