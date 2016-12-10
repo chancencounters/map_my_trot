@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_many :routes
+  has_many :trots
+
   after_initialize :ensure_session_token
   attr_reader :password
 

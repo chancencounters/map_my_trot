@@ -18,4 +18,5 @@ class Route < ApplicationRecord
   validates :user, :name, :origin, :destination, :distance, :polyline, :bounds, presence: true
 
   belongs_to :user
+  has_many :trots
 end
