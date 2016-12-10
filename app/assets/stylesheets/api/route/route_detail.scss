@@ -123,17 +123,73 @@
       }
     }
 
-    .route_detail_aside {
-      width: 300px;
-      float: right;
-    }
   }
 
   #route_detail_map {
-    margin-left: 10px;
+    margin-top: 10px;
     height: 300px;
     width: 620px;
     float: left;
   }
 
+  .route_detail_aside {
+    width: 300px;
+    float: right;
+    padding: 0 20px 20px 20px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    -webkit-box-shadow: #e0e0e0 2px 2px 0;
+            box-shadow: #e0e0e0 2px 2px 0;
+    background-color: #f8f8f8;
+    border: 1px solid #cdcdcd;
+
+    a {
+      margin-top: 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .create_route_button {
+      display: block;
+      background: linear-gradient(to bottom, #b6b6b6 5%, #a9a6a6 100%);
+      box-sizing: border-box;
+      color: #fff;
+      cursor: pointer;
+      font: 13px/16px "Open Sans", sans-serif;
+      color: #fff;
+      font-weight: 700;
+      line-height: normal;
+      padding: 5.5px 18px;
+      text-decoration: none;
+      zoom: 1;
+      border-radius: 5px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        background: linear-gradient(to bottom, #878585 5%, #5e5e5e 100%);
+      }
+
+      .log_workout_button {
+        display: block;
+        background: linear-gradient(to bottom, #b6b6b6 5%, #a9a6a6 100%);
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        font: 13px/16px "Open Sans", sans-serif;
+        color: #fff;
+        font-weight: 700;
+        line-height: normal;
+        padding: 5.5px 18px;
+        text-decoration: none;
+        zoom: 1;
+        border-radius: 5px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .log_workout_button {
+      display: block;
+
+    }
+  }
 }
