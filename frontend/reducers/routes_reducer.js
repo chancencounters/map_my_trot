@@ -18,10 +18,9 @@ const RoutesReducer = (state = {}, action) => {
 
       keys.forEach((key) => {
         if (parseInt(key) !== action.id) {
-          Object.assign( newRoutes, state[key]);
+          Object.assign( newRoutes, { [key]: state[key]} );
         }
       });
-
       return newRoutes;
     default:
       return state;
