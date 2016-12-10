@@ -6,6 +6,7 @@ import { clearErrors } from '../../actions/error_actions';
 
 const mapStateToProps = (store) => ({
   currentUser: store.session.currentUser,
+  routeId: store.session.routeDetail.id,
 });
 
 const mapDispatchToProps = (dispatch) => ({
