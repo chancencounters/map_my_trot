@@ -11,6 +11,7 @@
 #  updated_at  :datetime         not null
 #  origin      :string           not null
 #  destination :string           not null
+#  bounds      :json             not null
 #
 
 require 'test_helper'
