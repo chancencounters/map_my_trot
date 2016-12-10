@@ -12,7 +12,6 @@ class RouteIndex extends React.Component {
   }
 
   render() {
-    debugger
     return (
       <div className="routes_index_container">
         <div className="routes_index_title_container">
@@ -31,12 +30,13 @@ class RouteIndex extends React.Component {
             </tr>
           </thead>
           <tbody>
-            { this.props.routes.map((route) => (
+            { this.props.routes.map((route) => {
+              return (
               <RouteIndexItem
                 key={ route.id }
                 route= { route }
                 deleteRoute={ this.props.deleteRoute }/>
-            ))}
+            );})}
           </tbody>
         </table>
       </div>
