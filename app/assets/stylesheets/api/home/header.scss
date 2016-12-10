@@ -99,10 +99,6 @@
         align-items: center;
         flex-direction: row-reverse;
 
-        &:hover {
-          color: black;
-        }
-
         img {
           width: 50px;
           height: auto;
@@ -116,6 +112,42 @@
           cursor: pointer;
           height: 35px;
           margin-left: 10px;
+
+          &:hover {
+            color: black;
+          }
+        }
+
+        .sign_up_button {
+
+          a {
+            background: #98bd2a;
+            color: white;
+            border-radius: 2px;
+            padding: 10px;
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: -.2px;
+            background-color: #97bf11;
+            color: #fff;
+
+            &:hover {
+              background: #94bb0f;
+            }
+          }
+
+        }
+
+        &> a {
+          font-size: 14px;
+          color: #9297a3;
+          font-weight: 600;
+          letter-spacing: -.5px;
+
+          &:hover {
+            color: #222628;
+          }
         }
       }
    }
