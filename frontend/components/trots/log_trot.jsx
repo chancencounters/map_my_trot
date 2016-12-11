@@ -1,6 +1,7 @@
 import React from 'react';
 import { merge } from 'lodash';
 import { withRouter } from 'react-router';
+import Shortcuts from '../shortcuts';
 
 class LogTrot extends React.Component {
   constructor(props) {
@@ -32,33 +33,41 @@ class LogTrot extends React.Component {
 
   renderTrotForm() {
     return (
-      <form className='log_trot_form_container'>
-        <h1>LOG A TROT</h1>
-        <div className="log_trot_description_container">
-          <div className="dumbell_img"></div>
+      <form className='log_trot_form'>
+        <h1>LOG A TROTOUT</h1>
+        <div className="log_trot_description_container group">
+          <div className="dumbbell_img"></div>
           <div className="log_trot_description">
             If you've been active, get credit for it! Add your trot
             details below, and stay on top of your trotting goals.
           </div>
         </div>
         <div className="log_trot_form">
-          <div className="log_trot_form_1">
-            <div>Trot name</div>
-            <input
-              type='text'
-              value={ this.state.name }
-              onChange={ this.update('name') }
-            />
-            <div className="date_container">
-              <div id="calendar_img"></div>
-              <input type='date'
-                value={ this.state.date }
-                onChange={ this.update('date') }
-                />
+          <div className="log_trot_form_row group">
+            <div className="log_trot_form_row_name">
+              <span>Trot name</span>
+              <input
+                type='text'
+                value={ this.state.name }
+                onChange={ this.update('name') }
+              />
+            </div>
+            <div className="log_trot_form_row_date group">
+              <label>
+                <span>Date</span>
+                <div className="date_container">
+                  <input type='date'
+                    value={ this.state.date }
+                    onChange={ this.update('date') }
+                    />
+                  <div className="calendar_blue_img"></div>
+                </div>
+              </label>
             </div>
           </div>
 
-          <div className="duration">
+          <div className="duration_row group">
+            <div>Duration</div>
             <input type='number'
               value={ this.state.hours }
               onChange={ this.update('hours') }
@@ -78,16 +87,14 @@ class LogTrot extends React.Component {
               />
           </div>
 
-          <div>How did it go?</div>
-          <input
-            type='text'
-            value={ this.state.description }
-            onChange={ this.update('description') }
-            placeholder='Describe your trot'
-          />
-          <input type='submit'
-            onClick={ this.handleSubmit }
-            value='Save Route with Trot'/>
+          <div className="description_row">
+            <div>How did it go?</div>
+            <textarea
+              value={ this.state.description }
+              onChange={ this.update('description') }
+              placeholder='Describe your trot'
+            />
+          </div>
         </div>
       </form>
     );
@@ -111,7 +118,13 @@ class LogTrot extends React.Component {
   render() {
     return (
       <div className='log_trot_container'>
-        { this.renderTrotForm() }
+        <Shortcuts />
+        <div className='log_trot_form_container'>
+          { this.renderTrotForm() }
+          <input type='submit'
+            onClick={ this.handleSubmit }
+            value='Save Trot'/>
+        </div>
       </div>
     );
   }
