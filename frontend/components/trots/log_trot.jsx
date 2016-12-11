@@ -34,7 +34,7 @@ class LogTrot extends React.Component {
 
   renderTrotForm() {
     const { errors } = this.props;
-    debugger
+
     return (
       <form className='log_trot_form'>
         <h1>LOG A TROTOUT</h1>
@@ -66,8 +66,8 @@ class LogTrot extends React.Component {
                     />
                   <div className="calendar_blue_img"></div>
                 </div>
-                { (Boolean(errors.date)) ? "Date " + errors.date[0] : "" }
               </label>
+              { (Boolean(errors.date)) ? "Date " + errors.date[0] : ""}
             </div>
           </div>
 
@@ -91,7 +91,6 @@ class LogTrot extends React.Component {
               min="0" max="59" placeholder="ss"
               />
           </div>
-          { (Boolean(errors.duration)) ? "Duration " + errors.duration[0] : "" }
 
           <div className="description_row">
             <div>How did it go?</div>
@@ -100,7 +99,8 @@ class LogTrot extends React.Component {
               onChange={ this.update('description') }
               placeholder='Describe your trot'
             />
-          { (Boolean(errors.description)) ? "Description " + errors.description[0] : "" }
+
+            { (Boolean(errors.description)) ? "Description " + errors.description[0] : "" }
 
           </div>
         </div>
@@ -110,7 +110,7 @@ class LogTrot extends React.Component {
 
   _duration() {
     let { hours, minutes, seconds } = this.state;
-    (hours === "" ? hours = "00" : "")
+    hours === "" ? hours = "00" : ""
     minutes === "" ? minutes = "00" : ""
     seconds === "" ? seconds = "00" : ""
     return hours + ":" + minutes + ":" + seconds;
