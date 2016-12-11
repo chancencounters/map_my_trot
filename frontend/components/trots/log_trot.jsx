@@ -12,9 +12,9 @@ class LogTrot extends React.Component {
       name: "",
       description: "",
       date: "",
-      hours: "00",
-      minutes: "00",
-      seconds: "00",
+      hours: "",
+      minutes: "",
+      seconds: "",
       duration: "",
     };
 
@@ -33,6 +33,8 @@ class LogTrot extends React.Component {
   }
 
   renderTrotForm() {
+    const { errors } = this.props;
+    debugger
     return (
       <form className='log_trot_form'>
         <h1>LOG A TROTOUT</h1>
@@ -52,6 +54,7 @@ class LogTrot extends React.Component {
                 value={ this.state.name }
                 onChange={ this.update('name') }
               />
+            { (Boolean(errors.name)) ? "Name " + errors.name[0] : "" }
             </div>
             <div className="log_trot_form_row_date group">
               <label>
@@ -63,6 +66,7 @@ class LogTrot extends React.Component {
                     />
                   <div className="calendar_blue_img"></div>
                 </div>
+                { (Boolean(errors.date)) ? "Date " + errors.date[0] : "" }
               </label>
             </div>
           </div>
@@ -87,6 +91,7 @@ class LogTrot extends React.Component {
               min="0" max="59" placeholder="ss"
               />
           </div>
+          { (Boolean(errors.duration)) ? "Duration " + errors.duration[0] : "" }
 
           <div className="description_row">
             <div>How did it go?</div>
@@ -95,6 +100,8 @@ class LogTrot extends React.Component {
               onChange={ this.update('description') }
               placeholder='Describe your trot'
             />
+          { (Boolean(errors.description)) ? "Description " + errors.description[0] : "" }
+
           </div>
         </div>
       </form>
@@ -102,7 +109,10 @@ class LogTrot extends React.Component {
   }
 
   _duration() {
-    const { hours, minutes, seconds } = this.state;
+    let { hours, minutes, seconds } = this.state;
+    (hours === "" ? hours = "00" : "")
+    minutes === "" ? minutes = "00" : ""
+    seconds === "" ? seconds = "00" : ""
     return hours + ":" + minutes + ":" + seconds;
   }
 
@@ -110,9 +120,10 @@ class LogTrot extends React.Component {
     this.setState({ route_id: routeId, duration: this._duration()},
       () => this.props.postTrot(this.state)
         .then(() => this.props.router.push("/routes"))
+        .then(() => this.props.clearErrors())
     );
 
-    this.props.clearErrors();
+
   }
 
   render() {

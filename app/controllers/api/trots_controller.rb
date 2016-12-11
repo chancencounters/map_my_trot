@@ -13,11 +13,11 @@ class Api::TrotsController < ApplicationController
   def create
     @trot = current_user.trots.new(trot_params)
     @trot.route_id = trot_params[:route_id]
-    
+
     if @trot.save
       render 'api/trots/show'
     else
-      render json: @trot.errors.full_messages, status: 422
+      render json: @trot.errors, status: 422
     end
   end
 
