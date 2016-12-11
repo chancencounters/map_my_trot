@@ -43,6 +43,15 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 
 group :development do

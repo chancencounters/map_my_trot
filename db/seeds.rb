@@ -6,7 +6,29 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 User.destroy_all
-User.create!(first_name: "Zack", last_name: "Yu", email: "demo_account@admin.com", password: "password")
+zack = User.create!(first_name: "Zack", last_name: "Yu", email: "demo_account@admin.com", password: "password")
+michael = User.create!(first_name: "Michael", last_name: "Blue", email: "blue@gmail.com", password: "password")
+lucy = User.create!(first_name: "Lucy", last_name: "white", email: "lucy@gmail.com", password: "password")
+irene = User.create!(first_name: "Irene", last_name: "Grigio", email: "iamireneYu@gmail.com", password: "password")
+fabio = User.create!(first_name: "Fabio", last_name: "Pinot", email: "fabbbio@gmail.com", password: "password")
+
+Friendship.create!(user: zack, friend: michael, status: 'accepted')
+Friendship.create!(user: zack, friend: lucy, status: 'accepted')
+Friendship.create!(user: zack, friend: irene, status: 'pending')
+Friendship.create!(user: zack, friend: fabio, status: 'pending')
+
+
+# User.create!(
+# first_name: Faker::Name.first_name,
+# last_name: Faker::Name.last_name,
+# avatar: Faker::Avatar.image,
+# email: Faker::Internet.email,
+# password: Faker::Internet.password(6),
+# )
+
+
+
 
 Route.destroy_all
