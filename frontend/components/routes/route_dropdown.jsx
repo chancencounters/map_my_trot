@@ -26,15 +26,16 @@ class RouteDropdown extends React.Component {
   }
 
   componentWillReceiveProps() {
-    this.logThisTrot();
+    const { routeDetail } = this.props;
+    if (Boolean(routeDetail.id)) {
+      this.logThisTrot();
+    }
   }
 
   logThisTrot() {
     // Selects Route if coming from route detail page
     const { routeDetail } = this.props;
-    if (Boolean(routeDetail)) {
       this.handleRouteClick(routeDetail.id);
-    }
   }
 
   renderDropdown() {

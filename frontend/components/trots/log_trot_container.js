@@ -10,6 +10,7 @@ const mapStateToProps = (store) => {
     currentUser: store.session.currentUser,
     routeDetail: store.routeDetail,
     routesList: store.routes,
+    errors: store.errors.trot,
   });
 };
 
