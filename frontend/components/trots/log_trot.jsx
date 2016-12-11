@@ -2,6 +2,7 @@ import React from 'react';
 import { merge } from 'lodash';
 import { withRouter } from 'react-router';
 import Shortcuts from '../shortcuts';
+import RouteDropdown from '../routes/route_dropdown';
 
 class LogTrot extends React.Component {
   constructor(props) {
@@ -11,14 +12,14 @@ class LogTrot extends React.Component {
       name: "",
       description: "",
       date: "",
-      hours: "",
-      minutes: "",
-      seconds: "",
+      hours: "00",
+      minutes: "00",
+      seconds: "00",
       duration: "",
     };
 
     this._duration = this._duration.bind(this);
-    this.handleTrotSubmit = this.handleTrotSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -105,14 +106,13 @@ class LogTrot extends React.Component {
     return hours + ":" + minutes + ":" + seconds;
   }
 
-  handleTrotSubmit() {
-    // this.setState({
-    //   merge({}, this.state, { duration: this._duration()})},
-    //   () => this.props.postTrot(this.state.trot)
-    //     .then(() => this.props.router.push("/routes"))
-    // );
-    //
-    // this.props.clearErrors();
+  handleSubmit(routeId) {
+    this.setState({ route_id: routeId, duration: this._duration()},
+      () => this.props.postTrot(this.state)
+        .then(() => this.props.router.push("/routes"))
+    );
+
+    this.props.clearErrors();
   }
 
   render() {
@@ -121,9 +121,10 @@ class LogTrot extends React.Component {
         <Shortcuts />
         <div className='log_trot_form_container'>
           { this.renderTrotForm() }
-          <input type='submit'
-            onClick={ this.handleSubmit }
-            value='Save Trot'/>
+          <RouteDropdown
+            routesList={ this.props.routesList }
+            routeDetail={ this.props.routeDetail }
+            handleSubmit={ this.handleSubmit }/>
         </div>
       </div>
     );

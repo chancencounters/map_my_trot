@@ -1,4 +1,5 @@
 .log_trot_container {
+  height: 1000px;
 
   input[type='text'],
   input[type='number'],
@@ -16,6 +17,22 @@
   .log_trot_form_container {
     margin: 0 auto;
     width: 960px;
+
+    input[type="submit"] {
+      color: #fff;
+      cursor: pointer;
+      background: #0076C0;
+      font-size: 16px;
+      min-width: 187px;
+      text-align: center;
+      padding: .929em;
+      border-radius: 2px;
+      font-weight: 600;
+      line-height: 17px;
+      display: inline-block;
+      margin-left: 80px;
+      margin-bottom: 20px;
+    }
 
     .log_trot_form {
       margin-top: 20px;

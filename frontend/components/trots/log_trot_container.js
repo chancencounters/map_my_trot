@@ -8,7 +8,8 @@ import { clearErrors } from '../../actions/error_actions';
 const mapStateToProps = (store) => {
   return({
     currentUser: store.session.currentUser,
-    routes: store.routes,
+    routeDetail: store.routeDetail,
+    routesList: store.routes,
   });
 };
 
