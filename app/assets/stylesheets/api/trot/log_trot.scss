@@ -1,0 +1,154 @@
+.log_trot_container {
+
+  input[type='text'],
+  input[type='number'],
+  input[type='date'],
+  textarea {
+    &:focus {
+      border-color: rgba(82, 168, 236, 0.8);
+      outline: 0;
+      outline: thin dotted \9;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+    }
+  }
+
+
+  .log_trot_form_container {
+    margin: 0 auto;
+    width: 960px;
+
+    .log_trot_form {
+      margin-top: 20px;
+      color: #000000;
+
+      h1 {
+        font-size: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #d9d9d9;
+      }
+
+      .log_trot_description_container {
+        margin-top: 20px;
+
+        .dumbbell_img {
+          border-radius: 50%;
+          border: 3px solid #1e8ddb;
+          background: image-url('dumbbell.png') no-repeat;
+          background-size: auto 60%;
+          background-position: center;
+          width: 60px;
+          height: 60px;
+          float: left;
+        }
+
+        .log_trot_description {
+          float: left;
+          margin-left: 40px;
+          width: 600px;
+          padding-top: 17px;
+          vertical-align: middle;
+        }
+      }
+
+      .log_trot_form {
+        background: #f6f7f8;
+        border: 1px solid #d9d9d9;
+        padding: 20px;
+        width: 700px;
+
+        .log_trot_form_row {
+
+          .log_trot_form_row_name {
+            float: left;
+
+            span {
+              font-weight: 600;
+              display: block;
+              margin-bottom: 10px;
+            }
+
+            input[type="text"] {
+              border: 1px solid #d3d6dc;
+              background: #ffffff;
+              display: block;
+              width: 320px;
+              padding: 15px 20px;
+            }
+          }
+
+          .log_trot_form_row_date {
+            float: right;
+
+            span {
+              font-weight: 600;
+              display: block;
+              margin-bottom: 10px;
+            }
+
+            input[type="date"] {
+              border: 1px solid #d3d6dc;
+              background: #ffffff;
+              float: left;
+              width: 180px;
+              padding: 12px 20px;
+            }
+
+            .calendar_blue_img {
+              border-top: 1px solid #d3d6dc;
+              border-bottom: 1px solid #d3d6dc;
+              border-right: 1px solid #d3d6dc;
+              background: image-url("calendar_blue.png") no-repeat;
+              background-size: auto 60%;
+              background-position: center;
+              float: left;
+              width: 48px;
+              height: 48px;
+            }
+          }
+        }
+
+        .duration_row {
+          margin-top: 20px;
+          margin: 20px 0;
+
+          div {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+          }
+
+          span {
+            float: left;
+            margin: 0 3px;
+          }
+
+          input[type="number"] {
+            float: left;
+            border: 1px solid #d3d6dc;
+            background: #ffffff;
+            width: 100px;
+            padding: 10px;
+          }
+        }
+
+        .description_row {
+
+          div {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+          }
+
+          textarea {
+            width: 100%;
+            box-sizing: border-box;;
+            height: 100px;
+            background: #ffffff;
+            border: 1px solid #d3d6dc;
+            padding: 10px;
+          }
+        }
+      }
+    }
+  }
+}
