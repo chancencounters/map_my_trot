@@ -1,5 +1,5 @@
 json.id trot.id
-json.routeId trot.routeId
+json.route_id trot.route_id
 json.name trot.name
 json.description trot.description
 json.date trot.date

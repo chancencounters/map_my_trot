@@ -12,10 +12,9 @@ class Api::TrotsController < ApplicationController
 
   def create
     @trot = current_user.trots.new(trot_params)
-    @trot.route_id = params[:routeId]
-
+    @trot.route_id = trot_params[:route_id]
+    
     if @trot.save
-      debugger
       render 'api/trots/show'
     else
       render json: @trot.errors.full_messages, status: 422
@@ -33,6 +32,6 @@ class Api::TrotsController < ApplicationController
   def trot_params
     params
       .require(:trot)
-      .permit(:description, :duration, :date)
+      .permit(:name, :description, :duration, :date, :route_id)
   end
 end

@@ -2,7 +2,7 @@ import { RECEIVE_TROT, RECEIVE_NEW_TROT } from '../actions/trot_actions';
 
   const initialState = {
     id: "",
-    routeId: "",
+    route_id: "",
     name: "",
     description: "",
     date: "",
@@ -20,7 +20,7 @@ import { RECEIVE_TROT, RECEIVE_NEW_TROT } from '../actions/trot_actions';
 
 const trotDetailReducer = (state = initialState, action) => {
   Object.freeze(state);
-
+  
   switch(action.type) {
     case RECEIVE_NEW_TROT:
     case RECEIVE_TROT:
