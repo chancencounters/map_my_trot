@@ -5,9 +5,9 @@ import { CLEAR_ERRORS,
  } from '../actions/error_actions';
 
 const initialState = {
-  session: [],
-  route: [],
-  trot: [],
+  session: {},
+  route: {},
+  trot: {},
 };
 
 const errorReducer = (state = initialState, action) => {
@@ -17,26 +17,26 @@ const errorReducer = (state = initialState, action) => {
     case RECEIVE_SESSION_ERRORS:
       return {
         session: action.errors,
-        route: [],
-        trot: [],
+        route: {},
+        trot: {},
       };
     case RECEIVE_ROUTE_ERRORS:
       return {
-        session: [],
+        session: {},
         route: action.errors,
-        trot: [],
+        trot: {},
       };
     case RECEIVE_TROT_ERRORS:
       return {
-        session: [],
-        route: [],
+        session: {},
+        route: {},
         trot: action.errors,
       };
     case CLEAR_ERRORS:
       return {
-        session: [],
-        route: [],
-        trot: [],
+        session: {},
+        route: {},
+        trot: {},
       };
     default:
       return state;

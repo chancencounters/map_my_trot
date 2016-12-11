@@ -106,6 +106,8 @@ class CreateRoute extends React.Component {
   }
 
   renderRouteForm() {
+    const { routeErrors } = this.props;
+
     return (
       <form className='create_route_form'>
         <h2>Route Details</h2>
@@ -119,11 +121,20 @@ class CreateRoute extends React.Component {
         <input type='submit'
           onClick={ this.handleRouteSubmit }
           value='Save Route'/>
+        { (Boolean(routeErrors.name)) ? "* Name is required" : "" }
       </form>
     );
   }
 
   renderTrotForm() {
+    const { trotErrors } = this.props;
+    let descPlaceholder;
+    if (Boolean(trotErrors.description)) {
+      descPlaceholder = "Description is required";
+    } else {
+      descPlaceholder = "Describe your trot";
+    }
+    debugger
     return (
       <form className='log_trot_form'>
         <h2>Log as a Trot</h2>
@@ -131,8 +142,9 @@ class CreateRoute extends React.Component {
           type='text'
           value={ this.state.trot.description }
           onChange={ this.updateTrot('description') }
-          placeholder='Describe your trot'
+          placeholder={ descPlaceholder }
         />
+
       <div className="datePicker">
           <input type='number'
             value={ this.state.trot.hours }
@@ -158,6 +170,7 @@ class CreateRoute extends React.Component {
             value={ this.state.trot.date }
             onChange={ this.updateTrot('date') }
           />
+        { (Boolean(trotErrors.date)) ? "* Date is required" : "" }
         </div>
         <input type='submit'
           onClick={ this.handleTrotSubmit }

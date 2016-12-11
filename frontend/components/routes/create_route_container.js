@@ -9,6 +9,8 @@ const mapStateToProps = (store) => {
   return({
     currentUser: store.session.currentUser,
     route_id: store.routeDetail.id,
+    trotErrors: store.errors.trot,
+    routeErrors: store.errors.route,
   });
 };
 

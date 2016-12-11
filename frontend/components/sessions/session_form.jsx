@@ -33,19 +33,9 @@ class SessionForm extends React.Component {
     this.props.guestLogin().then(() => this.props.router.push('/home'));
   }
 
-  renderErrors() {
-		return(
-			<ul>
-				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
-			</ul>
-		);
-	}
-
   renderSignUpForm() {
+    const { errors } = this.props;
+    debugger
     if (this.props.formType === 'signup') {
       return (
         <div className="session_form_body">
@@ -54,19 +44,22 @@ class SessionForm extends React.Component {
               value={ this.state.first_name }
               placeholder="First Name"
               onChange={ this.update("first_name") }/>
+            { (Boolean(errors.first_name)) ? "First name is required" : "" }
             <input type="text"
               value={ this.state.last_name }
               placeholder="Last Name"
               onChange={ this.update("last_name") }/>
+            { (Boolean(errors.last_name)) ? "Last name is required" : "" }
             <input type="text"
               value={ this.state.email }
               placeholder="Email"
               onChange={ this.update("email") }/>
+            { (Boolean(errors.email)) ? "Email is required" : "" }
             <input type="password"
               value={ this.state.password }
               placeholder="Password"
               onChange={ this.update("password") }/>
-            { this.renderErrors() }
+            { (Boolean(errors.password)) ? "Password " + errors.password[0] : "" }
             <input type="submit"
               onClick={ this.handleSubmit }
               value="JOIN NOW"/>
@@ -93,7 +86,6 @@ class SessionForm extends React.Component {
               value={ this.state.password }
               placeholder="Password"
               onChange={ this.update("password") }/>
-            { this.renderErrors() }
             <input type="submit"
               onClick={ this.handleSubmit }
               value="LOG IN"/>
