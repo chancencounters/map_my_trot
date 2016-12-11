@@ -78,7 +78,7 @@ class RouteDetail extends React.Component {
         </div>
         <aside className="route_detail_aside">
           <Link to="/create_route" className="create_route_button">CREATE A ROUTE</Link>
-          <Link to="/log_workout" className="log_workout_button">LOG THIS WORKOUT</Link>
+          <Link to="/log_trot" className="log_workout_button">LOG THIS WORKOUT</Link>
         </aside>
       </div>
     );

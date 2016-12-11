@@ -1,0 +1,141 @@
+.route_dropdown_container {
+  color: #000000;
+  margin-top: 20px;
+  position: relative;
+  width: 800px;
+
+  h2 {
+    font-weight: 600;
+    display: inline-block;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .selectBar {
+    margin-top: 10px;
+    width: 500px;
+    display: inline-block;
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    padding: 17px 0 17px 17px;
+    position: relative;
+    margin-right: 40px;
+
+    &::after  {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      top: 23px;
+      right: 18px;
+      background: transparent;
+      border-top: 7px solid #999999;
+      border-bottom: 7px solid transparent;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      &::after {
+      border-top: 7px solid #1e8ddb;
+      }
+    }
+
+
+  }
+
+  .route_dropdown_list {
+    position: absolute;
+    display: block;
+    width: 518px;
+    color: #000000;
+    overflow: scroll;
+    height: 100%;
+    border-bottom: 1px solid #d9d9d9;
+    margin-bottom: 200px;
+    border-radius: 5px;
+
+
+    li {
+      border-bottom: 1px dotted #d9d9d9;
+      border-left: 1px solid #d9d9d9;
+      border-right: 1px solid #d9d9d9;
+      display: flex;
+      background-color: #fff;
+      margin-left: 1px;
+      align-items: center;
+
+      &:hover {
+        background: #ebf5ff;
+      }
+
+      img {
+        width: 60px;
+        height: 60px;
+        display: block;
+        margin: 10px;
+      }
+
+      .map_details {
+        display: block;
+        margin-left: 10px;
+
+        div {
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+
+        span {
+          color: #0076C0;
+        }
+      }
+    }
+  }
+
+    .selected_route {
+      border-top: 1px solid #d9d9d9;
+      border-bottom: 1px solid #d9d9d9;
+      padding: 10px;
+      display: flex;
+      width: 500px;
+      align-items: center;
+      font-size: 18px;
+      margin-bottom: 20px;
+
+      img {
+        width: 100px;
+        height: 100px;
+        display: block;
+        border: 1px solid #d9d9d9;
+      }
+
+      div {
+        color: #1e8ddb;
+        margin-left: 20px;
+      }
+
+      span {
+        font-weight: 600;
+        margin-left: 20px;
+
+      }
+
+    }
+
+    .clear_button {
+      color: #9297a3;
+      border: 2px solid #d3d6dc;
+      border-radius: 4px;
+      display: inline-block;
+      padding: 16px;
+      text-align: center;
+
+      &:hover {
+        border-color: #c1c4c9;
+        background-color: #eef1f2;
+      }
+    }
+}
