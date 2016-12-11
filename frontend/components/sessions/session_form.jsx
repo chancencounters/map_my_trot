@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
 
   renderSignUpForm() {
     const { errors } = this.props;
-    debugger
+    
     if (this.props.formType === 'signup') {
       return (
         <div className="session_form_body">
