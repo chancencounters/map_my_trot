@@ -1,4 +1,5 @@
 import React from 'react';
+import { merge } from 'lodash';
 import { withRouter } from 'react-router';
 import RouteManager from '../../util/route_manager';
 
@@ -27,7 +28,7 @@ class CreateRoute extends React.Component {
       bounds: {},
       search: "",
       trot: {
-        routeId: "",
+        route_id: "",
         description: "",
         date: "",
         hours: "",
@@ -52,9 +53,7 @@ class CreateRoute extends React.Component {
 
   updateTrot(field) {
     return e => this.setState({
-			trot: {
-        [field]: e.currentTarget.value
-      }
+			trot: merge({}, this.state.trot, {[field]: e.currentTarget.value})
 		});
   }
 
@@ -168,7 +167,8 @@ class CreateRoute extends React.Component {
   }
 
   _duration() {
-    return this.trot.hours + this.trot.minutes + this.trot.seconds
+    const { hours, minutes, seconds } = this.state.trot;
+    return hours + ":" + minutes + ":" + seconds;
   }
 
   handleTrotSubmit() {
@@ -177,9 +177,14 @@ class CreateRoute extends React.Component {
       this.RouteManager.getRouteInfo(),
       () => this.props.postRoute(this.state)
         .then(() => this.setState({
-          trot: {
-            duration: this._duration(), routeId: this.props.routeId
-          }},
+          trot:
+            merge(
+              {}, this.state.trot,
+              { duration: this._duration(),
+                route_id: this.props.route_id,
+                name: this.state.name
+              })
+          },
           () => this.props.postTrot(this.state.trot)
           .then(() => this.props.router.push("/routes"))
     )));

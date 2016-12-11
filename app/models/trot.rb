@@ -14,7 +14,7 @@
 #
 
 class Trot < ApplicationRecord
-  validates :user, :route, :description, :date, :duration, presence: true
+  validates :user, :name, :route, :description, :date, :duration, presence: true
 
   belongs_to :user
   belongs_to :route

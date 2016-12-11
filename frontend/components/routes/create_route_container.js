@@ -1,17 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CreateRoute from './create_route';
-import { postRoute, fetchRoutes } from '../../actions/route_actions';
+import { postRoute } from '../../actions/route_actions';
+import { postTrot } from '../../actions/trot_actions';
 import { clearErrors } from '../../actions/error_actions';
 
-const mapStateToProps = (store) => ({
-  currentUser: store.session.currentUser,
-  routeId: store.routeDetail.id,
-});
+const mapStateToProps = (store) => {
+  return({
+    currentUser: store.session.currentUser,
+    route_id: store.routeDetail.id,
+  });
+};
 
 const mapDispatchToProps = (dispatch) => ({
   postRoute: (route) => dispatch(postRoute(route)),
-  fetchRoutes: () => dispatch(fetchRoutes()),
+  postTrot: (trot) => dispatch(postTrot(trot)),
   clearErrors: () => dispatch(clearErrors()),
 });
 

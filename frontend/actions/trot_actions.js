@@ -7,24 +7,24 @@ export const RECEIVE_ALL_TROTS = "RECEIVE_ALL_TROTS";
 export const CREATE_TROT = "CREATE_TROT";
 export const REMOVE_TROT = "REMOVE_TROT";
 
-export const receiveAllTrots = (routes) => ({
+export const receiveAllTrots = (trots) => ({
   type: RECEIVE_ALL_TROTS,
-  routes
+  trots
 });
 
-export const receiveTrot = (route) => ({
+export const receiveTrot = (trot) => ({
   type: RECEIVE_TROT,
-  route
+  trot
 });
 
-export const receiveNewTrot = (route) => ({
+export const receiveNewTrot = (trot) => ({
   type: RECEIVE_NEW_TROT,
-  route
+  trot
 });
 
-export const createTrot = (route) => ({
+export const createTrot = (trot) => ({
   type: CREATE_TROT,
-  route
+  trot
 });
 
 export const removeTrot = (id) => ({
@@ -35,7 +35,7 @@ export const removeTrot = (id) => ({
 export function fetchTrots() {
   return (dispatch) => {
     return Util.fetchTrots().then(
-      (routes) => dispatch(receiveAllTrots(routes))
+      (trots) => dispatch(receiveAllTrots(trots))
     );
   };
 }
@@ -43,7 +43,7 @@ export function fetchTrots() {
 export function fetchTrot(id) {
   return (dispatch) => {
     return Util.fetchTrot(id).then(
-      (route) => dispatch(receiveTrot(route))
+      (trot) => dispatch(receiveTrot(trot))
     );
   };
 }

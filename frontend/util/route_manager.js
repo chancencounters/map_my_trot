@@ -29,7 +29,6 @@ export default class RouteManager {
           const dist = route.legs[0].distance.value;
           this.polyline = route.overview_polyline;
           this.distance = this._convertMeterToMiles(dist);
-          console.log(this.distance);
           this.origin = route.legs[0].start_address;
           this.destination = route.legs[0].end_address;
         }
