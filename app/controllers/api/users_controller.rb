@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params).includes(:friendships)
 
     if @user.save
       sign_in(@user)
@@ -9,6 +9,11 @@ class Api::UsersController < ApplicationController
     else
       render json: @user.errors, status: 422
     end
+  end
+
+  def friends
+    @friends = current_user.friends
+    render :friends
   end
 
   private
