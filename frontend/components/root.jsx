@@ -4,7 +4,8 @@ import { Router,
   Route,
   IndexRoute,
   hashHistory,
-  IndexRedirect } from 'react-router';
+  IndexRedirect
+} from 'react-router';
 
 import Welcome from './welcome';
 import App from './app';
@@ -17,6 +18,7 @@ import ActivityFeedContainer from './home/activity_feed';
 import DashboardContainer from './home/dashboard_container';
 import FriendsContainer from './home/friends_container';
 import RouteDetailContainer from './routes/route_detail_container';
+import LogTrotContainer from './trots/log_trot_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -56,7 +58,6 @@ const Root = ({ store }) => {
               onEnter={ _redirectIfLoggedOut }/>
           </Route>
 
-
           <Route path="/create_route"
             component={ CreateRouteContainer }
             onEnter={ _redirectIfLoggedOut }/>
@@ -68,6 +69,11 @@ const Root = ({ store }) => {
           <Route path="/route/:id"
             component={ RouteDetailContainer }
             onEnter={ _redirectIfLoggedOut }/>
+
+          <Route path="/log_trot"
+            component={ LogTrotContainer }
+            onEnter={ _redirectIfLoggedOut }/>
+
         </Route>
         <Route
           path="/login"
