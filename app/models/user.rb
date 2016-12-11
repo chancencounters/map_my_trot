@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_many :friends, -> { Friendship.accepted }, through: :friendships
-  has_many :friendships
+  has_many :pending_friendships, -> { Friendship.accepted }, through: :friendships
   has_many :routes
   has_many :trots
 

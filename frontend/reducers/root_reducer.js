@@ -12,6 +12,7 @@ const rootReducer = combineReducers({
   routes: routesReducer,
   routeDetail: routeDetailReducer,
   trotDetail: trotDetailReducer,
+  friends: friendsReducer,
   // trots: trotReducer,
 });
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Friends from './friends';
-import { postRoute } from '../../actions/route_actions';
-import { clearErrors } from '../../actions/error_actions';
+import Dashboard from './dashboard';
+import { postRoute } from '../../../actions/route_actions';
+import { clearErrors } from '../../../actions/error_actions';
 
 const mapStateToProps = (store) => ({
   currentUser: store.session.currentUser,
@@ -16,4 +16,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Friends);
+)(Dashboard);

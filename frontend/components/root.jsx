@@ -14,9 +14,9 @@ import SessionFormContainer from './sessions/session_form_container';
 import HeaderContainer from './headers/header_container';
 import CreateRouteContainer from './routes/create_route_container';
 import RouteIndexContainer from './routes/route_index_container';
-import ActivityFeedContainer from './home/activity_feed';
-import DashboardContainer from './home/dashboard_container';
-import FriendsContainer from './home/friends_container';
+import ActivityFeedContainer from './home/activity_feed/activity_feed';
+import DashboardContainer from './home/dashboard/dashboard_container';
+import FriendsContainer from './home/friends/friends_container';
 import RouteDetailContainer from './routes/route_detail_container';
 import LogTrotContainer from './trots/log_trot_container';
 
