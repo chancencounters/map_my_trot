@@ -1,9 +1,11 @@
 .main_header {
   margin-top: 20px;
+  margin-bottom: 20px;
   background: white;
   height: 70px;
   z-index: 3;
-  position: relative;;
+  position: relative;
+
 
   &:before {
     content: '';
@@ -60,7 +62,7 @@
 
         div {
           width: 50px;
-          background-image: image-url('horse_logo.jpg');
+          background-image: image-url('horse_logo.png');
           background-size: cover;
           height: 50px;
         }

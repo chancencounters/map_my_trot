@@ -1,4 +1,4 @@
-.profile_tabs {
+.profile_tabs, .friends_profile_tabs {
   margin: 0 auto;
   font-size: 18px;
   font-weight: 600;
@@ -10,14 +10,13 @@
     border-top: 1px solid #d9d9d9;
     border-bottom: 1px solid #d9d9d9;
     border-right: 1px solid #d9d9d9;
-    margin-top: 25px;
+    margin-top: 1px;
     width: 300px;
     line-height: 42px;
     text-align: center;
     background: #f6f6f6;
 
     &.selected-tab {
-      margin-top: 24px;
       border-top: 3px solid #2aa5ef;
       border-bottom: none;
       background: #fff;

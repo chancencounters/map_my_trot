@@ -19,6 +19,7 @@ import DashboardContainer from './home/dashboard/dashboard_container';
 import FriendsContainer from './friends/friends_container';
 import RouteDetailContainer from './routes/route_detail_container';
 import LogTrotContainer from './trots/log_trot_container';
+import MyFriends from './friends/my_friends';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -40,7 +41,7 @@ const Root = ({ store }) => {
           <IndexRoute component={ Welcome } onEnter={ _redirectIfLoggedIn }/>
 
           <Route
-            path="/home"
+            path="home"
             component={ Home }
             onEnter={ _redirectIfLoggedOut }>
             <IndexRedirect to="/home/activity_feed"/>
@@ -56,9 +57,16 @@ const Root = ({ store }) => {
           </Route>
 
           <Route
-            path="friends"
+            path="/friends"
             component={ FriendsContainer }
-            onEnter={ _redirectIfLoggedOut }/>
+            onEnter={ _redirectIfLoggedOut }>
+            <IndexRedirect to="/friends/my_friends"/>
+            <Route
+              path="my_friends"
+              component={ MyFriends }
+              onEnter={ _redirectIfLoggedOut }/>
+
+          </Route>
 
           <Route path="/create_route"
             component={ CreateRouteContainer }
