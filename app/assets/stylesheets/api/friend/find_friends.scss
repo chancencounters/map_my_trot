@@ -3,20 +3,25 @@
   margin: 0 auto;
   margin-top: 30px;
 
+  p {
+    color: #9297a3;
+    font-size: 18px;;
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
   .find_friends_search_form {
     display: flex;
     width: 700px;
     margin-bottom: 20px;;
-
-    p {
-      
-    }
 
     input[type="text"] {
       font-size: 16px;
       padding: 10px;
       width: 100%;
       border: 1px solid #ddd;
+      color: #000000;
     }
 
     input[type="submit"] {
