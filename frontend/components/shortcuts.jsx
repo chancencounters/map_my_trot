@@ -8,7 +8,7 @@ const Shortcuts = () => {
         <div className="shortcut_links">
           <Link to='/create_route'>Create Route</Link>
           <Link to='/log_trot'>Log Trot</Link>
-          <Link to='/find_friends'>Find Friends</Link>
+          <Link to='/friends/find_friends'>Find Friends</Link>
         </div>
       </div>
     </nav>

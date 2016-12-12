@@ -50,18 +50,18 @@ export function fetchFriends() {
   };
 }
 
-export function postFriendship(id) {
-  return (dispatch) => {
-    return Util.postFriendship(id).then(
-      (friendship) => dispatch(postFriendship(friendship))
-    );
-  };
-}
-
 export function fetchFriendships() {
   return (dispatch) => {
     return Util.fetchFriendships().then(
       (friendships) => dispatch(receiveAllFriendships(friendships))
+    );
+  };
+}
+
+export function sendFriendRequest(id) {
+  return (dispatch) => {
+    return Util.postFriendship(id).then(
+      (friendAndFriendship) => dispatch(receiveNewFriend(friendAndFriendship))
     );
   };
 }
@@ -76,7 +76,7 @@ export function deleteFriendship(id) {
 
 export function approveFriendship(id) {
   return (dispatch) => {
-    return Util.postFriendship(id).then(
+    return Util.editFriendship(id).then(
       (friendAndFriendship) => dispatch(receiveNewFriend(friendAndFriendship))
     );
   };
