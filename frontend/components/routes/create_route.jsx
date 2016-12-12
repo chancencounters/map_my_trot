@@ -134,7 +134,7 @@ class CreateRoute extends React.Component {
     } else {
       descPlaceholder = "Describe your trot";
     }
-    debugger
+    
     return (
       <form className='log_trot_form'>
         <h2>Log as a Trot</h2>

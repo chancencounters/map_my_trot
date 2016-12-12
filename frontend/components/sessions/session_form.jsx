@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
 
   renderSignUpForm() {
     const { errors } = this.props;
-    
+
     if (this.props.formType === 'signup') {
       return (
         <div className="session_form_body">
@@ -74,6 +74,8 @@ class SessionForm extends React.Component {
   }
 
   renderLogInForm() {
+    const { errors } = this.props;
+
     if (this.props.formType === 'login') {
       return (
         <div className="session_form_body">
@@ -86,6 +88,7 @@ class SessionForm extends React.Component {
               value={ this.state.password }
               placeholder="Password"
               onChange={ this.update("password") }/>
+            { (Boolean(errors)) ? errors[0] : "" }
             <input type="submit"
               onClick={ this.handleSubmit }
               value="LOG IN"/>
