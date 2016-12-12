@@ -16,10 +16,10 @@ import CreateRouteContainer from './routes/create_route_container';
 import RouteIndexContainer from './routes/route_index_container';
 import ActivityFeedContainer from './home/activity_feed/activity_feed';
 import DashboardContainer from './home/dashboard/dashboard_container';
-import FriendsContainer from './friends/friends_container';
+import Friends from './friends/friends';
 import RouteDetailContainer from './routes/route_detail_container';
 import LogTrotContainer from './trots/log_trot_container';
-import MyFriends from './friends/my_friends';
+import MyFriendsContainer from './friends/my_friends_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -57,13 +57,13 @@ const Root = ({ store }) => {
           </Route>
 
           <Route
-            path="/friends"
-            component={ FriendsContainer }
+            path="friends"
+            component={ Friends }
             onEnter={ _redirectIfLoggedOut }>
             <IndexRedirect to="/friends/my_friends"/>
             <Route
               path="my_friends"
-              component={ MyFriends }
+              component={ MyFriendsContainer }
               onEnter={ _redirectIfLoggedOut }/>
 
           </Route>
@@ -98,5 +98,8 @@ const Root = ({ store }) => {
   );
 };
 
+// <Route path="/routes"
+//   component={ RouteIndexContainer }
+//   onEnter={ _redirectIfLoggedOut }/>
 
 export default Root;

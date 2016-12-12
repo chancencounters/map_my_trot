@@ -1,0 +1,37 @@
+.friends_profile_tabs {
+  margin: 0 auto;
+  font-size: 12px;
+  font-weight: 800;
+  color: #1178bd;
+  width: 960px;
+
+  .friends_profile_tabs_inner {
+    display: flex;
+    width: 700px;
+
+    a {
+      border-top: 1px solid #2aa5ef;
+      border-right: 1px solid #d9d9d9;
+      border-left: 1px solid #d9d9d9;
+      margin-top: 1px;
+      width: 300px;
+      text-align: left;
+      background: #f6f6f6;
+      padding: 15px 23px;
+      box-sizing: border-box;
+
+      &.selected-tab {
+        border-bottom: none;
+        color: rgb(68, 68, 68);
+        background: rgb(255, 255, 255);
+        box-shadow: rgb(47, 152, 217) 0px 2px 0px 0px inset;
+      }
+
+      &:hover {
+        opacity: .5;
+      }
+    }
+
+
+  }
+}

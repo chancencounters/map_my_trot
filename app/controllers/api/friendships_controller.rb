@@ -1,4 +1,4 @@
-class Api::FriendShipsController < ApplicationController
+class Api::FriendshipsController < ApplicationController
 
   def create
     @friendship = current_user.friendships.new(friendship_params)
@@ -11,9 +11,10 @@ class Api::FriendShipsController < ApplicationController
   end
 
   def destroy
-    @friendship = Friendship.find(params[:id])
+    @friendship = Friendship.where(user_id: params[:id], friend_id: current_user.id)
+      .or.where(user_id: current_user.id, friend_id: params[:id])
     @friendship.destroy
-    render json: {}
+    render json: @friendship
   end
 
   private

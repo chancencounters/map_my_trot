@@ -38,6 +38,16 @@ class User < ActiveRecord::Base
     user
   end
 
+  def friends
+    ships = Friendship.select(<<-SQL)
+        CASE
+          WHEN user_id = #{id} THEN friend_id
+          WHEN friend_id = #{id} THEN user_id
+        END AS user_id
+      SQL
+    User.where(id: ships.where('user_id = :id OR friend_id = :id', id: id))
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
