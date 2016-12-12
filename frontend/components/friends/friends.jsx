@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router';
+import FriendsProfileTabs from './friends_profile_tabs';
 
 class Friends extends React.Component {
   constructor(props) {
@@ -11,8 +13,11 @@ class Friends extends React.Component {
   }
 
   render() {
+    const { location } = this.props;
     return (
-      <div>
+      <div className="friends_container">
+        <h2>MY FRIENDS</h2>
+        <FriendsProfileTabs location={ location.pathname } />
       </div>
     );
   }
