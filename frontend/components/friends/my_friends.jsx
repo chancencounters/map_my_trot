@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { findFriendshipId } from '../../reducers/selectors';
 
 class MyFriends extends React.Component {
   constructor(props) {
@@ -7,11 +8,16 @@ class MyFriends extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchFriends();
+    this.props.fetchFriends().then(() => this.props.fetchFriendships());
   }
 
-  handleClick(id) {
-    this.props.deleteFriendship(id);
+  handleClick(friendId) {
+    const { friendships, currentUser } = this.props;
+    const friendshipId = findFriendshipId(
+      friendships, friendId, currentUser.id
+    );
+
+    this.props.deleteFriendship(friendshipId);
   }
 
   render() {
@@ -25,7 +31,11 @@ class MyFriends extends React.Component {
                 <img src={ friend.image_url}/>
                 <div className="my_friends_inner">
                   <span>{ friend.name }</span>
-                  <div onClick={ () => this.handleClick(friend.id) }>Unfriend</div>
+                  <div
+                    onClick={
+                      () => this.handleClick(friend.id)
+                    }
+                  >Unfriend</div>
                 </div>
               </li>
             );

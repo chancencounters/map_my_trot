@@ -20,7 +20,7 @@ import Friends from './friends/friends';
 import RouteDetailContainer from './routes/route_detail_container';
 import LogTrotContainer from './trots/log_trot_container';
 import MyFriendsContainer from './friends/my_friends_container';
-
+import FriendRequestsContainer from './friends/friend_requests_container';
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
     if (store.getState().session.currentUser) {
@@ -66,6 +66,9 @@ const Root = ({ store }) => {
               component={ MyFriendsContainer }
               onEnter={ _redirectIfLoggedOut }/>
 
+            <Route path="friend_requests"
+              component={ FriendRequestsContainer }
+              onEnter={ _redirectIfLoggedOut }/>
           </Route>
 
           <Route path="/create_route"
@@ -98,8 +101,6 @@ const Root = ({ store }) => {
   );
 };
 
-// <Route path="/routes"
-//   component={ RouteIndexContainer }
-//   onEnter={ _redirectIfLoggedOut }/>
+
 
 export default Root;

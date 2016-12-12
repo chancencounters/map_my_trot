@@ -2,27 +2,29 @@ import * as Util from '../util/friend_api_util';
 
 export const RECEIVE_ALL_FRIENDS = "RECEIVE_ALL_FRIENDS";
 export const RECEIVE_ALL_FRIENDSHIPS = "RECEIVE_ALL_FRIENDSHIPS";
-export const RECEIVE_NEW_FRIENDSHIP = "RECEIVE_NEW_FRIENDSHIP";
+export const RECEIVE_NEW_FRIEND = "RECEIVE_NEW_FRIEND";
 export const REMOVE_FRIENDSHIP = "REMOVE_FRIENDSHIP";
 
-export const receiveAllFriends = (friends) => ({
-  type: RECEIVE_ALL_FRIENDS,
-  friends
-});
+export const receiveAllFriends = (friends) => {
+    return ({
+    type: RECEIVE_ALL_FRIENDS,
+    friends
+  });
+};
 
 export const receiveAllFriendships = (friendships) => ({
   type: RECEIVE_ALL_FRIENDSHIPS,
   friendships
 });
 
-export const receiveNewFriendships = (friendship) => ({
-  type: RECEIVE_NEW_FRIENDSHIP,
-  friendship
+export const receiveNewFriend = (friendAndFriendship) => ({
+  type: RECEIVE_NEW_FRIEND,
+  friendAndFriendship
 });
 
-export const removeFriendship = (id) => ({
+export const removeFriendship = (friendship) => ({
   type: REMOVE_FRIENDSHIP,
-  id
+  friendship
 });
 
 export function fetchFriends() {
@@ -52,7 +54,15 @@ export function fetchFriendships() {
 export function deleteFriendship(id) {
   return (dispatch) => {
     return Util.deleteFriendship(id).then(
-      (friendshipId) => dispatch(removeFriendship(friendshipId)))
+      (friendship) => dispatch(removeFriendship(friendship)))
     ;
+  };
+}
+
+export function approveFriendship(id) {
+  return (dispatch) => {
+    return Util.postFriendship(id).then(
+      (friendAndFriendship) => dispatch(receiveNewFriend(friendAndFriendship))
+    );
   };
 }
