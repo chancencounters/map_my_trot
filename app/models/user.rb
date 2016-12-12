@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_many :friendships
-  has_many :friends, -> { Friendship.accepted }, through: :friendships
   has_many :pending_friendships, -> { Friendship.pending }, through: :friendships
   has_many :routes
   has_many :trots
@@ -38,14 +37,18 @@ class User < ActiveRecord::Base
     user
   end
 
-  def friends
+  def all_friends
     ships = Friendship.select(<<-SQL)
         CASE
           WHEN user_id = #{id} THEN friend_id
           WHEN friend_id = #{id} THEN user_id
         END AS user_id
       SQL
-    User.where(id: ships.where('user_id = :id OR friend_id = :id', id: id))
+
+    hips = ships.where('(user_id = :id OR friend_id = :id) AND (status = \'accepted\')', id: id)
+    hips.reload
+
+    return User.where("id IN (?)", hips.pluck(:user_id))
   end
 
   def password=(password)

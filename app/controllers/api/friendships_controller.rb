@@ -10,9 +10,16 @@ class Api::FriendshipsController < ApplicationController
     end
   end
 
+  def edit
+    @friendship = Friendship.find(params[:id])
+    @friendship.status = 'accepted'
+    @friendship.save
+    @friend = @friendship.user
+    render json: { friend: @friend, friendship: @friendship }
+  end
+
   def destroy
-    @friendship = Friendship.where(user_id: params[:id], friend_id: current_user.id)
-      .or.where(user_id: current_user.id, friend_id: params[:id])
+    @friendship = Friendship.find(params[:id])
     @friendship.destroy
     render json: @friendship
   end

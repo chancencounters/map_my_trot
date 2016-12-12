@@ -21,8 +21,8 @@ export const fetchFriendships = () => {
 
 export const postFriendship = (id) => {
   return $.ajax({
-    method: 'POST',
-    url: '/api/friendships',
+    method: 'GET',
+    url: `/api/friendships/${id}/edit`,
     data: { id }
   });
 };

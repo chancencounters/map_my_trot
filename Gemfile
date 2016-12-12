@@ -45,6 +45,7 @@ group :development, :test do
   gem 'annotate'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem "awesome_print", require:"ap"
 end
 
 group :test do

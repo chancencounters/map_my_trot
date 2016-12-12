@@ -12,21 +12,12 @@ class Api::UsersController < ApplicationController
   end
 
   def friends
-    @friends = current_user.friends
-    Friendship.where(<<-SQL)
-      SELECT
-        CASE
-          WHEN user_id = :id
-            user_id
-          WHEN friend_id = :id
-            friend_id
-        END as user_id
-      SQL
+    @friends = current_user.all_friends
     render :friends
   end
 
   def friendships
-    @friendships = Friendship.includes(:user).where(user_id: current_user.id)
+    @friendships = Friendship.where("user_id = :id OR friend_id = :id", id: current_user.id)
     render :friendships
   end
 
