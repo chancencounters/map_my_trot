@@ -54,8 +54,8 @@ class FindFriends extends React.Component {
     const { users } = this.props;
     return (
       <div className="find_friends_container">
+        <p>FIND MAPMYTROT FRIENDS BY NAME OR EMAIL:</p>
         <form className="find_friends_search_form">
-          <p>FIND MAPMYTROT FRIENDS BY NAME, NAME, OR EMAIL:</p>
           <input type="text"
             value={ this.state.search }
             onChange={ (e) => this.handleInput(e) }
