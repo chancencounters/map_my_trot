@@ -51,6 +51,7 @@ class Header extends React.Component {
             <nav className="nav_menu">
               <Link to="/trots">TROTS</Link>
               <Link to="/routes">ROUTES</Link>
+              <Link to="/friends">FRIENDS</Link>
             </nav>
             { this.renderNavLinks() }
           </nav>

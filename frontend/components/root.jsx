@@ -16,7 +16,7 @@ import CreateRouteContainer from './routes/create_route_container';
 import RouteIndexContainer from './routes/route_index_container';
 import ActivityFeedContainer from './home/activity_feed/activity_feed';
 import DashboardContainer from './home/dashboard/dashboard_container';
-import FriendsContainer from './home/friends/friends_container';
+import FriendsContainer from './friends/friends_container';
 import RouteDetailContainer from './routes/route_detail_container';
 import LogTrotContainer from './trots/log_trot_container';
 
@@ -52,11 +52,13 @@ const Root = ({ store }) => {
               path="dashboard"
               component={ DashboardContainer }
               onEnter={ _redirectIfLoggedOut }/>
-            <Route
-              path="friends"
-              component={ FriendsContainer }
-              onEnter={ _redirectIfLoggedOut }/>
+
           </Route>
+
+          <Route
+            path="friends"
+            component={ FriendsContainer }
+            onEnter={ _redirectIfLoggedOut }/>
 
           <Route path="/create_route"
             component={ CreateRouteContainer }

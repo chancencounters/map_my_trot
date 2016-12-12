@@ -51,8 +51,8 @@ class ProfileTabs extends React.Component {
           to='/home/dashboard'
           >MY DASHBOARD</Link>
         <Link
-          className='friends'
-          to='/home/friends'
+          className='my_friends'
+          to='/home/my_friends'
           >MY FRIENDS</Link>
         <div className="placeholder"/>
       </div>

@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def create
-    @user = User.new(user_params).includes(:friendships)
+    @user = User.new(user_params)
 
     if @user.save
       sign_in(@user)
@@ -14,6 +14,11 @@ class Api::UsersController < ApplicationController
   def friends
     @friends = current_user.friends
     render :friends
+  end
+
+  def friend_requests
+    @friend_requests = Friendship.includes(:user).where(status: 'pending', friend_id: current_user.id)
+    render :friend_requests
   end
 
   private
