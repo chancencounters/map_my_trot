@@ -9,7 +9,7 @@ class Home extends React.Component {
 
   render() {
     const { children, location } = this.props;
-    
+
     return (
       <div>
         <Shortcuts />

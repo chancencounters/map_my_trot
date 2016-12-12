@@ -13,11 +13,15 @@ michael = User.create!(first_name: "Michael", last_name: "Blue", email: "blue@gm
 lucy = User.create!(first_name: "Lucy", last_name: "white", email: "lucy@gmail.com", password: "password")
 irene = User.create!(first_name: "Irene", last_name: "Grigio", email: "iamireneYu@gmail.com", password: "password")
 fabio = User.create!(first_name: "Fabio", last_name: "Pinot", email: "fabbbio@gmail.com", password: "password")
+max = User.create!(first_name: "Max", last_name: "Hempfling", email: "max@gmail.com", password: "password")
+bruce = User.create!(first_name: "Bruce", last_name: "Want", email: "bruce@gmail.com", password: "password")
 
 Friendship.create!(user: zack, friend: michael, status: 'accepted')
 Friendship.create!(user: zack, friend: lucy, status: 'accepted')
 Friendship.create!(user: zack, friend: irene, status: 'pending')
 Friendship.create!(user: zack, friend: fabio, status: 'pending')
+Friendship.create!(user: bruce, friend: zack, status: 'pending')
+Friendship.create!(user: max, friend: zack, status: 'pending')
 
 
 # User.create!(
