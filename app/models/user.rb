@@ -51,6 +51,10 @@ class User < ActiveRecord::Base
     return User.where("id IN (?)", hips.pluck(:user_id))
   end
 
+  def potential_friends(current_user)
+    
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
