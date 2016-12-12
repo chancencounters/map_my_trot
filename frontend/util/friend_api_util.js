@@ -26,7 +26,15 @@ export const fetchFriendships = () => {
   });
 };
 
-export const postFriendship = (id) => {
+export const createFriendship = (friendship) => {
+  return $.ajax({
+    method: "POST",
+    url: "/api/friendships",
+    data: { friendship }
+  });
+};
+
+export const editFriendship = (id) => {
   return $.ajax({
     method: 'GET',
     url: `/api/friendships/${id}/edit`,

@@ -52,7 +52,7 @@ class FindFriends extends React.Component {
                 <div className="find_friends_inner">
                   <span>{ user.first_name + " " + user.last_name }</span>
                   <span>{ user.email }</span>
-                  <div onClick={ () => this.handleApproval(user.id) }>Add</div>
+                  <div onClick={ () => this.handleAddFriend(user.id) }>Add</div>
                 </div>
               </li>
             );
@@ -69,7 +69,7 @@ class FindFriends extends React.Component {
   }
 
   handleAddFriend(id) {
-    this.props.sendFriendRequest(id);
+    this.props.postFriendRequest(id);
   }
 
   handleSearch() {
