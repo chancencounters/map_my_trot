@@ -6,6 +6,7 @@ import routeDetailReducer from './route_detail_reducer';
 import trotDetailReducer from './trot_detail_reducer';
 import friendsReducer from './friends_reducer';
 import friendshipsReducer from './friendships_reducer';
+import potentialFriendsReducer from './potential_friends_reducer';
 // import trotsReducer from './trots_reducer';
 
 const rootReducer = combineReducers({
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   trotDetail: trotDetailReducer,
   friends: friendsReducer,
   friendships: friendshipsReducer,
+  potentialFriends: potentialFriendsReducer,
   // trots: trotReducer,
 });
 

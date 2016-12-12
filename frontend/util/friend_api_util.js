@@ -1,3 +1,10 @@
+export const fetchPotentialFriends = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/users',
+  });
+};
+
 export const fetchFriends = () => {
   return $.ajax({
     method: 'GET',

@@ -6,10 +6,6 @@ class FriendRequests extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchFriendships();
-  }
-
   handleApproval(id) {
     this.props.approveFriendship(id);
   }

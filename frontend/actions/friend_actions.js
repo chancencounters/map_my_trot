@@ -1,5 +1,6 @@
 import * as Util from '../util/friend_api_util';
 
+export const RECEIVE_ALL_POTENTIAL_FRIENDS = "RECEIVE_ALL_POTENTIAL_FRIENDS";
 export const RECEIVE_ALL_FRIENDS = "RECEIVE_ALL_FRIENDS";
 export const RECEIVE_ALL_FRIENDSHIPS = "RECEIVE_ALL_FRIENDSHIPS";
 export const RECEIVE_NEW_FRIEND = "RECEIVE_NEW_FRIEND";
@@ -11,6 +12,11 @@ export const receiveAllFriends = (friends) => {
     friends
   });
 };
+
+export const receiveAllPotentialFriends = (potentialFriends) => ({
+  type: RECEIVE_ALL_POTENTIAL_FRIENDS,
+  potentialFriends
+});
 
 export const receiveAllFriendships = (friendships) => ({
   type: RECEIVE_ALL_FRIENDSHIPS,
@@ -26,6 +32,15 @@ export const removeFriendship = (friendship) => ({
   type: REMOVE_FRIENDSHIP,
   friendship
 });
+
+
+export function fetchPotentialFriends() {
+  return (dispatch) => {
+    return Util.fetchPotentialFriends().then(
+      (potentialFriends) => dispatch(receiveAllPotentialFriends(potentialFriends))
+    );
+  };
+}
 
 export function fetchFriends() {
   return (dispatch) => {
