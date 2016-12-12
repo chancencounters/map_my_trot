@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   end
 
   get 'api/friends', :to => 'api/users#friends'
-  get 'api/friend_requests', :to => 'api/users#friend_requests'
+  get 'api/friendships', :to => 'api/users#friendships'
 end

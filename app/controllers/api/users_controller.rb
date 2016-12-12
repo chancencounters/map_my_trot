@@ -13,12 +13,21 @@ class Api::UsersController < ApplicationController
 
   def friends
     @friends = current_user.friends
+    Friendship.where(<<-SQL)
+      SELECT
+        CASE
+          WHEN user_id = :id
+            user_id
+          WHEN friend_id = :id
+            friend_id
+        END as user_id
+      SQL
     render :friends
   end
 
-  def friend_requests
-    @friend_requests = Friendship.includes(:user).where(status: 'pending', friend_id: current_user.id)
-    render :friend_requests
+  def friendships
+    @friendships = Friendship.includes(:user).where(user_id: current_user.id)
+    render :friendships
   end
 
   private

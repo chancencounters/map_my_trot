@@ -7,17 +7,13 @@ class Friends extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchFriends();
-    this.props.fetchFriendRequests();
-  }
-
   render() {
-    const { location } = this.props;
+    const { children, location } = this.props;
     return (
       <div className="friends_container">
         <h2>MY FRIENDS</h2>
-        <FriendsProfileTabs location={ location.pathname } />
+        <FriendsProfileTabs location={ location.pathname }  />
+        { children }
       </div>
     );
   }

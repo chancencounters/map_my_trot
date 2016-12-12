@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: friendships
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer          not null
+#  friend_id  :integer          not null
+#  status     :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Friendship < ApplicationRecord
   validates :status, :user, :friend, presence: true
   validates_uniqueness_of :user_id, :scope => [:friend_id]
@@ -6,4 +18,5 @@ class Friendship < ApplicationRecord
 
   belongs_to :user
   belongs_to :friend, class_name: "User", dependent: :destroy
+
 end

@@ -15,12 +15,15 @@ irene = User.create!(first_name: "Irene", last_name: "Grigio", email: "iamireneY
 fabio = User.create!(first_name: "Fabio", last_name: "Pinot", email: "fabbbio@gmail.com", password: "password")
 max = User.create!(first_name: "Max", last_name: "Hempfling", email: "max@gmail.com", password: "password")
 bruce = User.create!(first_name: "Bruce", last_name: "Want", email: "bruce@gmail.com", password: "password")
+kinko = User.create!(first_name: "Kinko", last_name: "Want", email: "kinko@gmail.com", password: "password")
 
+Friendship.destroy_all
 Friendship.create!(user: zack, friend: michael, status: 'accepted')
 Friendship.create!(user: zack, friend: lucy, status: 'accepted')
 Friendship.create!(user: zack, friend: irene, status: 'pending')
 Friendship.create!(user: zack, friend: fabio, status: 'pending')
-Friendship.create!(user: bruce, friend: zack, status: 'pending')
+Friendship.create!(user: bruce, friend: zack, status: 'accepted')
+Friendship.create!(user: kinko, friend: zack, status: 'accepted')
 Friendship.create!(user: max, friend: zack, status: 'pending')
 
 
@@ -36,3 +39,4 @@ Friendship.create!(user: max, friend: zack, status: 'pending')
 
 
 Route.destroy_all
+Trot.destroy_all
