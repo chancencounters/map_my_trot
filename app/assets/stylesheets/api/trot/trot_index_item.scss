@@ -1,0 +1,38 @@
+.trot_index {
+  display: flex;
+  flex-wrap: wrap;
+
+  .trot_index_item {
+    display: flex;
+    width: 138px;
+    height: 135px;
+    background: image_url('man_on_horse.png');
+    background-size: cover;
+    color: #646464;
+    margin: 10px 22px 0 0;
+    overflow: hidden;
+    border: 1px rgba(0, 0, 0, 0.3) solid;
+    vertical-align: baseline;
+    position: relative;
+
+    .trot_index_item_details {
+      position: absolute;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      white-space: nowrap;
+      opacity: 0.9;
+      height: 40px;
+      width: 75%;
+      background: #fff;
+      overflow: hidden;
+      font-size: 12px;
+      padding: 3px 10px;
+      left: 0;
+      bottom: 5px;
+
+      &:hover {
+        opacity: 1;
+        color: #2f98d9;
+      }
+    }
+  }
+}

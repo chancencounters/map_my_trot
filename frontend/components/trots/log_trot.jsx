@@ -101,7 +101,6 @@ class LogTrot extends React.Component {
             />
 
             { (Boolean(errors.description)) ? "Description " + errors.description[0] : "" }
-
           </div>
         </div>
       </form>
@@ -130,7 +129,7 @@ class LogTrot extends React.Component {
     return (
       <div className='log_trot_container'>
         <Shortcuts />
-        <div className='log_trot_form_container'>
+        <div className='log_trot_form_container group'>
           { this.renderTrotForm() }
           <RouteDropdown
             routesList={ this.props.routesList }

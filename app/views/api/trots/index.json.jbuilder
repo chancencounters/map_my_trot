@@ -1,6 +1,7 @@
 @trots.each do |trot|
   json.set! trot.id do
     json.id trot.id
+    json.name trot.name
     json.description trot.description
     json.date trot.date
     json.created_at trot.created_at.strftime("%Y-%m-%d")
