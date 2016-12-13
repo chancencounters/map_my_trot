@@ -16,7 +16,7 @@ import { RECEIVE_NEW_COMMENT } from '../../actions/trot_actions';
 
 const routeDetailReducer = (state = initialState, action) => {
   Object.freeze(state);
-
+  
   switch(action.type) {
     case RECEIVE_NEW_ROUTE:
     case RECEIVE_ROUTE:

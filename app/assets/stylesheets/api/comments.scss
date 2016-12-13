@@ -1,0 +1,101 @@
+.comments_list_container {
+  width: 300px;
+  float: right;
+  box-sizing: border-box;
+  margin-top: 20px;
+  box-shadow: #e0e0e0 2px 2px 0;
+  background-color: #f8f8f8;
+  border: 1px solid #cdcdcd;
+  margin-bottom: 30px;
+
+  h3 {
+    color: #0083d5;
+    font-size: 15px;
+    font-weight: 600;
+    padding-bottom: 4px;
+    margin: 10px 20px;
+    border-bottom: 1px solid #cdcdcd;
+  }
+
+  .comments_list {
+    padding: 0 20px;
+
+    .comment {
+      display: flex;
+      justify-content: flex-start;
+      padding-top: 10px;
+
+      img {
+        height: 30px;
+        width: 30px;
+      }
+
+      .comment_details {
+        padding-left: 10px;
+        font-size: 12px;
+
+        .comment_author_name {
+          color: #0083d5;
+          font-weight: 600;
+        }
+
+        .comment_body {
+          color: #000000;
+        }
+      }
+    }
+  }
+
+  .post_comment_form {
+    background: #fff;
+    height: 50px;
+    overflow: hidden;
+    padding: 0 20px;
+    border-top: 1px solid #cdcdcd;
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;;
+    align-items: center;
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
+
+    input[type="text"] {
+      color: #555555;
+      align-self: center;
+      border: 1px solid #c3c2c2;
+      transition: border linear 0.2s, box-shadow linear 0.2s;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      border-radius: 4px;
+      padding: 7px 8px;
+      font-size: 12px;
+      margin-left:8px;
+      width: 180px;
+
+      &:focus {
+        border-color: rgba(82, 168, 236, 0.8);
+        outline: 0;
+        outline: thin dotted \9;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+      }
+    }
+
+    input[type="submit"] {
+      background: #ffffff;
+      border-radius: 5px;
+      border: 1px solid #2f98d9;
+      color: #2f98d9;
+      text-shadow: 0 3px 3px #fff;
+      box-shadow: none;
+      margin-left: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 7px
+    }
+
+  }
+
+}

@@ -7,7 +7,7 @@ json.polyline route.polyline
 json.bounds route.bounds
 json.created_at route.created_at
 json.set! :comments do
-  @route.comments.each do |comment|
+  route.comments.each do |comment|
     json.set! comment.id do
       json.id comment.id
       json.body comment.body

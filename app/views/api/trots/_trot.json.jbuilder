@@ -16,7 +16,7 @@ json.set! :route do
   json.created_at trot.route.created_at
 end
 json.set! :comments do
-  @trot.comments.each do |comment|
+  trot.comments.each do |comment|
     json.set! comment.id do
       json.id comment.id
       json.body comment.body
