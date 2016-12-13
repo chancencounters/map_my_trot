@@ -5,10 +5,21 @@ import { Link } from 'react-router';
 class RouteIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.renderMessage = this.renderMessage.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchRoutes();
+  }
+
+  renderMessage() {
+    if (this.props.routes.length === 0) {
+      return (
+        <div className="empty_routes_message">
+          <p>No Routes were found.</p>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -39,6 +50,7 @@ class RouteIndex extends React.Component {
             );})}
           </tbody>
         </table>
+        { this.renderMessage() }
       </div>
     );
   }

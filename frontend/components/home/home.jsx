@@ -11,7 +11,7 @@ class Home extends React.Component {
     const { children, location } = this.props;
 
     return (
-      <div>
+      <div className="home_main_container">
         <Shortcuts />
         <ProfileTabs location={ location.pathname } />
         { children }

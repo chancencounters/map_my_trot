@@ -5,10 +5,25 @@ import { Link } from 'react-router';
 class TrotIndex extends React.Component {
   constructor(props) {
     super(props);
+
+    this.renderMessage = this.renderMessage.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchTrots();
+  }
+
+  renderMessage() {
+    if (this.props.trots.length === 0) {
+      return (
+        <div className="empty_trots_message">
+          <h5>Welcome to Your Trotout Dashboard.</h5>
+          <p>Here, you can monitor your progress, plan your trotting,
+            and view stats on how you're doing.
+            To get started, log your first trotout. </p>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -33,6 +48,7 @@ class TrotIndex extends React.Component {
                 trot= { trot }/>
             );})}
           </ul>
+          { this.renderMessage() }
         </div>
       </div>
     );

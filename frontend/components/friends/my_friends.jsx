@@ -5,6 +5,7 @@ import { findFriendshipId } from '../../reducers/selectors';
 class MyFriends extends React.Component {
   constructor(props) {
     super(props);
+    this.renderMessage = this.renderMessage.bind(this);
   }
 
   componentDidMount() {
@@ -18,6 +19,16 @@ class MyFriends extends React.Component {
     );
 
     this.props.deleteFriendship(friendshipId);
+  }
+
+  renderMessage() {
+    if (this.props.friends.length === 0) {
+      return (
+        <div className="no_friends_message">
+          <p>You currently have no friends. Make some.</p>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -42,6 +53,7 @@ class MyFriends extends React.Component {
           })
           }
         </ul>
+        { this.renderMessage() }
       </div>
     );
   }

@@ -3,6 +3,7 @@
   margin: auto;
   color: black;
   margin-bottom: 50px;
+  min-height: 400px;
 
   .routes_index_title_container {
     display: flex;
@@ -33,8 +34,15 @@
     }
   }
 
+
+  .empty_routes_message {
+    p {
+      margin-top: 50px;
+    }
+  }
   .routes_index_table {
     margin-top: 20px;
+
 
     .routes_index_header {
       border-left: 1px solid #e6e6e5;
