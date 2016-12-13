@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   has_many :pending_friendships, -> { Friendship.pending }, through: :friendships
   has_many :routes
   has_many :trots
+  has_many :comments
 
   after_initialize :ensure_session_token
   attr_reader :password
