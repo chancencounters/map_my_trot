@@ -37,3 +37,14 @@ export const findFriendshipId = (friendships, friendId, currentUserId) => {
 
   return friendshipId;
 };
+
+export const removePotentialFriend = (state, action) => {
+  const newPotentialFriend = {};
+  Object.keys(state).forEach((key) => {
+    if (parseInt(key) !== action.friendship.friend_id) {
+      Object.assign(newPotentialFriend, { [key]: state[key]} );
+    }
+  });
+
+  return newPotentialFriend;
+};

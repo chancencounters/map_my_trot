@@ -4,6 +4,7 @@ export const RECEIVE_ALL_POTENTIAL_FRIENDS = "RECEIVE_ALL_POTENTIAL_FRIENDS";
 export const RECEIVE_ALL_FRIENDS = "RECEIVE_ALL_FRIENDS";
 export const RECEIVE_ALL_FRIENDSHIPS = "RECEIVE_ALL_FRIENDSHIPS";
 export const RECEIVE_NEW_FRIEND = "RECEIVE_NEW_FRIEND";
+export const RECEIVE_NEW_FRIENDSHIP = "RECEIVE_NEW_FRIENDSHIP";
 export const REMOVE_FRIENDSHIP = "REMOVE_FRIENDSHIP";
 
 export const receiveAllFriends = (friends) => {
@@ -13,10 +14,16 @@ export const receiveAllFriends = (friends) => {
   });
 };
 
-export const receiveAllPotentialFriends = (potentialFriends) => ({
+export const receiveAllPotentialFriends = (users) => ({
   type: RECEIVE_ALL_POTENTIAL_FRIENDS,
-  potentialFriends
+  users
 });
+
+export const receiveNewFriendship = (friendship) => ({
+  type: RECEIVE_NEW_FRIENDSHIP,
+  friendship
+});
+
 
 export const receiveAllFriendships = (friendships) => ({
   type: RECEIVE_ALL_FRIENDSHIPS,
@@ -58,10 +65,10 @@ export function fetchFriendships() {
   };
 }
 
-export function sendFriendRequest(id) {
+export function sendFriendRequest(friendship) {
   return (dispatch) => {
-    return Util.postFriendship(id).then(
-      (friendAndFriendship) => dispatch(receiveNewFriend(friendAndFriendship))
+    return Util.createFriendship(friendship).then(
+      (newFriendship) => dispatch(receiveNewFriendship(newFriendship))
     );
   };
 }

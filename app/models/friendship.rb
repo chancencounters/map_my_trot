@@ -18,15 +18,4 @@ class Friendship < ApplicationRecord
 
   belongs_to :user
   belongs_to :friend, class_name: "User"
-
-  def friends
-    ships = Friendship.select(<<-SQL)
-        CASE
-          WHEN user_id = #{id} THEN friend_id
-          WHEN friend_id = #{id} THEN user_id
-        END AS user_id
-      SQL
-
-    User.where(id: ships.where('user_id = :id OR friend_id = :id', id: id))
-  end
 end
