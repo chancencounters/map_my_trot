@@ -17,16 +17,20 @@ max = User.create!(first_name: "Max", last_name: "Hempfling", email: "max@gmail.
 bruce = User.create!(first_name: "Bruce", last_name: "Want", email: "bruce@gmail.com", password: "password")
 kinko = User.create!(first_name: "Kinko", last_name: "Want", email: "kinko@gmail.com", password: "password")
 rob = User.create!(first_name: "Rob", last_name: "Veltman", email: "rob@gmail.com", password: "password")
+daniel = User.create!(first_name: "Daniel", last_name: "Veltman", email: "daniel@gmail.com", password: "password")
+megan = User.create!(first_name: "Megan", last_name: "Veltman", email: "Megan@gmail.com", password: "password")
+
 
 Friendship.destroy_all
 Friendship.create!(user: zack, friend: michael, status: 'pending')
 Friendship.create!(user: zack, friend: lucy, status: 'pending')
 Friendship.create!(user: irene, friend: zack, status: 'pending')
-# Friendship.create!(user: fabio, friend: zack, status: 'pending')
-# Friendship.create!(user: bruce, friend: zack, status: 'accepted')
-# Friendship.create!(user: kinko, friend: zack, status: 'accepted')
-# Friendship.create!(user: max, friend: zack, status: 'pending')
-# Friendship.create!(user: rob, friend: zack, status: 'pending')
+Friendship.create!(user: fabio, friend: zack, status: 'pending')
+Friendship.create!(user: bruce, friend: zack, status: 'accepted')
+Friendship.create!(user: kinko, friend: zack, status: 'accepted')
+Friendship.create!(user: max, friend: zack, status: 'pending')
+Friendship.create!(user: rob, friend: zack, status: 'pending')
+
 
 
 # User.create!(
