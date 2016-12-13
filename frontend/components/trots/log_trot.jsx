@@ -109,16 +109,16 @@ class LogTrot extends React.Component {
 
   _duration() {
     let { hours, minutes, seconds } = this.state;
-    hours === "" ? hours = "00" : ""
-    minutes === "" ? minutes = "00" : ""
-    seconds === "" ? seconds = "00" : ""
+    hours = hours === "" ? "00" : "";
+    minutes = minutes === "" ?  "00" : "";
+    seconds = seconds === "" ?  "00" : "";
     return hours + ":" + minutes + ":" + seconds;
   }
 
   handleSubmit(routeId) {
     this.setState({ route_id: routeId, duration: this._duration()},
       () => this.props.postTrot(this.state)
-        .then(() => this.props.router.push("/routes"))
+        .then(() => this.props.router.push("/trots"))
         .then(() => this.props.clearErrors())
     );
 

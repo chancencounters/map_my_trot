@@ -1,12 +1,12 @@
 class Api::RoutesController < ApplicationController
 
   def index
-    @routes = current_user.routes
+    @routes = current_user.routes.includes(:comments)
     render :index
   end
 
   def show
-    @route = Route.find(params[:id])
+    @route = Route.includes(:comments).find(params[:id])
     render :show
   end
 
