@@ -24,20 +24,16 @@ Friendship.create!(user: kinko, friend: zack, status: 'accepted')
 Friendship.create!(user: max, friend: zack, status: 'pending')
 Friendship.create!(user: rob, friend: zack, status: 'pending')
 
-
+# Comment.create!(body: Faker::Lorem.paragraph(3), user_id: michael.id, commentable_id: 1, commentable_type: "Route")
+# Comment.create!(body: Faker::Lorem.paragraph(3), user_id: bruce.id, commentable_id: 1, commentable_type: "Route")
+# Comment.create!(body: Faker::Lorem.paragraph(3), user_id: rob.id, commentable_id: 1, commentable_type: "Route")
 
 
 10.times do
   User.create!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  avatar: avatar,
   email: Faker::Internet.email,
   password: Faker::Internet.password(6),
   )
 end
-
-
-
-# Route.destroy_all
-# Trot.destroy_all

@@ -6,9 +6,9 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :email, null: false
       t.string :session_token, null: false
       t.string :password_digest, null: false
-      t.string :image_url, default: "assets/images/default_prof_pic.jpg"
+      t.string :image_url, default: "assets/images/default_prof_pic.png"
     end
-    
+
     add_index :users, :email, unique: true
   end
 end
