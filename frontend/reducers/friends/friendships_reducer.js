@@ -4,7 +4,7 @@ import {
   RECEIVE_ALL_FRIENDSHIPS,
   RECEIVE_NEW_FRIEND,
   REMOVE_FRIENDSHIP,
-} from '../actions/friend_actions';
+} from '../../actions/friend_actions';
 
 const FriendshipsReducer = (state = {}, action) => {
   Object.freeze(state);

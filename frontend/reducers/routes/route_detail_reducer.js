@@ -1,4 +1,4 @@
-import { RECEIVE_ROUTE, RECEIVE_NEW_ROUTE } from '../actions/route_actions';
+import { RECEIVE_ROUTE, RECEIVE_NEW_ROUTE } from '../../actions/route_actions';
 
   const initialState = {
     name: "",
@@ -11,7 +11,7 @@ import { RECEIVE_ROUTE, RECEIVE_NEW_ROUTE } from '../actions/route_actions';
 
 const routeDetailReducer = (state = initialState, action) => {
   Object.freeze(state);
-  
+
   switch(action.type) {
     case RECEIVE_NEW_ROUTE:
     case RECEIVE_ROUTE:

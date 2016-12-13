@@ -4,7 +4,6 @@ import { receiveRouteErrors } from './error_actions';
 export const RECEIVE_NEW_ROUTE = "RECEIVE_NEW_ROUTE";
 export const RECEIVE_ROUTE = "RECEIVE_ROUTE";
 export const RECEIVE_ALL_ROUTES = "RECEIVE_ALL_ROUTES";
-export const CREATE_ROUTE = "CREATE_ROUTE";
 export const REMOVE_ROUTE = "REMOVE_ROUTE";
 
 export const receiveAllRoutes = (routes) => ({
@@ -18,11 +17,6 @@ export const receiveRoute = (route) => ({
 });
 export const receiveNewRoute = (route) => ({
   type: RECEIVE_NEW_ROUTE,
-  route
-});
-
-export const createRoute = (route) => ({
-  type: CREATE_ROUTE,
   route
 });
 

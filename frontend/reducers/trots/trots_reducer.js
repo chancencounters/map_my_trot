@@ -4,7 +4,7 @@ import {
   RECEIVE_NEW_TROT,
   RECEIVE_ALL_TROTS,
   REMOVE_TROT
-} from '../actions/trot_actions';
+} from '../../actions/trot_actions';
 
 const TrotsReducer = (state = {}, action) => {
   Object.freeze(state);

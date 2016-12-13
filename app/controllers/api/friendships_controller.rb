@@ -2,7 +2,6 @@ class Api::FriendshipsController < ApplicationController
 
   def create
     @friendship = current_user.friendships.new(friendship_params)
-    @friendship.user_id = current_user.id
     @friendship.status = "pending"
 
     if @friendship.save

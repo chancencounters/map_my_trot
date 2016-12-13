@@ -4,7 +4,7 @@ import {
   RECEIVE_NEW_ROUTE,
   RECEIVE_ALL_ROUTES,
   REMOVE_ROUTE
-} from '../actions/route_actions';
+} from '../../actions/route_actions';
 
 const RoutesReducer = (state = {}, action) => {
   Object.freeze(state);

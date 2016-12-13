@@ -4,7 +4,6 @@ import { receiveTrotErrors } from './error_actions';
 export const RECEIVE_NEW_TROT = "RECEIVE_NEW_TROT";
 export const RECEIVE_TROT = "RECEIVE_TROT";
 export const RECEIVE_ALL_TROTS = "RECEIVE_ALL_TROTS";
-export const CREATE_TROT = "CREATE_TROT";
 export const REMOVE_TROT = "REMOVE_TROT";
 
 export const receiveAllTrots = (trots) => ({
@@ -19,11 +18,6 @@ export const receiveTrot = (trot) => ({
 
 export const receiveNewTrot = (trot) => ({
   type: RECEIVE_NEW_TROT,
-  trot
-});
-
-export const createTrot = (trot) => ({
-  type: CREATE_TROT,
   trot
 });
 

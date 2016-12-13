@@ -29,7 +29,7 @@ Friendship.create!(user: zack, friend: michael, status: 'pending')
   User.create!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  # avatar: Faker::Avatar.image,
+  avatar: avatar,
   email: Faker::Internet.email,
   password: Faker::Internet.password(6),
   )
