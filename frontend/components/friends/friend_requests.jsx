@@ -4,6 +4,8 @@ import { Link } from 'react-router';
 class FriendRequests extends React.Component {
   constructor(props) {
     super(props);
+
+    this.renderMessage = this.renderMessage.bind(this);
   }
 
   handleApproval(id) {
@@ -12,6 +14,16 @@ class FriendRequests extends React.Component {
 
   handleRejection(id) {
     this.props.deleteFriendship(id);
+  }
+
+  renderMessage() {
+    if (this.props.friendRequests.length === 0) {
+      return (
+        <div className="no_friend_requests_message">
+          <p>You currently have no friend requests.</p>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -33,6 +45,7 @@ class FriendRequests extends React.Component {
           })
           }
         </ul>
+        { this.renderMessage() };
       </div>
     );
   }

@@ -1,11 +1,20 @@
 .trot_index_container {
   width: 960px;
+  min-height: 400px;
   margin: auto;
   margin-top: 20px;
 
     .trot_index_inner {
       width: 650px;
       margin-bottom: 40px;
+
+      .empty_trots_message {
+        color: #000000;
+
+        p {
+          margin-top: 10px;
+        }
+      }
 
       .trot_index_header {
         display: block;
