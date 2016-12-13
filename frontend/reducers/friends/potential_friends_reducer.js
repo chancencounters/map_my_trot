@@ -1,11 +1,9 @@
 import { merge } from 'lodash';
-import { removePotentialFriend } from './selectors';
+import { removePotentialFriend, removeFriend, addFriend } from '../selectors';
 import {
   RECEIVE_ALL_POTENTIAL_FRIENDS,
   RECEIVE_NEW_FRIENDSHIP,
-} from '../actions/friend_actions';
-
-import { removeFriend, addFriend } from './selectors';
+} from '../../actions/friend_actions';
 
 const PotentailFriendsReducer = (state = {}, action) => {
   Object.freeze(state);
