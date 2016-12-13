@@ -1,11 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
+require 'faker'
 
 User.destroy_all
 zack = User.create!(first_name: "Zack", last_name: "Yu", email: "demo_account@admin.com", password: "password")
@@ -22,24 +15,24 @@ megan = User.create!(first_name: "Megan", last_name: "Veltman", email: "Megan@gm
 
 
 Friendship.destroy_all
-Friendship.create!(user: zack, friend: michael, status: 'pending')
-Friendship.create!(user: zack, friend: lucy, status: 'pending')
+# Friendship.create!(user: zack, friend: michael, status: 'pending')
+# Friendship.create!(user: zack, friend: lucy, status: 'pending')
 # Friendship.create!(user: irene, friend: zack, status: 'pending')
 # Friendship.create!(user: fabio, friend: zack, status: 'pending')
-Friendship.create!(user: bruce, friend: zack, status: 'accepted')
-Friendship.create!(user: kinko, friend: zack, status: 'accepted')
+# Friendship.create!(user: bruce, friend: zack, status: 'accepted')
+# Friendship.create!(user: kinko, friend: zack, status: 'accepted')
 # Friendship.create!(user: max, friend: zack, status: 'pending')
 # Friendship.create!(user: rob, friend: zack, status: 'pending')
 
 
 
-# User.create!(
-# first_name: Faker::Name.first_name,
-# last_name: Faker::Name.last_name,
+User.create!(
+first_name: Faker::Name.first_name,
+last_name: Faker::Name.last_name,
 # avatar: Faker::Avatar.image,
-# email: Faker::Internet.email,
-# password: Faker::Internet.password(6),
-# )
+email: Faker::Internet.email,
+password: Faker::Internet.password(6),
+)
 
 
 
