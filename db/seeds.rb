@@ -24,12 +24,12 @@ megan = User.create!(first_name: "Megan", last_name: "Veltman", email: "Megan@gm
 Friendship.destroy_all
 Friendship.create!(user: zack, friend: michael, status: 'pending')
 Friendship.create!(user: zack, friend: lucy, status: 'pending')
-Friendship.create!(user: irene, friend: zack, status: 'pending')
-Friendship.create!(user: fabio, friend: zack, status: 'pending')
+# Friendship.create!(user: irene, friend: zack, status: 'pending')
+# Friendship.create!(user: fabio, friend: zack, status: 'pending')
 Friendship.create!(user: bruce, friend: zack, status: 'accepted')
 Friendship.create!(user: kinko, friend: zack, status: 'accepted')
-Friendship.create!(user: max, friend: zack, status: 'pending')
-Friendship.create!(user: rob, friend: zack, status: 'pending')
+# Friendship.create!(user: max, friend: zack, status: 'pending')
+# Friendship.create!(user: rob, friend: zack, status: 'pending')
 
 
 
@@ -44,5 +44,5 @@ Friendship.create!(user: rob, friend: zack, status: 'pending')
 
 
 
-Route.destroy_all
-Trot.destroy_all
+# Route.destroy_all
+# Trot.destroy_all
