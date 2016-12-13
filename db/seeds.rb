@@ -15,7 +15,7 @@ megan = User.create!(first_name: "Megan", last_name: "Veltman", email: "Megan@gm
 
 
 Friendship.destroy_all
-# Friendship.create!(user: zack, friend: michael, status: 'pending')
+Friendship.create!(user: zack, friend: michael, status: 'pending')
 # Friendship.create!(user: zack, friend: lucy, status: 'pending')
 # Friendship.create!(user: irene, friend: zack, status: 'pending')
 # Friendship.create!(user: fabio, friend: zack, status: 'pending')
@@ -25,15 +25,15 @@ Friendship.destroy_all
 # Friendship.create!(user: rob, friend: zack, status: 'pending')
 
 
-
-User.create!(
-first_name: Faker::Name.first_name,
-last_name: Faker::Name.last_name,
-# avatar: Faker::Avatar.image,
-email: Faker::Internet.email,
-password: Faker::Internet.password(6),
-)
-
+10.times do
+  User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  # avatar: Faker::Avatar.image,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(6),
+  )
+end
 
 
 
