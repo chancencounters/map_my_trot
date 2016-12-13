@@ -1,17 +1,17 @@
 class Api::TrotsController < ApplicationController
 
   def index
-    @trots = current_user.trots
+    @trots = current_user.trots.includes(:route, :comments)
     render :index
   end
 
   def show
-    @trot = Trot.find(params[:id])
+    @trot = Trot.includes(:route, :comments).find(params[:id])
     render :show
   end
 
   def create
-    @trot = current_user.trots.new(trot_params)
+    @trot = current_user.trots.includes(:route, :comments).new(trot_params)
     @trot.route_id = trot_params[:route_id]
 
     if @trot.save

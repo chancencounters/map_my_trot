@@ -33,7 +33,7 @@ export function fetchComments() {
 export function postComment(comment) {
   return (dispatch) => {
     return Util.postComment(comment).then(
-      (currentComment) => dispatch(receiveNewComment(currentComment)),
+      (newComment) => dispatch(receiveNewComment(newComment)),
       (errors) => dispatch(receiveCommentErrors(errors.responseJSON))
     );
   };

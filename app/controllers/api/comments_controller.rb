@@ -1,10 +1,5 @@
 class CommentsController < ApplicationController
 
-  def index
-    @comments = Comment.all
-    render :index
-  end
-
   def create
     @comment = current_user.comments.new(comment_params)
 
@@ -13,10 +8,6 @@ class CommentsController < ApplicationController
     else
       render json: @comment.errors, status: 422
     end
-  end
-
-  def destroy
-
   end
 
   private

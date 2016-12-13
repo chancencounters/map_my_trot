@@ -6,9 +6,10 @@ Rails.application.routes.draw do
     resources :routes, only: [:index, :show, :create, :destroy]
     resources :trots, only: [:index, :show, :create, :destroy]
     resources :friendships, only: [:create, :destroy, :edit]
-    resources :comments, only: [:index, :create]
+    resources :comments, only: [:create]
   end
 
   get 'api/friends', :to => 'api/users#friends'
   get 'api/friendships', :to => 'api/users#friendships'
+  get 'api/comments', :to => 'api/users#comments'
 end
