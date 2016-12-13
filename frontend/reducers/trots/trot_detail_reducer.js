@@ -1,4 +1,7 @@
-import { RECEIVE_TROT, RECEIVE_NEW_TROT } from '../../actions/trot_actions';
+import { RECEIVE_TROT,
+  RECEIVE_NEW_TROT,
+} from '../../actions/trot_actions';
+import { RECEIVE_NEW_COMMENT } from '../../actions/trot_actions';
 
   const initialState = {
     id: "",
@@ -25,6 +28,13 @@ const trotDetailReducer = (state = initialState, action) => {
     case RECEIVE_NEW_TROT:
     case RECEIVE_TROT:
       return action.trot;
+    case RECEIVE_NEW_COMMENT:
+      const { comment } = action;
+      const comments = Object.assign(
+        {}, state.comments, { [comment.id]: comment }
+      );
+
+      return Object.assign({}, state, { comments: comments });
     default:
       return state;
   }

@@ -1,9 +1,9 @@
 import { merge } from 'lodash';
-
+import { RECEIVE_NEW_COMMENT } from '../../actions/trot_actions';
 import {
   RECEIVE_NEW_ROUTE,
   RECEIVE_ALL_ROUTES,
-  REMOVE_ROUTE
+  REMOVE_ROUTE,
 } from '../../actions/route_actions';
 
 const RoutesReducer = (state = {}, action) => {
@@ -22,6 +22,16 @@ const RoutesReducer = (state = {}, action) => {
         }
       });
       return newRoutes;
+    case RECEIVE_NEW_COMMENT:
+      const { comment } = action;
+      const { commentable_id } = comment;
+      const comments = Object.assign(
+        {}, state[commentable_id].comments, { [comment.id]: comment }
+      );
+
+      return Object.assign(
+        {}, state[commentable_id], { comments: comments }
+      );
     default:
       return state;
   }
