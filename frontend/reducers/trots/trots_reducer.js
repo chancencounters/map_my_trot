@@ -1,10 +1,11 @@
 import { merge } from 'lodash';
-
+import { RECEIVE_NEW_COMMENT } from '../../actions/trot_actions';
 import {
   RECEIVE_NEW_TROT,
   RECEIVE_ALL_TROTS,
   REMOVE_TROT
 } from '../../actions/trot_actions';
+
 
 const TrotsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -22,6 +23,16 @@ const TrotsReducer = (state = {}, action) => {
         }
       });
       return newTrots;
+    case RECEIVE_NEW_COMMENT:
+      const { comment } = action;
+      const { commentable_id } = comment;
+      const comments = Object.assign(
+        {}, state[commentable_id].comments, { [comment.id]: comment }
+      );
+
+      return Object.assign(
+        {}, state[commentable_id], { comments: comments }
+      );
     default:
       return state;
   }
