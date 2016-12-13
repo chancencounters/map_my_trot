@@ -4,18 +4,17 @@ import FindFriends from './find_friends';
 import { asArray } from '../../reducers/selectors';
 import { clearErrors } from '../../actions/error_actions';
 import {
-  deleteFriendship, postFriendRequest, fetchPotentialFriends
+  deleteFriendship, sendFriendRequest, fetchPotentialFriends
 } from '../../actions/friend_actions';
 
 const mapStateToProps = (store) => {
-  return (
-  {
-  potentialFriends: asArray(store.potentialFriends),
+  return ({
+  potentialFriends: asArray(store.potentialFriends)
 });};
 
 const mapDispatchToProps = (dispatch) => ({
   fetchPotentialFriends: () => dispatch(fetchPotentialFriends()),
-  postFriendRequest: (id) => dispatch(postFriendRequest(id)),
+  sendFriendRequest: (id) => dispatch(sendFriendRequest(id)),
   deleteFriendship: (id) => dispatch(deleteFriendship(id)),
   clearErrors: () => dispatch(clearErrors()),
 });

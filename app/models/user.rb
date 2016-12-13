@@ -51,8 +51,11 @@ class User < ActiveRecord::Base
     return User.where("id IN (?)", hips.pluck(:user_id))
   end
 
-  def potential_friends(current_user)
-    
+  def potential_friends
+    ships = Friendship.where("user_id = :id OR friend_id = :id", id: id)
+    ids = ships.pluck(:user_id).concat(ships.pluck(:friend_id))
+
+    return User.where.not(id: ids)
   end
 
   def password=(password)

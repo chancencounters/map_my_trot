@@ -18,20 +18,18 @@ class FindFriends extends React.Component {
   matches() {
     const matches = [];
     const { potentialFriends } = this.props;
+    const lowerCaseSearchVal = this.searchVal.toLowerCase();
 
     if (this.searchVal.length === 0) {
       return potentialFriends;
     }
 
-    potentialFriends.forEach(potentialFriend => {
-      let firstNameSub = potentialFriend.first_name.slice(0, this.searchVal.length);
-      let lastNameSub = potentialFriend.last_name.slice(0, this.searchVal.length);
-      let emailSub = potentialFriend.email.slice(0, this.searchVal.length);
+    this.props.potentialFriends.forEach(potentialFriend => {
+      const { first_name, last_name, email } = potentialFriend;
 
-      if (
-        firstNameSub.toLowerCase() === this.searchVal.toLowerCase() ||
-        lastNameSub.toLowerCase() === this.searchVal.toLowerCase() ||
-        emailSub.toLowerCase() === this.searchVal.toLowerCase()
+      if (first_name.toLowerCase().includes(lowerCaseSearchVal) ||
+        last_name.toLowerCase().includes(lowerCaseSearchVal) ||
+        email.toLowerCase().includes(lowerCaseSearchVal)
       ) {
         matches.push(potentialFriend);
       }
@@ -41,7 +39,6 @@ class FindFriends extends React.Component {
   }
 
   renderSearchResults() {
-    debugger
     if (this.state.toggleSearchResults) {
       return (
         <ul className="find_friends_list">
@@ -52,7 +49,7 @@ class FindFriends extends React.Component {
                 <div className="find_friends_inner">
                   <span>{ user.first_name + " " + user.last_name }</span>
                   <span>{ user.email }</span>
-                  <div onClick={ () => this.handleAddFriend(user.id) }>Add</div>
+                  <div onClick={ () => this.handleAddFriend(user) }>Add</div>
                 </div>
               </li>
             );
@@ -68,8 +65,9 @@ class FindFriends extends React.Component {
     this.forceUpdate();
   }
 
-  handleAddFriend(id) {
-    this.props.postFriendRequest(id);
+  handleAddFriend(friend) {
+    const friendship = { friend_id: friend.id, status: "pending" };
+    this.props.sendFriendRequest(friendship);
   }
 
   handleSearch() {
