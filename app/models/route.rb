@@ -19,4 +19,5 @@ class Route < ApplicationRecord
 
   belongs_to :user
   has_many :trots
+  has_many :comments, as: :commentable
 end

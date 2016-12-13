@@ -58,6 +58,7 @@
       width: 100%;
       display: flex;
       flex-direction: row;
+      overflow: hidden;
 
       &:nth-child(even) {
       margin-left: 22px;
