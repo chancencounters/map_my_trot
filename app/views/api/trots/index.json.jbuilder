@@ -5,7 +5,7 @@
     json.description trot.description
     json.date trot.date
     json.duration trot.duration
-    json.created_at trot.created_at.strftime("%Y-%m-%d")
+    json.created_at trot.created_at
     json.set! :route do
       json.id trot.route_id
       json.name trot.route.name

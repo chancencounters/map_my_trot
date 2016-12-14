@@ -15,6 +15,7 @@ class Api::TrotsController < ApplicationController
     @trot.route_id = trot_params[:route_id]
 
     if @trot.save
+      @trot.activities.create!(id: current_user.id)
       render 'api/trots/show'
     else
       render json: @trot.errors, status: 422

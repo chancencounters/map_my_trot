@@ -19,5 +19,6 @@ class Route < ApplicationRecord
 
   belongs_to :user
   has_many :trots, dependent: :delete_all
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :delete_all
+  has_many :activities, as: :activatable, dependent: :delete_all
 end

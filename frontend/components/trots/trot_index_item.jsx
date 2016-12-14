@@ -8,7 +8,7 @@ class TrotIndexItem extends React.Component {
   }
 
   handleClick() {
-    this.props.router.push(`/trot/${this.props.route.id}`);
+    this.props.router.push(`/trot/${this.props.trot.id}`);
   }
 
   render() {

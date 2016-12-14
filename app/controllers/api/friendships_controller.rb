@@ -13,8 +13,12 @@ class Api::FriendshipsController < ApplicationController
 
   def edit
     @friendship = Friendship.find(params[:id])
-    @friendship.status = 'accepted'
-    @friendship.save
+    ActiveRecord::Base.transaction do
+      @friendship.status = 'accepted'
+      @friendship.save
+      @friendship.activities.create!(id: current_user.id)
+    end
+
     @friend = @friendship.user
     render json: { friend: @friend, friendship: @friendship }
   end
