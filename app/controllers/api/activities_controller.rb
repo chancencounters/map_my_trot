@@ -2,9 +2,9 @@ class Api::ActivitiesController < ApplicationController
 
   def index
     users = current_user.all_friends.or(User.where(id: current_user.id))
-    @activities = Activity.where(user_id: users.pluck(:id))
-    users.reload
+    @activities = Activity.order(created_at: :desc).where(user_id: users.pluck(:id))
     
+    users.reload
     render :index
   end
 
