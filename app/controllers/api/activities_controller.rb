@@ -1,7 +1,17 @@
-class ActivitiesController < ApplicationController
+class Api::ActivitiesController < ApplicationController
+
+  def index
+    users = current_user.all_friends.or(User.where(id: current_user.id))
+    @activities = Activity.where(user_id: users.pluck(:id))
+    users.reload
+    
+    render :index
+  end
 
   def destroy
-
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+    render json: {}
   end
 
   private
