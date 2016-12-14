@@ -14,7 +14,7 @@ class Api::RoutesController < ApplicationController
     @route = current_user.routes.includes(:comments).new(route_params)
 
     if @route.save
-      @route.activities.create!(id: current_user.id)
+      @route.activities.create!(user_id: current_user.id)
       render 'api/routes/show'
     else
       render json: @route.errors, status: 422
