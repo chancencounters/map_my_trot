@@ -7,7 +7,8 @@
     json.destination route.destination
     json.polyline route.polyline
     json.bounds route.bounds
-    json.created_at route.created_at.strftime("%Y-%m-%d")
+    json.created_at route.created_at
+    json.date route.created_at.strftime("%Y-%m-%d")
     json.set! :comments do
       route.comments.each do |comment|
         json.set! comment.id do

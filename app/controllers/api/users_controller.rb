@@ -2,7 +2,6 @@ class Api::UsersController < ApplicationController
 
   def index
     @users = current_user.potential_friends
-    
     render :index
   end
 

@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   get 'api/friends', :to => 'api/users#friends'
   get 'api/friendships', :to => 'api/users#friendships'
+  
 end

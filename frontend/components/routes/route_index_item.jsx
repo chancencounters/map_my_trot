@@ -21,7 +21,7 @@ class RouteIndexItem extends React.Component {
         </td>
         <td
           className='route_index_item_date'
-          onClick={ this.handleClick }>{ route.created_at }</td>
+          onClick={ this.handleClick }>{ route.date }</td>
         <td
           className='route_index_item_distance'
           onClick={ this.handleClick }>{ route.distance + " mi"}</td>
