@@ -16,7 +16,7 @@ class Api::FriendshipsController < ApplicationController
     ActiveRecord::Base.transaction do
       @friendship.status = 'accepted'
       @friendship.save
-      @friendship.activities.create!(id: current_user.id)
+      @friendship.activities.create!(user_id: current_user.id)
     end
 
     @friend = @friendship.user
