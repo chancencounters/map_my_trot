@@ -8,6 +8,7 @@ import trotDetailReducer from './trots/trot_detail_reducer';
 import friendsReducer from './friends/friends_reducer';
 import friendshipsReducer from './friends/friendships_reducer';
 import potentialFriendsReducer from './friends/potential_friends_reducer';
+import activitiesReducer from './activities/activities_reducer';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   friends: friendsReducer,
   friendships: friendshipsReducer,
   potentialFriends: potentialFriendsReducer,
+  activities: activitiesReducer,
 });
 
 export default rootReducer;
