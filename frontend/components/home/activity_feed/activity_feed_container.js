@@ -11,7 +11,6 @@ const mapStateToProps = (store) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchActivities: (activities) => dispatch(fetchActivityFeed(activities)),
-  clearErrors: () => dispatch(clearErrors()),
 });
 
 export default connect(
