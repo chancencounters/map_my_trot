@@ -69,7 +69,7 @@ class CreateRoute extends React.Component {
 
   initMap(mapOptions) {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
-    this.directionsService = new google.maps.DirectionsService();
+    this.directionsService = new google.maps.DirectionsService;
     this.directionsDisplay = new google.maps.DirectionsRenderer({
       map: this.map,
       suppressMarkers: true,
