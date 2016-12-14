@@ -11,7 +11,7 @@ class Api::RoutesController < ApplicationController
   end
 
   def create
-    @route = current_user.routes.new(route_params)
+    @route = current_user.routes.includes(:comments).new(route_params)
 
     if @route.save
       render 'api/routes/show'

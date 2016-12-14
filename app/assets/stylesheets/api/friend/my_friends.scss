@@ -2,11 +2,12 @@
   width: 960px;
   margin: 0 auto;
   margin-top: 30px;
+  position: relative;
 
   .no_friends_message {
     color: #000000;
   }
-  
+
   .my_friends_list {
     width: 700px;
     display: flex;

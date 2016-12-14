@@ -46,7 +46,7 @@ class RouteDetail extends React.Component {
   render() {
     const { route, deleteRoute, currentUser } = this.props;
     const { first_name, last_name } = currentUser;
-
+    
     return (
       <div className="route_detail_container group">
         <div className="route_detail_main">
@@ -83,7 +83,7 @@ class RouteDetail extends React.Component {
           <Link to="/create_route" className="create_route_button">CREATE A ROUTE</Link>
           <Link to="/log_trot" className="log_workout_button">LOG THIS WORKOUT</Link>
         </aside>
-        <CommentsContainer commentableObj={ route }/>
+        <CommentsContainer route={ route }/>
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import HeaderContainer from './headers/header_container';
 import Footer from './footer';
 const App = ({ children }) => (
-  <div>
+  <div className="main_body_container">
     <HeaderContainer />
     { children }
     <Footer />

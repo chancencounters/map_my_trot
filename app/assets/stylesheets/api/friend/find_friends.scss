@@ -3,6 +3,7 @@
   margin: 0 auto;
   margin-top: 30px;
 
+
   p {
     color: #9297a3;
     font-size: 18px;;
@@ -47,6 +48,7 @@
     width: 700px;
     display: flex;
     flex-wrap: wrap;
+    height: 100%;
 
     .find_friends_list_item {
       box-sizing: content-box;

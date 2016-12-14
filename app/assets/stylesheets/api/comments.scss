@@ -21,18 +21,22 @@
     padding: 0 20px;
 
     .comment {
-      display: flex;
-      justify-content: flex-start;
       padding-top: 10px;
+      vertical-align: middle;
 
       img {
         height: 30px;
         width: 30px;
+        display: inline;
+        vertical-align: middle;
       }
 
       .comment_details {
         padding-left: 10px;
         font-size: 12px;
+        display: inline-block;
+        width: 170px;
+        word-wrap: break-word;
 
         .comment_author_name {
           color: #0083d5;
@@ -42,6 +46,15 @@
         .comment_body {
           color: #000000;
         }
+      }
+
+      input[type="submit"] {
+        float: right;
+        color: #0083d5;
+        font-size: 12px;
+        display: inline;
+        cursor: pointer;
+        line-height: 40px;
       }
     }
   }

@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
 
   def create
     @commentable = find_commentable
@@ -6,14 +6,16 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      render json: @comment
+      render :show
     else
       render json: @comment.errors, status: 422
     end
   end
 
-  def create
-
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    render json: @comment
   end
 
   private
@@ -27,6 +29,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:body, :commentable_id, :commentable_type)
+    params.require(:comment).permit(:body, :route_id)
   end
 end

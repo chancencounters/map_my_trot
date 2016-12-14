@@ -7,6 +7,12 @@
   border-top: #FFF 1px solid;
   padding: 30px 0;
   vertical-align: baseline;
+  position: absolute;
+  left: 0;
+  bottom: -75px;
+  margin-top:50px;
+  width: 100%;
+  overflow: hidden;
 
   .footer_container {
     width: 960px;
@@ -26,4 +32,19 @@
       }
     }
   }
+}
+
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0 75px;
+    padding: 25px;
+}
+
+footer {
+
 }
