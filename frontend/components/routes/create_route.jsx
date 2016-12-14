@@ -227,8 +227,8 @@ class CreateRoute extends React.Component {
 
   render() {
     return (
-      <div className='create_route_container'>
-        <div className='create_route_forms_container'>
+      <div className='create_route_container group'>
+        <div className='create_route_forms_container group'>
           { this.searchLocForm() }
           { this.renderRouteForm() }
           { this.renderTrotForm() }

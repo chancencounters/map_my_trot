@@ -41,7 +41,7 @@ class FindFriends extends React.Component {
   renderSearchResults() {
     if (this.state.toggleSearchResults) {
       return (
-        <ul className="find_friends_list">
+        <ul className="find_friends_list group">
           { this.matches().map((user) => {
             return (
               <li className="find_friends_list_item" key={ user.id }>

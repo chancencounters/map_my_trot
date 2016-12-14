@@ -3,6 +3,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  position: relative;
 
   .create_route_forms_container {
     width: 400px;
@@ -115,7 +116,7 @@
     }
 
     .log_trot_form {
-      
+
       input[type="text"] {
         border: 1px solid #c3c2c2;
         border-radius: 4px;
@@ -222,7 +223,7 @@
 }
 
 #create_route_map {
-  height: 100%;
+  height: auto;
   width: 70%;
   flex-grow: 1;
 }

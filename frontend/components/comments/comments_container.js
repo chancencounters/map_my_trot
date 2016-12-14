@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { postComment } from '../../actions/comment_actions';
+import { postComment, deleteComment } from '../../actions/comment_actions';
 import { clearErrors } from '../../actions/error_actions';
 import Comments from './comments';
 
@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  postComment: (comment) => dispatch(postComment(comment)),
+  postComment: (comment, routeId) => dispatch(postComment(comment, routeId)),
+  deleteComment: (id) => dispatch(deleteComment(id)),
   clearErrors: () => dispatch(clearErrors()),
 });
 

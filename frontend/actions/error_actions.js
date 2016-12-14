@@ -3,6 +3,7 @@ export const RECEIVE_ROUTE_ERRORS = "RECEIVE_ROUTE_ERRORS";
 export const RECEIVE_TROT_ERRORS = "RECEIVE_TROT_ERRORS";
 export const RECEIVE_FRIEND_ERRORS = "RECEIVE_FRIEND_ERRORS";
 export const RECEIVE_FRIENDSHIP_ERRORS = "RECEIVE_FRIENDSHIP_ERRORS";
+export const RECEIVE_COMMENT_ERRORS = "RECEIVE_COMMENT_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 export const receiveSessionErrors = (errors) => {
@@ -36,6 +37,13 @@ export const receiveFriendErrors = (errors) => {
 export const receiveFriendshipErrors = (errors) => {
   return {
     type: RECEIVE_FRIENDSHIP_ERRORS,
+    errors
+  };
+};
+
+export const receiveCommentErrors = (errors) => {
+  return {
+    type: RECEIVE_COMMENT_ERRORS,
     errors
   };
 };
