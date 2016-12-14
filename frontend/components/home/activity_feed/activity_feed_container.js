@@ -12,7 +12,7 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchActivityFeed: (activityFeed) => dispatch(fetchActivityFeed(activityFeed)),
+  fetchActivities: (activities) => dispatch(fetchActivityFeed(activities)),
   clearErrors: () => dispatch(clearErrors()),
 });
 
