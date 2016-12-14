@@ -56,6 +56,10 @@ const Root = ({ store }) => {
               path="dashboard"
               component={ DashboardContainer }
               onEnter={ _redirectIfLoggedOut }/>
+            <Route
+              path="my_friends"
+              component={ MyFriendsContainer }
+              onEnter={ _redirectIfLoggedOut }/>
 
           </Route>
 

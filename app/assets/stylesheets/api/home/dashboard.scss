@@ -1,0 +1,194 @@
+// recent trots
+
+.dashboard_container {
+  width: 960px;
+  margin: auto;
+
+  p {
+    color: #999999;
+    padding-bottom: 120px;
+  }
+
+  .recent_trotouts_container {
+    width: 650px;
+
+    .recent_trotouts_header {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #c3c2c2;
+
+      h3 {
+        font: 24px/16px "Open Sans", sans-serif;
+        color: #444444;
+        font-weight: 600;
+      }
+
+      a {
+        background: #EDEDED;
+        padding: 4px 10px;
+        margin-right: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+
+        &:visited {
+          color: #2f98d9;
+          text-decoration: none;
+          outline: 0;
+        }
+      }
+    }
+
+    .recent_trotouts_list {
+
+
+      .recent_trotout_item {
+        display: block;
+        padding: 15px 0;
+        border-bottom: 1px solid #c3c2c2;
+
+        &:last-child {
+          border: none;
+        }
+
+        img {
+          width: 105px;
+          height: 105px;
+          margin-left: 10px;
+          float: left;
+          border: 1px solid #000000;
+        }
+
+        .recent_trotout_name_container {
+          float: left;
+          color: #92BFDD;
+          font-size: 20px;
+          vertical-align: middle;
+          line-height: 40px;
+          margin-left: 20px;
+          word-wrap: break-word;
+          width: 200px;
+          height: 120px;
+          overflow: hidden;
+        }
+
+        .recent_trotout_detail_container {
+          float: right;
+          color: #999999;
+        }
+
+        .recent_trotout_activity_date {
+          float: right;
+          color: #000000;
+          border-left: 1px solid #c3c2c2;
+          padding: 5px;
+          font-size: 14px;
+          width: 120px;
+
+          .recent_trotout_date {
+            border-bottom: 1px solid #c3c2c2;
+            padding-bottom: 5px;
+            width: 100px;
+            margin: 0 auto;
+          }
+
+          span {
+            text-align: center;
+            display: block;
+            padding: 3px;
+          }
+
+          .activity_type_pic {
+            margin: auto;
+            display: block;
+            height: 40px;
+            width: 40px;
+            border: 2px solid #1e8ddb;
+            background: image-url('man_on_horse.png') no-repeat;
+            background-size: auto 70%;
+            background-position: 3px;
+            border-radius: 50%;
+          }
+        }
+
+        .recent_trotout_detail_container {
+          border-left: 1px solid #c3c2c2;
+          padding: 5px;
+          font-size: 14px;
+          width: 150px;
+          display: block;
+          padding-left: 5px;
+
+          h5 {
+            display: block;
+          }
+
+          span {
+            display: block;
+            margin: 3px 0;
+            color: #000000;
+            font-size: 21px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// recent routes
+
+.dashboard_container {
+  margin-bottom: 50px;
+
+  .recent_routes_container {
+    width: 650px;
+
+    .recent_routes_header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #c3c2c2;
+      padding-bottom: 20px;
+
+      h3 {
+        font: 24px/16px "Open Sans", sans-serif;
+        color: #444444;
+        font-weight: 600;
+      }
+
+      a {
+        background: #EDEDED;
+        padding: 4px 10px;
+        margin-right: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+
+        &:visited {
+          color: #2f98d9;
+          text-decoration: none;
+          outline: 0;
+        }
+      }
+    }
+    .recent_routes_list {
+      display: flex;
+      justify-content: flex-start;
+
+      .recent_routes_item {
+
+        img {
+          width: 150px;
+          height: 150px;
+          margin-left: 10px;
+          float: left;
+          border: 1px solid #000000;
+        }
+      }
+    }
+
+  }
+}

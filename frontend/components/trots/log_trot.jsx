@@ -20,12 +20,14 @@ class LogTrot extends React.Component {
 
     this._duration = this._duration.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
   }
 
   update(field) {
-		return e => this.setState({
+		return e => {
+      this.setState({
 			[field]: e.currentTarget.value
-		});
+		});};
 	}
 
   componentDidMount() {
@@ -82,7 +84,7 @@ class LogTrot extends React.Component {
             <input type='number'
               value={ this.state.minutes }
               onChange={ this.update('minutes') }
-              min="0" max="59" placeholder="mm"
+              pattern="[0-9]{2}" placeholder="mm"
               />
             <span> : </span>
             <input type='number'
@@ -109,9 +111,11 @@ class LogTrot extends React.Component {
 
   _duration() {
     let { hours, minutes, seconds } = this.state;
-    hours = hours === "" ? "00" : "";
-    minutes = minutes === "" ?  "00" : "";
-    seconds = seconds === "" ?  "00" : "";
+    hours = hours === "" ? "00" : this.state.hours;
+    minutes = minutes === "" ?  "00" : this.state.minutes;
+    seconds = seconds === "" ?  "00" : this.state.seconds;
+
+    if (hours === "00" && minutes === "00") return "--";
     return hours + ":" + minutes + ":" + seconds;
   }
 
@@ -121,8 +125,6 @@ class LogTrot extends React.Component {
         .then(() => this.props.router.push("/trots"))
         .then(() => this.props.clearErrors())
     );
-
-
   }
 
   render() {
