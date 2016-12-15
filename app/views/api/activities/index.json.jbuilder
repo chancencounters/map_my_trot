@@ -1,22 +1,26 @@
 @activities.each do |activity|
   json.set! activity.id do
     if activity.activatable_type == "Route"
+      route = activity.activatable
+      json.id activity.id
       json.activatable_type activity.activatable_type
-      json.extract! activity.activatable, :id, :name, :distance, :polyline
+      json.set! :route do
+        json.partial! 'api/routes/route', route: route
+      end
       json.set! :user do
-        json.id activity.activatable.user.id
-        json.name activity.activatable.user.first_name + " " + activity.activatable.user.last_name
-        json.image_url asset_path(activity.activatable.user.avatar.url)
+        json.partial! 'api/users/user', user: route.user
       end
     elsif activity.activatable_type == "Trot"
+      trot = activity.activatable
       json.activatable_type activity.activatable_type
-      json.distance activity.activatable.route.distance
-      json.polyline activity.activatable.route.polyline
-      json.extract! activity.activatable, :id, :name
+      json.distance trot.route.distance
+      json.polyline trot.route.polyline
+      json.extract! trot, :id, :name
+      json.set! :trot do
+        json.partial! 'api/trots/trot', trot: trot
+      end
       json.set! :user do
-        json.id activity.activatable.user.id
-        json.name activity.activatable.user.first_name + " " + activity.activatable.user.last_name
-        json.image_url asset_path(activity.activatable.user.avatar.url)
+        json.partial! 'api/users/user', user: trot.user
       end
     end
   end

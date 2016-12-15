@@ -7,12 +7,6 @@ class Header extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
 
-  componentWillReceiveProps(newProps) {
-    if (!newProps.currentUser) {
-      this.props.router.push("/login");
-    }
-  }
-
   handleLogout() {
     this.props.clearErrors();
     this.props.logout();

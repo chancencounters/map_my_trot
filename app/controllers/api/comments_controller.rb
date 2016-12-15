@@ -4,7 +4,7 @@ class Api::CommentsController < ApplicationController
     @commentable = find_commentable
     @comment = @commentable.comments.build(comment_params)
     @comment.user_id = current_user.id
-
+    
     if @comment.save
       render :show
     else

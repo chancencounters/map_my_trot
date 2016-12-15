@@ -7,18 +7,9 @@ json.polyline route.polyline
 json.bounds route.bounds
 json.created_at route.created_at
 json.set! :comments do
-  route.comments.each do |comment|
-    json.set! comment.id do
-      json.id comment.id
-      json.body comment.body
-      json.commentable_id comment.commentable_id
-      json.commentable_type comment.commentable_type
-      json.created_at comment.created_at
-      json.set! :author do
-        json.id comment.user.id
-        json.name "#{comment.user.first_name} #{comment.user.last_name}"
-        json.image_url asset_path(comment.user.avatar.url)
-      end
+route.comments.each do |comment|
+  json.set! comment.id do
+    json.partial! 'api/comments/comment', comment: comment
     end
   end
 end

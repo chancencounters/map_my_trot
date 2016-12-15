@@ -10,34 +10,13 @@ class ActivityComments extends React.Component {
     };
 
     this.renderCommentForm = this.renderCommentForm.bind(this);
-    this.handlePostComment = this.handlePostComment.bind(this);
     this.renderCommentsList = this.renderCommentsList.bind(this);
     this.handleDeleteComment = this.handleDeleteComment.bind(this);
-  }
-
-  componentDidMount() {
-    const activatableType = this.props.activity.activatable_type;
-
-    if (activatableType === "Route") {
-      this.props.fetchRoute(this.props.activity.id);
-    } else if (activatableType === "Trot") {
-      this.props.fetchTrot(this.props.activity.id);
-    }
+    this.postComment = this.postComment.bind(this);
   }
 
   handleInput(e) {
     this.setState({ body: e.currentTarget.value });
-  }
-
-  handlePostComment() {
-    const activatableType = this.props.activity.activatable_type;
-    this.setState({ body: "" });
-    
-    if (activatableType === "Route") {
-      this.props.postRouteComment(this.state, this.props.routeDetail.id);
-    } else if (activatableType === "Trot") {
-      this.props.postTrotComment(this.state, this.props.trotDetail.id);
-    }
   }
 
   handleDeleteComment(id) {
@@ -53,7 +32,7 @@ class ActivityComments extends React.Component {
           value={ this.state.body }
           onChange={ (e) => this.handleInput(e) }/>
         <input type="submit"
-          onClick={ this.handlePostComment }
+          onClick={ this.postComment }
           value="Post"/>
       </form>
     );
@@ -69,20 +48,25 @@ class ActivityComments extends React.Component {
   );
   }
 
-  renderCommentsList() {
-    const { routeDetail, trotDetail, currentUser } = this.props;
-    const activatableType = this.props.activity.activatable_type;
+  postComment() {
+    this.props.handlePostComment(this.state);
+    this.setState({body: ""});
+  }
 
+  renderCommentsList() {
+    const { currentUser } = this.props;
+    const activatableType = this.props.activity.activatable_type;
     let comments = [];
-    if (activatableType === "Route") {
-      comments = asArray(routeDetail.comments);
-    } else if (activatableType === "Trot") {
-      comments = asArray(trotDetail.comments);
+
+    if (activatableType === "Route" && Boolean(this.props.activity.route.comments)) {
+      comments = this.props.activity.route.comments;
+    } else if (activatableType === "Trot" && Boolean(this.props.activity.trot.comments)) {
+      comments = this.props.activity.trot.comments;
     }
 
     return (
       <ul className='activity_comments_list'>
-        { comments.map((comment) => {
+        { asArray(comments).map((comment) => {
           const author = comment.author;
           return (
             <li className="activity_comment" key={ comment.id }>
@@ -102,7 +86,7 @@ class ActivityComments extends React.Component {
   render() {
     return (
       <aside className='activity_comments_list_container'>
-        { (Boolean(this.props.routeDetail.comments)) ? this.renderCommentsList() : "" }
+        { this.renderCommentsList() }
         { this.renderCommentForm() }
       </aside>
     );
