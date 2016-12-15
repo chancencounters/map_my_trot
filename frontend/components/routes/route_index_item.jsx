@@ -13,7 +13,7 @@ class RouteIndexItem extends React.Component {
 
   render() {
     const { route, deleteRoute } = this.props;
-    const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=50x50&path=weight:3%7Ccolor:red%7Cenc:${ route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`
+    const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=weight:3%7Ccolor:red%7Cenc:${ route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`
     return (
       <tr className='route_index_item'>
         <td className='route_map_container' onClick={ this.handleClick }>

@@ -49,7 +49,7 @@ class RouteDropdown extends React.Component {
     return (
       <ul className="route_dropdown_list">
         { newRoutesList.map((route) => {
-          const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=50x50&path=weight:3%7Ccolor:red%7Cenc:${ route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`
+          const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=weight:3%7Ccolor:red%7Cenc:${ route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`
           return (
             <li key={ route.id }
               onClick={ this.handleRouteClick.bind(this, route.id) }>
@@ -68,7 +68,7 @@ class RouteDropdown extends React.Component {
 
   renderSelectedRoute() {
     const selectedRoute = this.props.routesList[this.state.selectedRouteId];
-    const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=50x50&path=weight:3%7Ccolor:red%7Cenc:${ selectedRoute.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`
+    const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=weight:3%7Ccolor:red%7Cenc:${ selectedRoute.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`
 
     return (
       <div className="selected_route">

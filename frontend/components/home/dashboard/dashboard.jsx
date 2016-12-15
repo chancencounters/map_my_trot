@@ -46,7 +46,7 @@ class Dashboard extends React.Component {
         </header>
         <ul className="recent_trotouts_list">
           { recentTrots.map((trot) => {
-            const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=50x50&path=weight:3%7Ccolor:red%7Cenc:${ trot.route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
+            const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=weight:3%7Ccolor:red%7Cenc:${ trot.route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
             return (
               <li className="recent_trotout_item group" key={ trot.id }>
                 <img src={ staticMap }/>
@@ -84,7 +84,7 @@ class Dashboard extends React.Component {
         </header>
         <ul className="recent_routes_list">
           { recentRoutes.map((route) => {
-            const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=50x50&path=weight:3%7Ccolor:red%7Cenc:${ route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
+            const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=weight:3%7Ccolor:red%7Cenc:${ route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
             return (
               <li className="recent_routes_item" key={ route.id }>
                 <img src={ staticMap }>
