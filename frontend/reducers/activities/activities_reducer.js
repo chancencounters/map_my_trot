@@ -1,5 +1,5 @@
 import { RECEIVE_ACTIVITIES } from '../../actions/activity_actions';
-
+import { RECEIVE_NEW_COMMENT } from '../../actions/comment_actions';
 const ActivitiesReducer = (state = {}, action) => {
   Object.freeze(state);
 

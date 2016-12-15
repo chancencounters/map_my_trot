@@ -33,7 +33,7 @@ const routeDetailReducer = (state = initialState, action) => {
     case REMOVE_COMMENT:
       const keys = Object.keys(state.comments);
       const newComments = {};
-      
+
       keys.forEach((key) => {
         if (parseInt(key) !== action.comment.id) {
           Object.assign( newComments, { [key]: state.comments[key]} );
