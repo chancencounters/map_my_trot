@@ -4,11 +4,11 @@
     width: 960px;
     margin: auto;
 
-    .route_activity_container {
+    .trot_activity_container {
       width: 650px;
       margin-bottom: 40px;
 
-      .route_activity_avatar {
+      .trot_activity_avatar {
 
         img {
           width: 50px;
@@ -19,7 +19,7 @@
         }
       }
 
-      .route_activity {
+      .trot_activity {
         border: 1px solid #cdcdcd;
         width: 580px;
         display: block;
@@ -29,29 +29,54 @@
         background-color: #f8f8f8;
 
         .activity_description {
-          line-height: 50px;
+          line-height: 30px;
           padding-left: 10px;
           font-size: 14px;
           white-space: nowrap;
           overflow: hidden;
           color: #444444;
-          border-bottom: 1px solid #cdcdcd;
           background: #ffffff;
+        }
+
+        .activity_name {
+          line-height: 20px;
+          display: block;
+          background: #fff;
+          border-bottom: 1px solid #cdcdcd;
+          padding-left: 10px;
+          padding-bottom: 10px;
+          font-size: 14px;
+          color: #444444;
         }
 
         .activity_detail {
           height: 180px;
           border-bottom: 1px solid #cdcdcd;
+          display: flex;
+          position: relative;
+
+          &::after {
+            background: image_url('man_on_horse.png') no-repeat;
+            border: 3px solid #cdcdcd;
+            border-radius: 70%;
+            position: absolute;
+            content: "";
+            height: 35px;
+            width: 35px;
+            top: -50px;
+            right: 35px;
+            background-size: auto 70%;
+            background-position: 4px;
+          }
 
           .activity_map {
-            width: 285px;
             height: 180px;
-            float: left;
+            flex-basis: 50%;
             border-right: 1px solid #cdcdcd;
           }
 
           .activity_detail_dist_container {
-            float: right;
+            flex-basis: 50%;
             padding: 27px 105px;
             text-align: center;
 
@@ -85,6 +110,19 @@
 
         .activity_comment_footer {
           height: 50px;
+          position: relative;
+          
+          &::after {
+            background: image_url('activity_friend_logo.png') no-repeat;
+            border-radius: 70%;
+            position: absolute;
+            content: "";
+            height: 55px;
+            width: 55px;
+            top: 3px;
+            right: 70px;
+            background-size: auto 80%;
+          }
 
           .message_icon {
             background: image_url('message_icon.png');

@@ -14,9 +14,18 @@ export const removeComment = (comment) => ({
   comment
 });
 
-export function postComment(comment, routeId) {
+export function postRouteComment(comment, routeId) {
   return (dispatch) => {
-    return Util.postComment(comment, routeId).then(
+    return Util.postRouteComment(comment, routeId).then(
+      (newComment) => dispatch(receiveNewComment(newComment)),
+      (errors) => dispatch(receiveCommentErrors(errors.responseJSON))
+    );
+  };
+}
+
+export function postTrotComment(comment, trotId) {
+  return (dispatch) => {
+    return Util.postTrotComment(comment, trotId).then(
       (newComment) => dispatch(receiveNewComment(newComment)),
       (errors) => dispatch(receiveCommentErrors(errors.responseJSON))
     );

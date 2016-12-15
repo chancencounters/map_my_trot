@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { asArray } from '../../reducers/selectors';
 
-class RouteActivityComments extends React.Component {
+class ActivityComments extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +16,13 @@ class RouteActivityComments extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchRoute(this.props.route.id);
+    const activatableType = this.props.activity.activatable_type;
+
+    if (activatableType === "Route") {
+      this.props.fetchRoute(this.props.activity.id);
+    } else if (activatableType === "Trot") {
+      this.props.fetchTrot(this.props.activity.id);
+    }
   }
 
   handleInput(e) {
@@ -24,8 +30,14 @@ class RouteActivityComments extends React.Component {
   }
 
   handlePostComment() {
+    const activatableType = this.props.activity.activatable_type;
     this.setState({ body: "" });
-    this.props.postComment(this.state, this.props.routeDetail.id);
+    
+    if (activatableType === "Route") {
+      this.props.postRouteComment(this.state, this.props.routeDetail.id);
+    } else if (activatableType === "Trot") {
+      this.props.postTrotComment(this.state, this.props.trotDetail.id);
+    }
   }
 
   handleDeleteComment(id) {
@@ -58,8 +70,15 @@ class RouteActivityComments extends React.Component {
   }
 
   renderCommentsList() {
-    const { routeDetail, currentUser } = this.props;
-    const comments = asArray(routeDetail.comments);
+    const { routeDetail, trotDetail, currentUser } = this.props;
+    const activatableType = this.props.activity.activatable_type;
+
+    let comments = [];
+    if (activatableType === "Route") {
+      comments = asArray(routeDetail.comments);
+    } else if (activatableType === "Trot") {
+      comments = asArray(trotDetail.comments);
+    }
 
     return (
       <ul className='activity_comments_list'>
@@ -90,4 +109,4 @@ class RouteActivityComments extends React.Component {
   }
 }
 
-export default RouteActivityComments;
+export default ActivityComments;
