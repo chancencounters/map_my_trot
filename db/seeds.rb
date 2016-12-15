@@ -28,9 +28,18 @@ Friendship.create!(user: rob, friend: zack, status: 'pending')
 # Comment.create!(body: Faker::Lorem.paragraph(3), user_id: bruce.id, commentable_id: 1, commentable_type: "Route")
 # Comment.create!(body: Faker::Lorem.paragraph(3), user_id: rob.id, commentable_id: 1, commentable_type: "Route")
 
+r1 = Route.create!(name: "Trot Around Town", distance: 0.16, polyline: "{wtwFtpsbMlAwDzBxApAiE", origin: "229 W 22nd St, New York, NY 10011, USA", destination: destination: "142 W 21st St, New York, NY 10011, USA", bounds: "{\"south\":40.74124537760784,\"west\":-73.99890780810392,\"north\":40.74640700374776,\"east\":-73.98956299189604}", user_id: zack.id)
+r2 = Route.create!(name: "Trot Around Town", distance: 0.16, polyline: "{wtwFtpsbMlAwDzBxApAiE", origin: "229 W 22nd St, New York, NY 10011, USA", destination: destination: "142 W 21st St, New York, NY 10011, USA", bounds: "{\"south\":40.74124537760784,\"west\":-73.99890780810392,\"north\":40.74640700374776,\"east\":-73.98956299189604}", user_id: zack.id)
+r3 = Route.create!(name: "Trot Around Town", distance: 0.16, polyline: "{wtwFtpsbMlAwDzBxApAiE", origin: "229 W 22nd St, New York, NY 10011, USA", destination: destination: "142 W 21st St, New York, NY 10011, USA", bounds: "{\"south\":40.74124537760784,\"west\":-73.99890780810392,\"north\":40.74640700374776,\"east\":-73.98956299189604}", user_id: zack.id)
+r4 = Route.create!(name: "Trot Around Town", distance: 0.16, polyline: "{wtwFtpsbMlAwDzBxApAiE", origin: "229 W 22nd St, New York, NY 10011, USA", destination: destination: "142 W 21st St, New York, NY 10011, USA", bounds: "{\"south\":40.74124537760784,\"west\":-73.99890780810392,\"north\":40.74640700374776,\"east\":-73.98956299189604}", user_id: zack.id)
+r5 = Route.create!(name: "Trot Around Town", distance: 0.16, polyline: "{wtwFtpsbMlAwDzBxApAiE", origin: "229 W 22nd St, New York, NY 10011, USA", destination: destination: "142 W 21st St, New York, NY 10011, USA", bounds: "{\"south\":40.74124537760784,\"west\":-73.99890780810392,\"north\":40.74640700374776,\"east\":-73.98956299189604}", user_id: zack.id)
+r6 = Route.create!(name: "Trot Around Town", distance: 0.16, polyline: "{wtwFtpsbMlAwDzBxApAiE", origin: "229 W 22nd St, New York, NY 10011, USA", destination: destination: "142 W 21st St, New York, NY 10011, USA", bounds: "{\"south\":40.74124537760784,\"west\":-73.99890780810392,\"north\":40.74640700374776,\"east\":-73.98956299189604}", user_id: zack.id)
+r7 = Route.create!(name: "Trot Around Town", distance: 0.16, polyline: "{wtwFtpsbMlAwDzBxApAiE", origin: "229 W 22nd St, New York, NY 10011, USA", destination: destination: "142 W 21st St, New York, NY 10011, USA", bounds: "{\"south\":40.74124537760784,\"west\":-73.99890780810392,\"north\":40.74640700374776,\"east\":-73.98956299189604}", user_id: zack.id)
+r8 = Route.create!(name: "Trot Around Town", distance: 0.16, polyline: "{wtwFtpsbMlAwDzBxApAiE", origin: "229 W 22nd St, New York, NY 10011, USA", destination: destination: "142 W 21st St, New York, NY 10011, USA", bounds: "{\"south\":40.74124537760784,\"west\":-73.99890780810392,\"north\":40.74640700374776,\"east\":-73.98956299189604}", user_id: zack.id)
 
-10.times do
-  User.create!(
+
+10.times do |i|
+  user1 = User.create!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   email: Faker::Internet.email,
