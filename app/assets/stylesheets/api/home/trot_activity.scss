@@ -85,7 +85,7 @@
               background-size: cover;
               height: 25px;
               width: 25px;
-              margin-left: 25px;
+              margin-left: 30px;
             }
 
             span {
@@ -111,7 +111,7 @@
         .activity_comment_footer {
           height: 50px;
           position: relative;
-          
+
           &::after {
             background: image_url('activity_friend_logo.png') no-repeat;
             border-radius: 70%;
