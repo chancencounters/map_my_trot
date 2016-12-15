@@ -1,5 +1,6 @@
 import React from 'react';
 import RouteActivity from './route_activity';
+import TrotActivity from './trot_activity';
 
 class ActivityFeed extends React.Component {
   constructor(props) {
@@ -14,13 +15,11 @@ class ActivityFeed extends React.Component {
   renderActivity(activity) {
     if (activity.activatable_type === "Route") {
       return (
-        <RouteActivity activity={ activity }/>
+        <RouteActivity activity={ activity } key={ activity.id }/>
       );
     } else if (activity.activatable_type === "Trot") {
       return (
-        <li className="activity" key={ activity.id }>
-
-        </li>
+        <TrotActivity activity={ activity } key={ activity.id }/>
       );
     } else {
       return (
@@ -34,10 +33,11 @@ class ActivityFeed extends React.Component {
 
   render() {
     const { activities } = this.props;
+
     return (
       <div className="activity_feed_container">
         <ul className="activity_feed">
-          { activities.map((activity) => {
+          { activities.reverse().map((activity) => {
           return (
             this.renderActivity(activity)
           );

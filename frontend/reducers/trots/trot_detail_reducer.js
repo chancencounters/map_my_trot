@@ -18,7 +18,8 @@ import { RECEIVE_NEW_COMMENT } from '../../actions/trot_actions';
       destination: "",
       polyline: "",
       bounds: "",
-    }
+    },
+    comments: {},
   };
 
 const trotDetailReducer = (state = initialState, action) => {
