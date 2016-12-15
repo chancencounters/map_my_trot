@@ -4,29 +4,27 @@ import ActivityCommentsContainer from '../../comments/activity_comments_containe
 class RouteActivity extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      toggleComments: false,
-    };
-    this.handleMsgClick = this.handleMsgClick.bind(this);
+
     this.renderComments = this.renderComments.bind(this);
   }
 
-  handleMsgClick() {
-    this.setState({ toggleComments: !this.state.toggleComments });
-  }
-
   renderComments() {
-    if (this.state.toggleComments) {
+    if (this.props.selected) {
       return (
-        <ActivityCommentsContainer activity={ this.props.activity }/>
+        <ActivityCommentsContainer
+          activity={ this.props.activity }
+          handlePostComment={ this.props.handlePostComment }/>
       );
     }
   }
 
   render() {
     const { activity } = this.props;
-    const { name } = activity.user;
-    const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=286x180&path=weight:3%7Ccolor:red%7Cenc:${ activity.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
+    const { route } = activity;
+    const { first_name, last_name } = activity.user;
+
+    const userName = first_name + " " + last_name;
+    const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=286x180&path=weight:3%7Ccolor:red%7Cenc:${ route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
     return (
       <li className="route_activity_container group" key="{ activity.id }">
         <div className="route_activity_avatar">
@@ -34,7 +32,7 @@ class RouteActivity extends React.Component {
         </div>
         <div className="route_activity group">
           <div className="activity_description">
-            { name } created the route { activity.name }
+            { userName } created the route { route.name }
           </div>
           <div className="activity_detail">
             <img className="activity_map" src={ staticMap }/>
@@ -42,13 +40,13 @@ class RouteActivity extends React.Component {
               <div className="road_img"></div>
               <span>DISTANCE</span>
               <div className="activity_detail_dist">
-                { activity.distance }
+                { route.distance }
               </div>
               <div>mi</div>
             </div>
           </div>
           <div className="activity_comment_footer">
-            <div className="message_icon" onClick={ this.handleMsgClick }/>
+            <div className="message_icon" onClick={ () => this.props.onClick(activity.id) }/>
           </div>
           <div className="activity_comments">
             { this.renderComments() }

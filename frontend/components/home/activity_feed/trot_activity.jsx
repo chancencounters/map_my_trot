@@ -7,27 +7,26 @@ class TrotActivity extends React.Component {
     this.state = {
       toggleComments: false,
     };
-    this.handleMsgClick = this.handleMsgClick.bind(this);
+
     this.renderComments = this.renderComments.bind(this);
   }
 
-  handleMsgClick() {
-    this.setState({ toggleComments: !this.state.toggleComments });
-  }
-
   renderComments() {
-    if (this.state.toggleComments) {
+    if (this.props.selected) {
       return (
-        <ActivityCommentsContainer activity={ this.props.activity }/>
+        <ActivityCommentsContainer
+          activity={ this.props.activity }
+          handePostComment={ this.props.handlePostComment }/>
       );
     }
   }
 
   render() {
     const { activity } = this.props;
-    const { name } = activity.user;
+    const { trot } = activity;
+    const { first_name, last_name } = activity.user;
 
-    const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=286x180&path=weight:3%7Ccolor:red%7Cenc:${ activity.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
+    const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=286x180&path=weight:3%7Ccolor:red%7Cenc:${ trot.route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
     return (
       <li className="trot_activity_container group" key="{ activity.id }">
         <div className="trot_activity_avatar">
@@ -50,7 +49,7 @@ class TrotActivity extends React.Component {
             <img className="activity_map" src={ staticMap }/>
           </div>
           <div className="activity_comment_footer">
-            <div className="message_icon" onClick={ this.handleMsgClick }/>
+            <div className="message_icon" onClick={ () => this.props.onClick(activity.id) }/>
           </div>
           <div className="trot_activity_comments">
             { this.renderComments() }

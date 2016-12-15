@@ -5,6 +5,11 @@ import TrotActivity from './trot_activity';
 class ActivityFeed extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      selectedId: null,
+    };
+    this.onClick = this.onClick.bind(this);
+    this.handlePostComment = this.handlePostComment.bind(this);
     this.renderActivity = this.renderActivity.bind(this);
   }
 
@@ -12,24 +17,60 @@ class ActivityFeed extends React.Component {
     this.props.fetchActivities();
   }
 
-  renderActivity(activity) {
+  renderActivity(activity, idx) {
     if (activity.activatable_type === "Route") {
       return (
-        <RouteActivity activity={ activity } key={ activity.id }/>
+        <RouteActivity
+          activity={ activity }
+          key={ idx }
+          selected={ this.state.selectedId === activity.id }
+          onClick={ this.onClick }
+          handlePostComment={ this.handlePostComment }/>
       );
     } else if (activity.activatable_type === "Trot") {
       return (
-        <TrotActivity activity={ activity } key={ activity.id }/>
+        <TrotActivity activity={ activity }
+          key={ idx }
+          selected={ this.state.selectedId === activity.id }
+          onClick={ this.onClick }
+          handlePostComment={ this.handlePostComment }/>
       );
     } else {
       return (
-        <li className="activity" key={ activity.id }>
+        <li className="activity" key={ idx }>
 
         </li>
       );
     }
   }
 
+  handlePostComment(comment) {
+    const activity = this._selectActivity();
+    const activatableType = activity.activatable_type;
+
+    if (activatableType === "Route") {
+      const routeOrTrotId = activity.route.id;
+      this.props.postRouteComment(comment, routeOrTrotId );
+    } else if (activatableType === "Trot") {
+      const routeOrTrotId = activity.trot.id;
+      this.props.postTrotComment(comment, routeOrTrotId);
+    }
+  }
+
+  _selectActivity() {
+    const { activities } = this.props;
+
+    for (let i = 0; i < activities.length; i++) {
+      let activity = activities[i];
+      if (activity.id === this.state.selectedId) {
+        return activity;
+      }
+    }
+  }
+
+  onClick(id) {
+    this.setState({ selectedId: id});
+  }
 
   render() {
     const { activities } = this.props;
@@ -37,9 +78,9 @@ class ActivityFeed extends React.Component {
     return (
       <div className="activity_feed_container">
         <ul className="activity_feed">
-          { activities.reverse().map((activity) => {
+          { activities.map((activity, idx) => {
           return (
-            this.renderActivity(activity)
+            this.renderActivity(activity, idx)
           );
         })}
         </ul>

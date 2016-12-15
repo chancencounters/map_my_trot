@@ -7,16 +7,12 @@ import ActivityComments from './activity_comments';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  routeDetail: state.routeDetail,
-  trotDetail: state.trotDetail,
 });
 
 const mapDispatchToProps = dispatch => ({
   postRouteComment: (comment, routeId) => dispatch(postRouteComment(comment, routeId)),
   postTrotComment: (comment, routeId) => dispatch(postTrotComment(comment, trotId)),
   deleteComment: (id) => dispatch(deleteComment(id)),
-  fetchRoute: (id) => dispatch(fetchRoute(id)),
-  fetchTrot: (id) => dispatch(fetchTrot(id)),
   clearErrors: () => dispatch(clearErrors()),
 });
 

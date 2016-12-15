@@ -48,3 +48,75 @@ export const removePotentialFriend = (state, action) => {
 
   return newPotentialFriend;
 };
+
+export const removeComment = (state, comment) => {
+  let newActivityObj = {};
+  let newTrotOrRouteObj = {};
+  let newCommentsObj = {};
+  let activityId;
+
+  asArray(state).forEach((activity) => {
+    if (activity.activatable_type === "Route") {
+      if (Boolean(activity.route.comments)) {
+        if (Boolean(activity.route.comments[comment.id])) {
+          activityId = activity.id;
+          asArray(activity.route.comments).forEach((activityComment) => {
+            if (activityComment.id !== comment.id) {
+              newCommentsObj = Object.assign(
+                newCommentsObj, { [activityComment.id]: activityComment});
+                  newTrotOrRouteObj = Object.assign(newTrotOrRouteObj, state[activityId].route, { comments: newCommentsObj });
+                    newActivityObj = Object.assign(newActivityObj, state[activityId], { route: newTrotOrRouteObj });
+            }
+          });
+        }
+      }
+    } else if (activity.activatable_type === "Trot") {
+      if (Boolean(activity.trot.comments)) {
+        if (Boolean(activity.trot.comments[comment.id])) {
+          activityId = activity.id;
+          asArray(activity.trot.comments).forEach((activityComment) => {
+            if (activityComment.id !== comment.id) {
+              newCommentsObj = Object.assign(
+                newCommentsObj, { [activityComment.id]: activityComment});
+                  newTrotOrRouteObj = Object.assign(newTrotOrRouteObj, state[activityId].trot, { comments: newCommentsObj });
+                    newActivityObj = Object.assign(newActivityObj, state[activityId], { trot: newTrotOrRouteObj });
+            }
+          });
+        }
+      }
+    }
+  });
+
+  const newObj = Object.assign({}, state, { [activityId]: newActivityObj} );
+  return newObj;
+};
+
+export const receiveNewComment = (state, comment) => {
+  let newCommentsObj = {};
+  let newActivityObj = {};
+  let newTrotOrRouteObj = {};
+  let newObj = {};
+  let activityId;
+  asArray(state).forEach((activity) => {
+    activityId = activity.id;
+    if (comment.commentable_type === activity.activatable_type) {
+        if (comment.commentable_id === activity.route.id) {
+        newCommentsObj = Object.assign(
+          {}, activity.route.comments, { [comment.id]: comment });
+          newTrotOrRouteObj = Object.assign(newTrotOrRouteObj, activity.route, { comments: newCommentsObj });
+            newActivityObj = Object.assign(newActivityObj, activity, { route: newTrotOrRouteObj });
+            newObj = Object.assign({}, state, { [activityId]: newActivityObj} );
+          }
+        } else if (comment.commentable_type === activity.activatable_type) {
+            if (comment.commentable_id === activity.trot.id) {
+              newCommentsObj = Object.assign(
+                {}, activity.trot.comments, { [comment.id]: comment });
+                newTrotOrRouteObj = Object.assign(newTrotOrRouteObj, activity.route, { comments: newCommentsObj });
+                  newActivityObj = Object.assign(newActivityObj, activity, { trot: newTrotOrRouteObj });
+                  newObj = Object.assign({}, state, { [activityId]: newActivityObj} );
+          }
+        }
+  });
+
+  return newObj;
+};

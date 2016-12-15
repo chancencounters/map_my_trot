@@ -44,22 +44,22 @@ class SessionForm extends React.Component {
               value={ this.state.first_name }
               placeholder="First Name"
               onChange={ this.update("first_name") }/>
-            { (Boolean(errors.first_name)) ? "First name is required" : "" }
+            { (Boolean(errors.first_name)) ? <div className="error_message">First name is required</div> : "" }
             <input type="text"
               value={ this.state.last_name }
               placeholder="Last Name"
               onChange={ this.update("last_name") }/>
-            { (Boolean(errors.last_name)) ? "Last name is required" : "" }
+            { (Boolean(errors.last_name)) ? <div className="error_message">Last name is required</div> : "" }
             <input type="text"
               value={ this.state.email }
               placeholder="Email"
               onChange={ this.update("email") }/>
-            { (Boolean(errors.email)) ? "Email is required" : "" }
+            { (Boolean(errors.email)) ? <div className="error_message">Email is required</div> : "" }
             <input type="password"
               value={ this.state.password }
               placeholder="Password"
               onChange={ this.update("password") }/>
-            { (Boolean(errors.password)) ? "Password " + errors.password[0] : "" }
+            { (Boolean(errors.password)) ? <div className="error_message">Password { errors.password[0] }</div> : "" }
             <input type="submit"
               onClick={ this.handleSubmit }
               value="JOIN NOW"/>
@@ -88,7 +88,7 @@ class SessionForm extends React.Component {
               value={ this.state.password }
               placeholder="Password"
               onChange={ this.update("password") }/>
-            { (Boolean(errors)) ? errors[0] : "" }
+            { (Boolean(errors.length)) ? <div className="error_message">{ errors[0] }</div> : "" }
             <input type="submit"
               onClick={ this.handleSubmit }
               value="LOG IN"/>
