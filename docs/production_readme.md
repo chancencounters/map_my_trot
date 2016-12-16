@@ -8,7 +8,7 @@ MapMyTrot is a full-stack web application inspired by MapMyRun.  It utilizes Rub
 
 ### Creating Routes and Rendering Maps
 
-  Utilizing google maps api, I render a map and attach a click event listener in the `CreateRoutes` component. The event listener will call my RouteManager component to render a marker and route. Using googles direction services, I render polylines that can be chained multiple times to create a route.
+  Utilizing google maps api, I render a map and attach a click event listener in the `CreateRoutes` component. The event listener will call my RouteManager component to render a marker. Googles direction services will then render polylines, that can be chained multiple times, to create a route.
 
   The route is stored in the database under a routes table that contains columns `id`,
   `user_id`, `name`, `distance`, `polyline`, `origin`, `bounds`, and `destination`.
