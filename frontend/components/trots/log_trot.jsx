@@ -3,6 +3,7 @@ import { merge } from 'lodash';
 import { withRouter } from 'react-router';
 import Shortcuts from '../shortcuts';
 import RouteDropdown from '../routes/route_dropdown';
+import moment from 'moment';
 
 class LogTrot extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class LogTrot extends React.Component {
       route_id: "",
       name: "",
       description: "",
-      date: "",
+      date: moment().format('YYYY-MM-DD'),
       hours: "",
       minutes: "",
       seconds: "",

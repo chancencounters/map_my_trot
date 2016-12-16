@@ -9,7 +9,9 @@ class Header extends React.Component {
 
   handleLogout() {
     this.props.clearErrors();
-    this.props.logout();
+    this.props.logout().then(
+      () => this.props.router.push('/login')
+    );
   }
 
   renderNavLinks() {
