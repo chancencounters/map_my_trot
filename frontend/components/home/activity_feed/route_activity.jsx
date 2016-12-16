@@ -52,11 +52,11 @@ class RouteActivity extends React.Component {
             </div>
           </div>
           <div className="activity_comment_footer">
-            <div className="activity_time">Posted { moment(activity.created_at).format("MMMM Do YYYY, h:mm:ss a") }</div>
+            <div className="activity_time">Posted { moment(activity.created_at).format("MMMM Do YYYY, h:mm a") }</div>
             <div className="message_icon" onClick={ () => this.props.onClick(activity.id) }/>
             <div className="num_of_comments">{ asArray(comments).length }</div>
           </div>
-          <div className="activity_comments">
+          <div className="route_activity_comments">
             { this.renderComments() }
           </div>
         </div>

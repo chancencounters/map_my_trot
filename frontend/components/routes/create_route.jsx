@@ -74,14 +74,14 @@ class CreateRoute extends React.Component {
   componentDidMount() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((pos) => {
-        this.initMap(_getMapOptions(pos));
-      });
+      this.initMap(_getMapOptions(pos));
+    });
     } else {
       this.initMap(_defaultMapOptions);
     }
   }
 
-  initMap(mapOptions) {
+ initMap(mapOptions) {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.directionsService = new google.maps.DirectionsService;
     this.directionsDisplay = new google.maps.DirectionsRenderer({
@@ -101,7 +101,6 @@ class CreateRoute extends React.Component {
     });
 
     this.map.addListener('idle', (e) => {
-      debugger
       this.closeModal();
     });
   }

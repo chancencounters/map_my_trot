@@ -69,7 +69,11 @@ class ActivityFeed extends React.Component {
   }
 
   onClick(id) {
-    this.setState({ selectedId: id});
+    if (this.state.selectedId === id) {
+      this.setState({ selectedId: null});
+    } else {
+      this.setState({ selectedId: id});
+    }
   }
 
   render() {
