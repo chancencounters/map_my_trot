@@ -18,7 +18,7 @@ class TrotActivity extends React.Component {
       return (
         <ActivityCommentsContainer
           activity={ this.props.activity }
-          handePostComment={ this.props.handlePostComment }/>
+          handlePostComment={ this.props.handlePostComment }/>
       );
     }
   }

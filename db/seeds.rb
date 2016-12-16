@@ -9,9 +9,12 @@ email: "demo_account@admin.com",
 password: "password"
 )
 
+zack.update(avatar: File.open("app/assets/images/zack.jpg"))
+
 michael = User.create!(
 first_name: "Michael",
 last_name: "East",
+avatar: Faker::Avatar.image,
 email: "blue@gmail.com",
 password: "password"
 )
@@ -19,6 +22,7 @@ password: "password"
 lucy = User.create!(
 first_name: "Lucy",
 last_name: "Blanc",
+avatar: Faker::Avatar.image,
 email: "lucy@gmail.com",
 password: "password"
 )
@@ -26,12 +30,14 @@ password: "password"
 irene = User.create!(
 first_name: "Irene",
 last_name: "Grigio",
+avatar: Faker::Avatar.image,
 email: "irene@gmail.com",
 password: "password"
 )
 
 fabio = User.create!(
 first_name: "Fabio",
+avatar: Faker::Avatar.image,
 last_name: "Pinot",
 email: "fabbio@gmail.com",
 password: "password"
@@ -40,6 +46,7 @@ password: "password"
 max = User.create!(
 first_name: "Max",
 last_name: "Hempfling-san",
+avatar: Faker::Avatar.image,
 email: "max@gmail.com",
 password: "password",
 )
@@ -47,13 +54,17 @@ password: "password",
 bruce = User.create!(
 first_name: "Bruce",
 last_name: "Wang",
+avatar: Faker::Avatar.image,
 email: "bruce@gmail.com",
 password: "password"
 )
 
+max.update(avatar: File.open("app/assets/images/max.jpg"))
+
 kinko = User.create!(
 first_name: "Kinko",
 last_name: "Want",
+avatar: Faker::Avatar.image,
 email: "kinko@gmail.com",
 password: "password"
 )
@@ -61,13 +72,17 @@ password: "password"
 robb = User.create!(
 first_name: "Robb",
 last_name: "Veltman",
+avatar: Faker::Avatar.image,
 email: "robb@gmail.com",
 password: "password"
 )
 
+robb.update(avatar: File.open("app/assets/images/rob.jpg"))
+
 daniel = User.create!(
 first_name: "Daniel",
 last_name: "Veltman",
+avatar: Faker::Avatar.image,
 email: "daniel@gmail.com",
 password: "password"
 )
@@ -75,6 +90,7 @@ password: "password"
 megan = User.create!(
 first_name: "Megan",
 last_name: "Eagle",
+avatar: Faker::Avatar.image,
 email: "megan@gmail.com",
 password: "password"
 )
@@ -89,6 +105,7 @@ catherine = User.create!(
 fannie = User.create!(
   first_name: "Fannie",
   last_name: "Chan",
+  avatar: Faker::Avatar.image,
   email: "fannie@gmail.com",
   password: "password"
 )
@@ -96,6 +113,7 @@ fannie = User.create!(
 agnes = User.create!(
   first_name: "Agnes",
   last_name: "Wan",
+  avatar: Faker::Avatar.image,
   email: "agnes@gmail.com",
   password: "password"
 )
@@ -103,6 +121,7 @@ agnes = User.create!(
 scarlet = User.create!(
   first_name: "Scarlet",
   last_name: "Johansson",
+  avatar: Faker::Avatar.image,
   email: "scarlet@gmail.com",
   password: "password"
 )
@@ -110,6 +129,7 @@ scarlet = User.create!(
 jessica = User.create!(
   first_name: "Jessica",
   last_name: "Biel",
+  avatar: Faker::Avatar.image,
   email: "jessica@gmail.com",
   password: "password"
 )
@@ -117,13 +137,17 @@ jessica = User.create!(
 mila = User.create!(
   first_name: "Mila",
   last_name: "Kunis",
+  avatar: Faker::Avatar.image,
   email: "mila@gmail.com",
   password: "password"
 )
 
+mila.update(avatar: File.open("app/assets/images/mila.jpg"))
+
 emmanuelle = User.create!(
   first_name: "Emmanuelle",
   last_name: "Chriqui",
+  avatar: Faker::Avatar.image,
   email: "emmanuelle@gmail.com",
   password: "password"
 )
@@ -131,13 +155,17 @@ emmanuelle = User.create!(
 hodor = User.create!(
   first_name: "Hodor",
   last_name: "Holdthedor",
+  avatar: Faker::Avatar.image,
   email: "hodor@gmail.com",
   password: "password"
 )
 
+hodor.update(avatar: File.open("app/assets/images/hodor.jpg"))
+
 christina = User.create!(
   first_name: "Christina",
   last_name: "Johansson",
+  avatar: Faker::Avatar.image,
   email: "christina@gmail.com",
   password: "password"
 )
@@ -145,20 +173,27 @@ christina = User.create!(
 eva = User.create!(
   first_name: "Eva",
   last_name: "Mendes",
+  avatar: Faker::Avatar.image,
   email: "eva@gmail.com",
   password: "password"
 )
 
+eva.update(avatar: File.open("app/assets/images/eva.jpg"))
+
 olivia = User.create!(
   first_name: "Olivia",
   last_name: "Wilde",
+  avatar: Faker::Avatar.image,
   email: "olivia@gmail.com",
   password: "password"
 )
 
+olivia.update(avatar: File.open("app/assets/images/olivia.jpeg"))
+
 meagan = User.create!(
   first_name: "Meagan",
   last_name: "Good",
+  avatar: Faker::Avatar.image,
   email: "meagan@gmail.com",
   password: "password"
 )
@@ -166,6 +201,7 @@ meagan = User.create!(
 bethany = User.create!(
   first_name: "Bethany",
   last_name: "Mango",
+  avatar: Faker::Avatar.image,
   email: "forgetthemango@gmail.com",
   password: "password",
 )
@@ -173,6 +209,7 @@ bethany = User.create!(
 christian = User.create!(
   first_name: "Christian",
   last_name: "Tang",
+  avatar: Faker::Avatar.image,
   email: "christian@gmail.com",
   password: "password",
 )
@@ -187,9 +224,9 @@ Friendship.create!(
 )
 
 Friendship.create!(
-user: zack,
-friend: lucy,
-status: 'accepted'
+  user: zack,
+  friend: lucy,
+  status: 'accepted'
 )
 
 Friendship.create!(
@@ -377,15 +414,6 @@ india = Route.create!(
   destination: "The Mall Rd, Agra Cantt, Rakabganj, Agra, Uttar Pradesh 282001, India",
   bounds:
   "{\"south\":27.13257961761437,\"west\":77.98554489379876,\"north\":27.20893884119268,\"east\":78.0868251062011}",
-)
-
-india_trot = Trot.create!(
-  user_id: zack.id,
-  route_id: india.id,
-  description: "Visited all the Taj Mahal and Agra Fort. Beautiful!",
-  date: "Mon, 19 Dec 2016",
-  duration: "1:12:00",
-  name: "Touring India",
 )
 
 india_trot = Trot.create!(
@@ -683,6 +711,7 @@ Comment.create!(body: ":(", user_id: zack.id, commentable_id: easter_island_trek
   user1 = User.create!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
+  avatar: Faker::Avatar.image,
   email: Faker::Internet.email,
   password: "password",
   )
