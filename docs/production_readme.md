@@ -25,20 +25,22 @@ MapMyTrot is a full-stack web application inspired by MapMyRun.  It utilizes Rub
 
   For my dashboard, it is a pull of the users three most recent routes and four most recent trots. The activity feed fetches all the activities of the current users friend organized by time created, including the user.
 
-  On the backend, I have an `activity` joint table that has columns for `user_id`, `activatable_id`, and `activatable_type`. They are associated with routes and  trots. I have a custom GET route for fetching activities. The activities have the route, trot, comments and users nested beneath.
+  On the backend, I have an `activity` joint table that has columns for `user_id`, `activatable_id`, and `activatable_type`. They are associated with routes and  trots. When routes/trots are created, an activity is created as well. I have a custom GET route for fetching activities. The activities route serves back the activity with its comments and users nested beneath.
 
 ### Comments
 
   On my activity feed page, you can click on each activity to render a comment form and all comments associated with that activity. There is a `Comments` component that renders the comments form and list. My `ActivityComments` and `RouteDetail` component utilizes the `Comments` component in the activity feed. You can delete comments only if you are the author.
 
+  On the backend, my comments table is polymorphic aptly named `commentable`. It has columns for `user_id`, `body`, `commentable_id` and `commentable_type`. Both routes and trots have many comments.
+
 ## Future Directions for the Project
 
-In addition to the features already implemented, I plan to continue work on this project.  The next steps for FresherNote are outlined below.
-
-### Search
-
-Searching notes is a standard feature of Evernote.  I plan to utilize the Fuse.js library to create a fuzzy search of notes and notebooks.  This search will look go through tags, note titles, notebook titles, and note content.  
+In addition to the features already implemented, I plan to continue work on this project.  The next steps for MapMyTrot are outlined below.
 
 ### Direct Messaging
 
-Although this is less essential functionality, I also plan to implement messaging between FresherNote users.  To do this, I will use WebRTC so that notifications of messages happens seamlessly.  
+I plan on allowing users to DM each other to really make it a social media site.
+
+### Route Genius
+
+I'm not sure how to implement this yet, but I plan to have an option where a user enters an address and route genius will find a suitable route.
