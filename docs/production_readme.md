@@ -6,43 +6,30 @@ MapMyTrot is a full-stack web application inspired by MapMyRun.  It utilizes Rub
 
 ## Features & Implementation
 
-### Creating Routes and Rendering Maps
+### Creating and Rendering Routes/Trots
 
-  Utilizing google maps api, I render a map and attach a click event listener in the `CreateRoutes` component. The event listener will call my RouteManager component to render a marker. Googles direction services will then render polylines, that can be chained multiple times, to create a route.
+  Utilizing google maps api, I render a map and attach a click event listener in the `CreateRoutes` component. The event listener will call my `RouteManager` subcomponent to render a marker. Googles direction services will then render polyline that can be chained multiple times, to create a route.
+
+  There are three forms in the `CreateRoutes` components. One for searching location on the map that uses geocoder to recenter the map. The second one is used to save a route once a route has been set and the last one is to save a route along with a trot.
 
   The route is stored in the database under a routes table that contains columns `id`,
-  `user_id`, `name`, `distance`, `polyline`, `origin`, `bounds`, and `destination`.
+  `user_id`, `name`, `distance`, `polyline`, `origin`, `bounds`, and `destination`. The encoded `polyline` is used to render a google static map in my `RouteIndex` and `TrotIndex` components. For my `RouteDetail` component, I use the `bounds` data to rerender a google map.
 
-  Notes are rendered in two different components: the `CondensedNote` components, which show the title and first few words of the note content, and the `ExpandedNote` components, which are editable and show all note text.  The `NoteIndex` renders all of the `CondensedNote`s as subcomponents, as well as one `ExpandedNote` component, which renders based on `NoteStore.selectedNote()`. The UI of the `NoteIndex` is taken directly from Evernote for a professional, clean look:  
+  In the `RouteIndex` component I have a list of all my routes. When you click on an individual route, it takes you to the route page that renders the `RouteDetail` component for that specific route. Here you can click on the log this trotout button to render the log trot page, where you can create a trot.
 
-![image of notebook index](wireframes/home-logged-in.png)
+### Friending
 
-Note editing is implemented using the Quill.js library, allowing for a Word-processor-like user experience.
+  On the database side, I have a joint table `friendships`. It has columns for `user_id`, `friend_id` and `status`. The user_id references which user requested the friendship, which I use to filter for requested friendships in my `FriendRequests` component. In the `MyFriends` component, I fetch the current users friend using a custom GET route that filters users through the joint table. My `FindFriends` component fetches users and then filters the users using the search value based on first name, last name and email.
 
-### Notebooks
+### Dashboard/Activity Feed
 
-Implementing Notebooks started with a notebook table in the database.  The `Notebook` table contains two columns: `title` and `id`.  Additionally, a `notebook_id` column was added to the `Note` table.  
+  For my dashboard, it is a pull of the users three most recent routes and four most recent trots. The activity feed fetches all the activities of the current users friend organized by time created, including the user.
 
-The React component structure for notebooks mirrored that of notes: the `NotebookIndex` component renders a list of `CondensedNotebook`s as subcomponents, along with one `ExpandedNotebook`, kept track of by `NotebookStore.selectedNotebook()`.  
+  On the backend, I have an `activity` joint table that has columns for `user_id`, `activatable_id`, and `activatable_type`. They are associated with routes and  trots. I have a custom GET route for fetching activities. The activities have the route, trot, comments and users nested beneath.
 
-`NotebookIndex` render method:
+### Comments
 
-```javascript
-render: function () {
-  return ({this.state.notebooks.map(function (notebook) {
-    return <CondensedNotebook notebook={notebook} />
-  }
-  <ExpandedNotebook notebook={this.state.selectedNotebook} />)
-}
-```
-
-### Tags
-
-As with notebooks, tags are stored in the database through a `tag` table and a join table.  The `tag` table contains the columns `id` and `tag_name`.  The `tagged_notes` table is the associated join table, which contains three columns: `id`, `tag_id`, and `note_id`.  
-
-Tags are maintained on the frontend in the `TagStore`.  Because creating, editing, and destroying notes can potentially affect `Tag` objects, the `NoteIndex` and the `NotebookIndex` both listen to the `TagStore`.  It was not necessary to create a `Tag` component, as tags are simply rendered as part of the individual `Note` components.  
-
-![tag screenshot](wireframes/tag-search.png)
+  On my activity feed page, you can click on each activity to render a comment form and all comments associated with that activity. There is a `Comments` component that renders the comments form and list. My `ActivityComments` and `RouteDetail` component utilizes the `Comments` component in the activity feed. You can delete comments only if you are the author.
 
 ## Future Directions for the Project
 
