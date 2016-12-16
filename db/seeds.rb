@@ -5,11 +5,12 @@ User.destroy_all
 zack = User.create!(
 first_name: "Zack",
 last_name: "Yu",
+avatar: Faker::Avatar.image,
 email: "demo_account@admin.com",
 password: "password"
 )
 
-zack.update(avatar: File.open("app/assets/images/zack.jpg"))
+# zack.update(avatar: File.open("app/assets/images/zack.jpg"))
 
 michael = User.create!(
 first_name: "Michael",
