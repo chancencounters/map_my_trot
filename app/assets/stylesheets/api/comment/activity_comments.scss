@@ -1,7 +1,7 @@
 
 .activity_feed_container {
 
-  .activity_comments {
+  .trot_activity_comments, .route_activity_comments {
 
     .activity_comments_list_container {
       width: 100%;
@@ -14,7 +14,7 @@
 
       h3 {
         color: #0083d5;
-        font-size: 15px;
+        font-size: 18px;
         font-weight: 600;
         padding-bottom: 4px;
         margin: 10px 20px;
@@ -38,7 +38,7 @@
 
           .activity_comment_details {
             padding-left: 10px;
-            font-size: 12px;
+            font-size: 16px;
             display: inline-block;
             width: 170px;
             word-wrap: break-word;
@@ -50,6 +50,7 @@
 
             .activity_comment_body {
               color: #000000;
+              width: 400px;
             }
           }
 

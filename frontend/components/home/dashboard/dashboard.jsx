@@ -5,6 +5,7 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props);
 
+    this.handleClick = this.handleClick.bind(this);
     this.renderRecentRoutes = this.renderRecentRoutes.bind(this);
     this.renderRecentTrotouts = this.renderRecentTrotouts.bind(this);
   }
@@ -12,6 +13,10 @@ class Dashboard extends React.Component {
   componentDidMount() {
     this.props.fetchRoutes();
     this.props.fetchTrots();
+  }
+
+  handleClick(routeId) {
+    this.props.router.push(`/route/${routeId}`);
   }
 
   renderTrotsMessage() {
@@ -87,7 +92,7 @@ class Dashboard extends React.Component {
             const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=weight:3%7Ccolor:red%7Cenc:${ route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
             return (
               <li className="recent_routes_item" key={ route.id }>
-                <img src={ staticMap }>
+                <img src={ staticMap } onClick={ () => this.handleClick(route.id) }>
 
                 </img>
               </li>
