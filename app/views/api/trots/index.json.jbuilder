@@ -8,5 +8,6 @@
     json.created_at trot.created_at
     json.set! :route do
       json.partial! 'api/routes/route', route: trot.route
+    end
   end
 end

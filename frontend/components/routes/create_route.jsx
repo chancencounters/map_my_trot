@@ -2,6 +2,8 @@ import React from 'react';
 import { merge } from 'lodash';
 import { withRouter } from 'react-router';
 import RouteManager from '../../util/route_manager';
+import moment from 'moment';
+import Modal from 'react-modal';
 
 const _getMapOptions = (pos) => ({
   center: {
@@ -27,10 +29,11 @@ class CreateRoute extends React.Component {
       polyline: "",
       bounds: {},
       search: "",
+      modalOpen: true,
       trot: {
         route_id: "",
         description: "",
-        date: "",
+        date: moment().format('YYYY-MM-DD'),
         hours: "",
         minutes: "",
         seconds: "",
@@ -38,11 +41,22 @@ class CreateRoute extends React.Component {
       }
     };
 
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+
     this.initMap = this.initMap.bind(this);
     this._duration = this._duration.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleRouteSubmit = this.handleRouteSubmit.bind(this);
     this.handleTrotSubmit = this.handleTrotSubmit.bind(this);
+  }
+
+  closeModal() {
+    this.setState({ modalOpen: false });
+  }
+
+  openModal() {
+    this.setState({ modalOpen: true });
   }
 
   update(field) {
@@ -85,8 +99,12 @@ class CreateRoute extends React.Component {
       const bounds = JSON.stringify(this.map.getBounds());
       this.setState({bounds: bounds});
     });
-  }
 
+    this.map.addListener('idle', (e) => {
+      debugger
+      this.closeModal();
+    });
+  }
 
   searchLocForm() {
     return (
@@ -118,10 +136,10 @@ class CreateRoute extends React.Component {
           placeholder='Name this map'
         />
         <span>*</span>
+        { (Boolean(routeErrors.name)) ? <div className="error_message">* Name is required</div> : "" }
         <input type='submit'
           onClick={ this.handleRouteSubmit }
           value='Save Route'/>
-        { (Boolean(routeErrors.name)) ? "* Name is required" : "" }
       </form>
     );
   }
@@ -166,11 +184,11 @@ class CreateRoute extends React.Component {
         </div>
         <div className="date_container">
           <div id="calendar_img"></div>
-          <input type='date'
+          <input id="date" type='date'
             value={ this.state.trot.date }
             onChange={ this.updateTrot('date') }
           />
-        { (Boolean(trotErrors.date)) ? "* Date is required" : "" }
+        { (Boolean(trotErrors.date)) ? <div className="error_message">* Date is required</div> : "" }
         </div>
         <input type='submit'
           onClick={ this.handleTrotSubmit }
@@ -233,8 +251,21 @@ class CreateRoute extends React.Component {
           { this.renderRouteForm() }
           { this.renderTrotForm() }
         </div>
-
         <div id='create_route_map' ref={ map => this.mapNode = map }/>
+        <Modal
+          isOpen={this.state.modalOpen}
+          className="modal-content"
+          overlayClassName="modal-overlay"
+          contentLabel="Modal">
+
+          <div className="map_loading_container">
+            <div className="map_loading_inner">
+              <p>Loading Map</p>
+              <span>Please wait</span>
+              <div className="loader"></div>
+            </div>
+          </div>
+        </Modal>
       </div>
     );
   }

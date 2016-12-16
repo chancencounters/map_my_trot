@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import { login, signup } from './actions/session_actions';
-
-window.login = login;
-window.signup = signup;
+import Modal from 'react-modal';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -15,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else  {
     store = configureStore();
   }
-
   const root = document.getElementById('root');
+  Modal.setAppElement(document.body);
   window.store = store;
   ReactDOM.render(<Root store={ store } />, root);
 });
