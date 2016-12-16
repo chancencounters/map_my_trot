@@ -1,7 +1,7 @@
 .main_header {
   margin-top: 20px;
   background: white;
-  height: 90px;
+  height: 70px;
   z-index: 3;
   position: relative;
 
@@ -47,7 +47,6 @@
     .main_header_inner {
       width: 960px;
       margin: auto;
-      padding: 10px;
 
       .main_header_nav {
         height: auto;
@@ -60,10 +59,10 @@
         align-items: center;
 
         div {
-          width: 70px;
+          width: 50px;
           background-image: image-url('horse_logo.png');
           background-size: cover;
-          height: 70px;
+          height: 50px;
         }
 
         a {
@@ -78,10 +77,9 @@
         display: inline-flex;
         align-items: center;
         letter-spacing: -1.2px;
-        padding-top: 5px;
 
         a {
-          font-size: 18px;
+          font-size: 14px;
           padding-left: 40px;
           font-weight: 600;
           color: #9297a3;
@@ -102,7 +100,7 @@
         flex-direction: row-reverse;
 
         img {
-          width: 50px;
+          width: 40px;
           height: auto;
         }
 
@@ -110,7 +108,7 @@
           background: #97bf11;
           color: #fff;
           border-radius: 2px;
-          padding: 5px 15px;
+          padding: 0 10px;
           cursor: pointer;
           height: 35px;
           margin-left: 10px;
