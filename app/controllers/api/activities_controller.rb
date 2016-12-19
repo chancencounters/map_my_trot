@@ -2,8 +2,8 @@ class Api::ActivitiesController < ApplicationController
 
   def index
     users = current_user.all_friends.or(User.where(id: current_user.id))
-    @activities = Activity.order(created_at: :asc).where(user_id: users.pluck(:id))
-    
+    @activities = Activity.includes({ activatable: [comments: :user] }, :user).order(created_at: :asc).where(user_id: users.pluck(:id))
+
     users.reload
     render :index
   end
