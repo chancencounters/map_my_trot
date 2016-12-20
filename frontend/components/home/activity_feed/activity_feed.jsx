@@ -45,7 +45,7 @@ class ActivityFeed extends React.Component {
   }
 
   handlePostComment(comment) {
-    const activity = this._selectActivity();
+    const activity = this.selectActivity();
     const activatableType = activity.activatable_type;
 
     if (activatableType === "Route") {
@@ -57,7 +57,7 @@ class ActivityFeed extends React.Component {
     }
   }
 
-  _selectActivity() {
+  selectActivity() {
     const { activities } = this.props;
 
     for (let i = 0; i < activities.length; i++) {
