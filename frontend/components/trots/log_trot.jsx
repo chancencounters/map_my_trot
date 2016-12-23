@@ -40,7 +40,7 @@ class LogTrot extends React.Component {
 
     return (
       <form className='log_trot_form'>
-        <h1>LOG A TROTOUT</h1>
+        <h1>LOG A WORKOUT</h1>
         <div className="log_trot_description_container group">
           <div className="dumbbell_img"></div>
           <div className="log_trot_description">
@@ -51,7 +51,7 @@ class LogTrot extends React.Component {
         <div className="log_trot_form">
           <div className="log_trot_form_row group">
             <div className="log_trot_form_row_name">
-              <span>Trot name</span>
+              <span>Workout name</span>
               <input
                 type='text'
                 value={ this.state.name }

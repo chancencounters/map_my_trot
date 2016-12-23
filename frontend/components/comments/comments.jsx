@@ -21,7 +21,7 @@ class Comments extends React.Component {
 
   handlePostComment() {
     this.setState({ body: "" });
-    this.props.postComment(this.state, this.props.route.id);
+    this.props.postRouteComment(this.state, this.props.route.id);
   }
 
   handleDeleteComment(id) {

@@ -5,7 +5,6 @@ const App = ({ children }) => (
   <div className="main_body_container">
     <HeaderContainer />
     { children }
-    <Footer />
   </div>
 );
 
