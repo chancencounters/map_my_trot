@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :activities, only: [:index, :destroy]
   end
 
+  get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
   get 'api/friends', :to => 'api/users#friends'
   get 'api/friendships', :to => 'api/users#friendships'
 
