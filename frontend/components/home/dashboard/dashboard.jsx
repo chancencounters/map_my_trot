@@ -44,12 +44,12 @@ class Dashboard extends React.Component {
     const recentTrots = trots.slice(trots.length - 3, trots.length);
 
     return (
-      <div className="recent_trotouts_container">
-        <header className="recent_trotouts_header">
-          <h3>{ "RECENT TROTOUTS" }</h3>
+      <div className="recent_workouts_container">
+        <header className="recent_workouts_header">
+          <h3>{ "RECENT WORKOUTS" }</h3>
           <Link to="/trots">View All</Link>
         </header>
-        <ul className="recent_trotouts_list">
+        <ul className="recent_workouts_list">
           { recentTrots.map((trot) => {
             const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=weight:3%7Ccolor:red%7Cenc:${ trot.route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
             return (

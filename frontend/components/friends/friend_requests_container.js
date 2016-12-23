@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FriendRequests from './friend_requests';
-import { friendRequestsArray } from '../../reducers/selectors';
 import { clearErrors } from '../../actions/error_actions';
 import {
   deleteFriendship, fetchFriends, fetchFriendships, approveFriendship
@@ -9,11 +8,10 @@ import {
 
 const mapStateToProps = (store) => {
   return (
-  {
-  friendRequests: friendRequestsArray(
-    store.friendships, store.session.currentUser
-  ),
-});};
+  { friendships: store.friendships,
+    currentUser: store.session.currentUser
+  }
+);};
 
 const mapDispatchToProps = (dispatch) => ({
   fetchFriendships: () => dispatch(fetchFriendships()),

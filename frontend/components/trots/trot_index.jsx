@@ -36,7 +36,7 @@ class TrotIndex extends React.Component {
               <span>My Trotouts</span>
             </div>
             <div className="trot_index_title">
-              <div>MY TROTOUTS</div>
+              <div>MY WORKOUTS</div>
               <Link to="/log_trot">LOG A WORKOUT</Link>
             </div>
           </header>

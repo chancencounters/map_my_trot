@@ -8,7 +8,7 @@ const Welcome = ({ store }) => {
         <p>MAKE EVERY MILE COUNT, JOIN FREE TODAY</p>
         <p>
           You pound the pavement, we provide the motivation.
-          Plan each strde and learn frm every route with MapMyTrot.
+          Plan each stride and learn from every route with MapMyTrot.
         </p>
       </div>
       <div className='splash_links'>

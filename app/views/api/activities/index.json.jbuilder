@@ -12,10 +12,10 @@
       end
     elsif activity.activatable_type == "Trot"
       trot = activity.activatable
+      json.id activity.id
       json.activatable_type activity.activatable_type
       json.distance trot.route.distance
       json.polyline trot.route.polyline
-      json.extract! trot, :id, :name
       json.set! :trot do
         json.partial! 'api/trots/trot', trot: trot
       end
