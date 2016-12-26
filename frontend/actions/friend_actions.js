@@ -8,12 +8,10 @@ export const RECEIVE_NEW_FRIEND = "RECEIVE_NEW_FRIEND";
 export const RECEIVE_NEW_FRIENDSHIP = "RECEIVE_NEW_FRIENDSHIP";
 export const REMOVE_FRIENDSHIP = "REMOVE_FRIENDSHIP";
 
-export const receiveAllFriends = (friends) => {
-    return ({
+export const receiveAllFriends = (friends) => ({
     type: RECEIVE_ALL_FRIENDS,
     friends
-  });
-};
+});
 
 export const receiveAllPotentialFriends = (users) => ({
   type: RECEIVE_ALL_POTENTIAL_FRIENDS,
