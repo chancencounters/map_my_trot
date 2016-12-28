@@ -1,16 +1,16 @@
-.route_detail_container {
+.trot_detail_container {
   width: 960px;
   margin: auto;
   margin-top: 20px;
 
-  .route_detail_main {
+  .trot_detail_main {
     width: 620px;
     margin-top: 20px;
     margin-left: 10px;
     margin-bottom: 20px;
     float: left;
 
-    .route_detail_header {
+    .trot_detail_header {
       display: block;
       font-size: 12px;
 
@@ -54,10 +54,10 @@
     }
   }
 
-  .route_detail_body {
+  .trot_detail_body {
     border-bottom: 1px solid #c3c2c2;
 
-    .route_detail_body_aside {
+    .trot_detail_body_aside {
       border: 1px solid #c3c2c2;
       width: 110px;
       text-align: center;
@@ -94,7 +94,7 @@
 
     }
 
-    .route_detail_body_main {
+    .trot_detail_body_main {
       margin-top: 20px;
       width: 400px;
       float: left;
@@ -133,7 +133,7 @@
 
   }
 
-  #route_detail_map {
+  #trot_detail_map {
     margin-top: 30px;
     height: 300px;
     width: 620px;
@@ -141,7 +141,7 @@
     border: 1px solid #c3c2c2;
   }
 
-  .route_detail_aside {
+  .trot_detail_aside {
     width: 300px;
     float: right;
     padding: 0 20px 20px 20px;
@@ -157,7 +157,7 @@
       width: 100%;
     }
 
-    .create_route_button, .delete_route_button {
+    .create_trot_button {
       display: block;
       background: linear-gradient(to bottom, #b6b6b6 5%, #a9a6a6 100%);
       box-sizing: border-box;
@@ -178,7 +178,7 @@
       }
     }
 
-    .log_workout_button {
+    .log_workout_button, .delete_workout_button {
       display: block;
       background: linear-gradient(to bottom, #ff9628 5%, #ff8714 100%);
       box-sizing: border-box;

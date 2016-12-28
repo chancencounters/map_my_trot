@@ -3,11 +3,13 @@ export const asArray = (objects) =>
 
 export const friendRequestsArray = (friendships, currentUser) => {
   const friendRequests = [];
+
   Object.keys(friendships).map(key => {
     if (friendships[key].status === 'pending'
       && friendships[key].user_id !== currentUser.id) {
       friendRequests.push(friendships[key]);
   }});
+  
   return friendRequests;
 };
 

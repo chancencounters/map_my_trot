@@ -1,5 +1,5 @@
 .create_route_container {
-  height: 100vh;
+  height: calc( 100vh - 90px );
   width: 100%;
   display: flex;
   justify-content: flex-start;

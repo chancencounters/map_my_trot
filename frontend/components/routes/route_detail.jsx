@@ -43,10 +43,16 @@ class RouteDetail extends React.Component {
     this.map.fitBounds(bounds);
   }
 
+  handleDelete(id) {
+    this.props.deleteRoute(id).then(
+      () => this.props.router.push('/routes')
+    );
+  }
+
   render() {
     const { route, deleteRoute, currentUser } = this.props;
     const { first_name, last_name } = currentUser;
-    
+
     return (
       <div className="route_detail_container group">
         <div className="route_detail_main">
@@ -82,6 +88,7 @@ class RouteDetail extends React.Component {
         <aside className="route_detail_aside">
           <Link to="/create_route" className="create_route_button">CREATE A ROUTE</Link>
           <Link to="/log_trot" className="log_workout_button">LOG THIS WORKOUT</Link>
+          <button className="delete_route_button" onClick={ () => this.handleDelete(route.id) }>DELETE ROUTE</button>
         </aside>
         <CommentsContainer route={ route }/>
       </div>

@@ -15,24 +15,20 @@ class RouteIndexItem extends React.Component {
     const { route, deleteRoute } = this.props;
     const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=weight:3%7Ccolor:red%7Cenc:${ route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`
     return (
-      <tr className='route_index_item'>
-        <td className='route_map_container' onClick={ this.handleClick }>
+      <tr className='route_index_item' onClick={ this.handleClick }>
+        <td className='route_map_container'>
           <img src={ staticMap }/>
         </td>
         <td
-          className='route_index_item_date'
-          onClick={ this.handleClick }>{ route.date }</td>
+          className='route_index_item_date'>{ route.date }</td>
         <td
-          className='route_index_item_distance'
-          onClick={ this.handleClick }>{ route.distance + " mi"}</td>
+          className='route_index_item_distance'>{ route.distance + " mi"}</td>
         <td
-          className='route_index_item_name'
-          onClick={ this.handleClick }>{ route.name }</td>
+          className='route_index_item_name'>{ route.name }</td>
         <td
-          className='route_index_item_origin
-          onClick={ this.handleClick }'>{ route.origin }</td>
+          className='route_index_item_origin'>{ route.origin }</td>
         <td
-          onClick={ () => deleteRoute(route.id) }
+          onClick={ () => deleteRoute(router.id) }
           className='route_index_item_delete'>Delete</td>
       </tr>
     );

@@ -6,9 +6,6 @@ class FriendRequests extends React.Component {
   constructor(props) {
     super(props);
     this.renderMessage = this.renderMessage.bind(this);
-    this.friendRequests = friendRequestsArray(
-      this.props.friendships, this.props.currentUser
-    );
   }
 
   componentDidMount() {
@@ -24,7 +21,7 @@ class FriendRequests extends React.Component {
   }
 
   renderMessage() {
-    if (this.friendRequests.length === 0) {
+    if (this.props.friendRequests.length === 0) {
       return (
         <div className="no_friend_requests_message">
           <p>You currently have no friend requests.</p>
@@ -37,7 +34,7 @@ class FriendRequests extends React.Component {
     return (
       <div className="friend_requests_container">
         <ul className="friend_requests_list">
-          { this.friendRequests.map((friendRequest, idx) => {
+          { this.props.friendRequests.map((friendRequest, idx) => {
             return (
               <li className="friend_requests_list_item" key={ idx }>
                 <img src={ friendRequest.friend_image_url}/>
