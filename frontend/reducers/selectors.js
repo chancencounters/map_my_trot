@@ -9,7 +9,7 @@ export const friendRequestsArray = (friendships, currentUser) => {
       && friendships[key].user_id !== currentUser.id) {
       friendRequests.push(friendships[key]);
   }});
-  
+
   return friendRequests;
 };
 
