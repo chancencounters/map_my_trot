@@ -16,7 +16,6 @@ class Friends extends React.Component {
     fetchFriends().then(
       () => fetchFriendships()).then(
         () => fetchPotentialFriends() );
-
   }
 
   render() {

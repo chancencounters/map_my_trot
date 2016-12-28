@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import RouteDetail from './route_detail';
-import { fetchRoute, deleteRoute } from '../../actions/route_actions';
+import TrotDetail from './trot_detail';
+import { fetchTrot, deleteTrot } from '../../actions/trot_actions';
 import { clearErrors } from '../../actions/error_actions';
 
 const mapStateToProps = (state) => ({
-  route: state.routeDetail,
+  trot: state.trotDetail,
   currentUser: state.session.currentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchRoute: (id) => dispatch(fetchRoute(id)),
-  deleteRoute: (id) => dispatch(deleteRoute(id)),
+  fetchTrot: (id) => dispatch(fetchTrot(id)),
+  deleteTrot: (id) => dispatch(deleteTrot(id)),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(RouteDetail);
+)(TrotDetail);

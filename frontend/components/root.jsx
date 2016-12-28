@@ -23,6 +23,8 @@ import TrotIndexContainer from './trots/trot_index_container';
 import MyFriendsContainer from './friends/my_friends_container';
 import FriendRequestsContainer from './friends/friend_requests_container';
 import FindFriendsContainer from './friends/find_friends_container';
+import TrotDetailContainer from './trots/trot_detail_container';
+
 
 const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
@@ -100,6 +102,10 @@ const Root = ({ store }) => {
 
           <Route path="/trots"
             component={ TrotIndexContainer }
+            onEnter={ _redirectIfLoggedOut }/>
+
+          <Route path="/trot/:id"
+            component={ TrotDetailContainer }
             onEnter={ _redirectIfLoggedOut }/>
 
         </Route>

@@ -15,10 +15,11 @@
 #
 
 class Route < ApplicationRecord
-  validates :user, :name, :origin, :destination, :distance, :polyline, :bounds, presence: true
+  validates :user, :name, :origin, :destination, presence: true
+  validates :distance, :polyline, :bounds, presence: true
 
   belongs_to :user
-  has_many :trots, dependent: :delete_all
+  has_many :trots, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :delete_all
   has_many :activities, as: :activatable, dependent: :delete_all
 end
