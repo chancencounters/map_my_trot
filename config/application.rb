@@ -12,9 +12,10 @@ module MapMyTrot
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     Aws.use_bundled_cert!
-    
+
     config.paperclip_defaults = {
       :storage => :s3,
+      :s3_protocol => :https,
       :s3_region => ENV["s3_region"],
       :s3_credentials => {
         :bucket => ENV["s3_bucket"],
