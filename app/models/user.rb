@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
     hips = ships.where('(user_id = :id OR friend_id = :id) AND (status = \'accepted\')', id: id)
     hips.reload
 
-    return User.where("id IN (?)", hips.pluck(:user_id)
+    return User.where("id IN (?)", hips.pluck(:user_id))
   end
 
   def potential_friends
