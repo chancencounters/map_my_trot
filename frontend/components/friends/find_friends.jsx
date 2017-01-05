@@ -13,6 +13,7 @@ class FindFriends extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.handleAddFriend = this.handleAddFriend.bind(this);
     this.renderSearchResults = this.renderSearchResults.bind(this);
+    this.renderMessage = this.renderMessage.bind(this);
   }
 
   matches() {
@@ -38,25 +39,38 @@ class FindFriends extends React.Component {
     return matches;
   }
 
-  renderSearchResults() {
-    if (this.state.toggleSearchResults) {
+  renderMessage(matches) {
+    if (matches.length === 0) {
       return (
-        <ul className="find_friends_list group">
-          { this.matches().map((user) => {
-            return (
-              <li className="find_friends_list_item" key={ user.id }>
-                <img src={ user.image_url}/>
-                <div className="find_friends_inner">
-                  <span>{ user.first_name + " " + user.last_name }</span>
-                  <span>{ user.email }</span>
-                  <div onClick={ () => this.handleAddFriend(user) }>Add</div>
-                </div>
-              </li>
-            );
-          })
-        }
-      </ul>
-    );
+        <div className="no_results_message">
+          <p>No users found.</p>
+        </div>
+      );
+    }
+  }
+
+  renderSearchResults() {
+    const matches = this.matches();
+
+    if (this.state.toggleSearchResults) {
+        return (
+          <ul className="find_friends_list group">
+            { matches.map((user) => {
+              return (
+                <li className="find_friends_list_item" key={ user.id }>
+                  <img src={ user.image_url}/>
+                  <div className="find_friends_inner">
+                    <span>{ user.first_name + " " + user.last_name }</span>
+                    <span>{ user.email }</span>
+                    <div onClick={ () => this.handleAddFriend(user) }>Add</div>
+                  </div>
+                </li>
+              );
+              })
+            }
+            { this.renderMessage(matches) };
+          </ul>
+      )
     }
   }
 

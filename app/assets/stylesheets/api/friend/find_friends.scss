@@ -50,6 +50,12 @@
     flex-wrap: wrap;
     height: 100%;
 
+    .no_results_message {
+      p {
+        color: #000000;
+      }
+    }
+
     .find_friends_list_item {
       box-sizing: content-box;
       padding: 15px;

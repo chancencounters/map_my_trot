@@ -33,7 +33,7 @@ class TrotActivity extends React.Component {
       comments  = activity.trot.comments;
     }
 
-    const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=286x180&path=weight:3%7Ccolor:red%7Cenc:${ trot.route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
+    const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=287x180&path=weight:3%7Ccolor:red%7Cenc:${ trot.route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
     return (
       <li className="trot_activity_container group" key="{ activity.id }">
         <div className="trot_activity_avatar">
