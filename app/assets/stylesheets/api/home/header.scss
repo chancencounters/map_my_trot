@@ -99,9 +99,11 @@
         align-items: center;
         flex-direction: row-reverse;
 
-        img {
+        .user_img {
           width: 40px;
           height: 40px;
+          background-size: cover;
+          background-position: center;
         }
 
         button {

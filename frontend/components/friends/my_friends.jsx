@@ -39,7 +39,7 @@ class MyFriends extends React.Component {
           { friends.map((friend) => {
             return (
               <li className="my_friends_list_item" key={ friend.id }>
-                <img src={ friend.image_url}/>
+                <div className="user_img" style={ { backgroundImage: `url(${ friend.image_url })`}}/>
                 <div className="my_friends_inner">
                   <span>{ friend.name }</span>
                   <div

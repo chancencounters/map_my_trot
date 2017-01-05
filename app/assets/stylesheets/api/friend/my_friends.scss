@@ -28,9 +28,11 @@
       margin-left: 22px;
       }
 
-      img {
+      .user_img {
         width: 70px;
         height: 70px;
+        background-size: cover;
+        background-position: center;
       }
 
       .my_friends_inner {
@@ -39,6 +41,8 @@
 
         span {
           font-size: 14px;
+          width: 200px;
+          overflow: hidden;
         }
 
         div {

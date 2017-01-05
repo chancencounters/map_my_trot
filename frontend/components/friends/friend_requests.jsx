@@ -37,7 +37,7 @@ class FriendRequests extends React.Component {
           { this.props.friendRequests.map((friendRequest, idx) => {
             return (
               <li className="friend_requests_list_item" key={ idx }>
-                <img src={ friendRequest.friend_image_url}/>
+                <div className="user_img" style={ { backgroundImage: `url(${ friendRequest.friend_image_url })`}}/>
                 <div className="friend_requests_inner">
                   <span>{ friendRequest.friend_name }</span>
                   <div onClick={ () => this.handleApproval(friendRequest.id) }>Approve</div>

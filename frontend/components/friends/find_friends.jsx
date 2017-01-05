@@ -5,8 +5,8 @@ class FindFriends extends React.Component {
   constructor(props) {
     super(props);
 
-    this.searchVal = "";
     this.state = {
+      searchVal: "",
       toggleSearchResults: false,
     };
     this.handleInput = this.handleInput.bind(this);
@@ -19,9 +19,9 @@ class FindFriends extends React.Component {
   matches() {
     const matches = [];
     const { potentialFriends } = this.props;
-    const lowerCaseSearchVal = this.searchVal.toLowerCase();
+    const lowerCaseSearchVal = this.state.searchVal.toLowerCase();
 
-    if (this.searchVal.length === 0) {
+    if (this.state.searchVal.length === 0) {
       return potentialFriends;
     }
 
@@ -39,11 +39,25 @@ class FindFriends extends React.Component {
     return matches;
   }
 
+  handleInput(e) {
+    this.setState({ searchVal: e.currentTarget.value });
+  }
+
+  handleAddFriend(friend) {
+    const friendship = { friend_id: friend.id, status: "pending" };
+    this.props.sendFriendRequest(friendship);
+  }
+
+  handleSearch(e) {
+    e.preventDefault();
+    this.setState({ toggleSearchResults: true });
+  }
+
   renderMessage(matches) {
     if (matches.length === 0) {
       return (
         <div className="no_results_message">
-          <p>No users found.</p>
+          <p>No search results.</p>
         </div>
       );
     }
@@ -53,39 +67,24 @@ class FindFriends extends React.Component {
     const matches = this.matches();
 
     if (this.state.toggleSearchResults) {
-        return (
-          <ul className="find_friends_list group">
-            { matches.map((user) => {
-              return (
-                <li className="find_friends_list_item" key={ user.id }>
-                  <img src={ user.image_url}/>
-                  <div className="find_friends_inner">
-                    <span>{ user.first_name + " " + user.last_name }</span>
-                    <span>{ user.email }</span>
-                    <div onClick={ () => this.handleAddFriend(user) }>Add</div>
-                  </div>
-                </li>
-              );
-              })
-            }
-            { this.renderMessage(matches) };
-          </ul>
+      return (
+        <ul className="find_friends_list group">
+          { matches.map((user) => {
+            return (
+              <li className="find_friends_list_item" key={ user.id }>
+                <div className="user_img" style={ { backgroundImage: `url(${ user.image_url })`}}/>
+                <div className="find_friends_inner">
+                  <span>{ user.first_name + " " + user.last_name }</span>
+                  <span>{ user.email }</span>
+                  <div onClick={ () => this.handleAddFriend(user) }>Add</div>
+                </div>
+              </li>
+            );
+          })}
+          { this.renderMessage(matches) };
+        </ul>
       )
     }
-  }
-
-  handleInput(e) {
-    this.searchVal = e.currentTarget.value;
-    this.forceUpdate();
-  }
-
-  handleAddFriend(friend) {
-    const friendship = { friend_id: friend.id, status: "pending" };
-    this.props.sendFriendRequest(friendship);
-  }
-
-  handleSearch() {
-    this.setState({ toggleSearchResults: true });
   }
 
   render() {
@@ -94,15 +93,12 @@ class FindFriends extends React.Component {
     return (
       <div className="find_friends_container">
         <p>FIND MAPMYTROT FRIENDS BY NAME OR EMAIL:</p>
-        <form className="find_friends_search_form">
+        <form className="find_friends_search_form" onSubmit={ this.handleSearch }>
           <input type="text"
-            value={ this.searchVal }
+            value={ this.state.searchVal }
             onChange={ (e) => this.handleInput(e) }
           />
-          <input type="submit"
-            value='SEARCH'
-            onClick={ this.handleSearch }
-          />
+          <input type="submit" value='SEARCH'/>
         </form>
         { this.renderSearchResults() }
       </div>

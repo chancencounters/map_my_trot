@@ -72,9 +72,11 @@
       margin-left: 22px;
       }
 
-      img {
+      .user_img {
         width: 70px;
         height: 70px;
+        background-size: cover;
+        background-position: center;
       }
 
       .find_friends_inner {
@@ -84,7 +86,8 @@
         span {
           font-size: 14px;
           display: block;
-
+          overflow: hidden;
+          width: 200px;
         }
 
         div {

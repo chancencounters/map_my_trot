@@ -8,7 +8,7 @@
       color: #000000;
     }
   }
-  
+
   .friend_requests_list {
     width: 700px;
     display: flex;
@@ -30,9 +30,11 @@
       margin-left: 22px;
       }
 
-      img {
+      .user_img {
         width: 70px;
         height: 70px;
+        background-position: center;
+        background-size: cover;
       }
 
       .friend_requests_inner {
@@ -41,6 +43,8 @@
 
         span {
           font-size: 14px;
+          overflow: hidden;
+          width: 200px;
         }
 
         div {
