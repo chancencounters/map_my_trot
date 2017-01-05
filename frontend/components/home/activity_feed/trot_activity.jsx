@@ -37,7 +37,7 @@ class TrotActivity extends React.Component {
     return (
       <li className="trot_activity_container group" key="{ activity.id }">
         <div className="trot_activity_avatar">
-          <img src={ activity.user.image_url }/>
+          <div className="user_activity_img" style={ { backgroundImage: `url(${ activity.user.image_url })`} }></div>
         </div>
         <div className="trot_activity group">
           <div className="activity_name">{ activity.name }</div>

@@ -34,7 +34,8 @@ class RouteActivity extends React.Component {
     return (
       <li className="route_activity_container group" key="{ activity.id }">
         <div className="route_activity_avatar">
-          <img src={ activity.user.image_url }/>
+          <div className="user_activity_img" style={ { backgroundImage: `url(${ activity.user.image_url })`} }></div>
+
         </div>
         <div className="route_activity group">
           <div className="activity_description">
