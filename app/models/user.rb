@@ -60,6 +60,14 @@ class User < ActiveRecord::Base
     return User.where.not(id: ids)
   end
 
+  def activities
+    users = self.all_friends.or(User.where(id: self.id))
+    users.reload
+    activities = Activity.includes({ activatable: [comments: :user] }, :user).order(created_at: :asc).where(user_id: users.pluck(:id))
+
+    return activities
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

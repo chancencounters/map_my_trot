@@ -1,5 +1,4 @@
-import { merge } from 'lodash';
-
+import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
 import {
   RECEIVE_ALL_FRIENDSHIPS,
   RECEIVE_NEW_FRIEND,
@@ -24,8 +23,9 @@ const FriendshipsReducer = (state = {}, action) => {
           Object.assign( newFriendships, { [key]: state[key]} );
         }
       });
-
       return newFriendships;
+    case RECEIVE_CURRENT_USER:
+      return {};
     default:
       return state;
   }

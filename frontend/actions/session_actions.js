@@ -49,7 +49,7 @@ export function logout() {
   return (dispatch) => {
     window.currentUser = null;
     return Util.logout().then(
-      (currentUser) => dispatch(receiveCurrentUser(null)),
+      () => dispatch(receiveCurrentUser(null)),
       (errors) => dispatch(receiveSessionErrors(errors.responseJSON))
     );
   };
