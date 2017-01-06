@@ -107,7 +107,6 @@ export const receiveNewComment = (state, comment) => {
         newTrotOrRouteObj = Object.assign(newTrotOrRouteObj, activity.route, { comments: newCommentsObj });
         newActivityObj = Object.assign(newActivityObj, activity, { route: newTrotOrRouteObj });
         newObj = Object.assign({}, state, { [activityId]: newActivityObj} );
-        debugger
       }
     } else {
       if (comment.commentable_id === activity.trot.id) {

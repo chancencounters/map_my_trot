@@ -98,12 +98,30 @@
         display: inline-flex;
         align-items: center;
         flex-direction: row-reverse;
+        position: relative;
+
+        .edit_prof_pencil {
+          background: image_url('orange_pencil.png');
+          background-size: cover;
+          background-position: center;
+          width: 18px;
+          height: 18px;
+          position: absolute;
+          top: 8px;
+          right: 77px;
+          cursor: pointer;
+
+          input[type="file"] {
+            display: none;
+          }
+        }
 
         .user_img {
           width: 40px;
           height: 40px;
           background-size: cover;
           background-position: center;
+          margin-right: 10px;
         }
 
         button {

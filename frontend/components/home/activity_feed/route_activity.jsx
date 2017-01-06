@@ -6,7 +6,6 @@ import moment from 'moment';
 class RouteActivity extends React.Component {
   constructor(props) {
     super(props);
-
     this.renderComments = this.renderComments.bind(this);
   }
 
@@ -32,12 +31,12 @@ class RouteActivity extends React.Component {
     const userName = first_name + " " + last_name;
     const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=291x180&path=weight:3%7Ccolor:red%7Cenc:${ route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
     return (
-      <li className="route_activity_container group" key="{ activity.id }">
+      <li className="route_activity_container" key="{ activity.id }">
         <div className="route_activity_avatar">
           <div className="user_activity_img" style={ { backgroundImage: `url(${ activity.user.image_url })`} }></div>
 
         </div>
-        <div className="route_activity group">
+        <div className="route_activity">
           <div className="activity_description">
             { userName } created the route { route.name }
           </div>

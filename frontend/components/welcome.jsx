@@ -3,8 +3,7 @@ import { Link } from 'react-router';
 
 const Welcome = ({ store }) => {
   return (
-    <div className="splash_background">
-      <img src="https://s3.amazonaws.com/mapmytrot-prod/bg_image.jpg"></img>
+    <div className="splash_background" style={ { backgroundImage: `url(https://s3.amazonaws.com/mapmytrot-prod/bg_image.jpg)`} }>
       <div className="greeting">
         <p>MAKE EVERY MILE COUNT, JOIN FREE TODAY</p>
         <p>

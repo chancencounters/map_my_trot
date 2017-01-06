@@ -6,10 +6,7 @@ import moment from 'moment';
 class TrotActivity extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      toggleComments: false,
-    };
-
+    this.state = {toggleComments: false};
     this.renderComments = this.renderComments.bind(this);
   }
 
@@ -35,11 +32,11 @@ class TrotActivity extends React.Component {
 
     const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=287x180&path=weight:3%7Ccolor:red%7Cenc:${ trot.route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
     return (
-      <li className="trot_activity_container group" key="{ activity.id }">
+      <li className="trot_activity_container" key="{ activity.id }">
         <div className="trot_activity_avatar">
           <div className="user_activity_img" style={ { backgroundImage: `url(${ activity.user.image_url })`} }></div>
         </div>
-        <div className="trot_activity group">
+        <div className="trot_activity">
           <div className="activity_name">{ activity.name }</div>
           <div className="activity_description">
             { userName } trotted { activity.distance } miles

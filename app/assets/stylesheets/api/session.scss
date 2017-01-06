@@ -9,7 +9,6 @@
   margin: auto;
   width: 200px;
   height: 64px;
-
 }
 
 .session_form_header h1 {
@@ -31,9 +30,9 @@
 }
 
 .session_form_body {
+  height: calc( 100vh - 65px );
   position: relative;
   width: 100%;
-  height: 100vh;
   display: block;
   background-image: image-url('bg_image_s.jpg');
   background-size: cover;

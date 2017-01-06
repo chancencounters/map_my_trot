@@ -19,6 +19,15 @@ export function signup(user) {
   };
 }
 
+export function updateUser(formData, id) {
+  return (dispatch) => {
+    return Util.patchUser(formData, id).then(
+      (currentUser) => dispatch(receiveCurrentUser(currentUser)),
+      (errors) => dispatch(receiveSessionErrors(errors.responseJSON))
+    )
+  }
+}
+
 export function login(user) {
   return (dispatch) => {
     return Util.login(user).then(

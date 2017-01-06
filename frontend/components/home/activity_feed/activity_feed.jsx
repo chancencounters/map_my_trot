@@ -7,41 +7,15 @@ class ActivityFeed extends React.Component {
     super(props);
     this.state = {
       selectedId: null,
+      imageFile: null,
     };
     this.onClick = this.onClick.bind(this);
-    this.handlePostComment = this.handlePostComment.bind(this);
+    this.handlePostComment = this.handlePostComment.bind(this)
     this.renderActivity = this.renderActivity.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchActivities();
-  }
-
-  renderActivity(activity, idx) {
-    if (activity.activatable_type === "Route") {
-      return (
-        <RouteActivity
-          activity={ activity }
-          key={ idx }
-          selected={ this.state.selectedId === activity.id }
-          onClick={ this.onClick }
-          handlePostComment={ this.handlePostComment }/>
-      );
-    } else if (activity.activatable_type === "Trot") {
-      return (
-        <TrotActivity activity={ activity }
-          key={ idx }
-          selected={ this.state.selectedId === activity.id }
-          onClick={ this.onClick }
-          handlePostComment={ this.handlePostComment }/>
-      );
-    } else {
-      return (
-        <li className="activity" key={ idx }>
-
-        </li>
-      );
-    }
   }
 
   handlePostComment(comment) {
@@ -62,9 +36,7 @@ class ActivityFeed extends React.Component {
 
     for (let i = 0; i < activities.length; i++) {
       let activity = activities[i];
-      if (activity.id === this.state.selectedId) {
-        return activity;
-      }
+      if (activity.id === this.state.selectedId) return activity;
     }
   }
 
@@ -76,8 +48,29 @@ class ActivityFeed extends React.Component {
     }
   }
 
+  renderActivity(activity, idx) {
+    if (activity.activatable_type === "Route") {
+      return (
+        <RouteActivity
+          activity={ activity }
+          key={ idx }
+          selected={ this.state.selectedId === activity.id }
+          onClick={ this.onClick }
+          handlePostComment={ this.handlePostComment }/>
+      );
+    } else if (activity.activatable_type === "Trot") {
+      return (
+        <TrotActivity activity={ activity }
+          key={ idx }
+          selected={ this.state.selectedId === activity.id }
+          onClick={ this.onClick }
+          handlePostComment={ this.handlePostComment }/>
+      );
+    }
+  }
+
   render() {
-    const { activities } = this.props;
+    const { activities, currentUser } = this.props;
 
     return (
       <div className="activity_feed_container">

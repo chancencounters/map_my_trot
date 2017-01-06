@@ -6,6 +6,16 @@ export const signup = (user) => {
   });
 };
 
+export const patchUser = (formData, id) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/users/${id}`,
+    contentType: false,
+    processData: false,
+    data: formData,
+  });
+};
+
 export const login = (user) => {
   return $.ajax({
     method: "POST",
