@@ -1,5 +1,5 @@
 import { RECEIVE_ACTIVITIES } from '../../actions/activity_actions';
-import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
+import { RECEIVE_UPDATED_USER } from '../../actions/session_actions';
 import { RECEIVE_NEW_COMMENT, REMOVE_COMMENT } from '../../actions/comment_actions';
 import { removeComment, receiveNewComment } from '../selectors';
 
@@ -9,7 +9,7 @@ const ActivitiesReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_ACTIVITIES:
       return action.activities;
-    case RECEIVE_CURRENT_USER:
+    case RECEIVE_UPDATED_USER:
       let activities = {};
       Object.keys(state).forEach((key) => {
         let activity = state[key];

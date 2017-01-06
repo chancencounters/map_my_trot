@@ -2,10 +2,18 @@ import * as Util from '../util/session_api_util';
 import { receiveSessionErrors } from './error_actions';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
+export const RECEIVE_UPDATED_USER = "RECEIVE_UPDATED_USER";
 
 export const receiveCurrentUser = (currentUser) => {
   return {
     type: RECEIVE_CURRENT_USER,
+    currentUser
+  };
+};
+
+export const receiveUpdatedUser = (currentUser) => {
+  return {
+    type: RECEIVE_UPDATED_USER,
     currentUser
   };
 };
@@ -22,7 +30,7 @@ export function signup(user) {
 export function updateUser(formData, id) {
   return (dispatch) => {
     return Util.patchUser(formData, id).then(
-      (currentUser) => dispatch(receiveCurrentUser(currentUser)),
+      (currentUser) => dispatch(receiveUpdatedUser(currentUser)),
       (errors) => dispatch(receiveSessionErrors(errors.responseJSON))
     )
   }

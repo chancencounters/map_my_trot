@@ -14,14 +14,14 @@ class ProfileTabs extends React.Component {
     } else if (location === "/home/dashboard") {
       $("a.dashboard").addClass("selected-tab");
     } else {
-      $("a.friends").addClass("selected-tab");
+      $("a.my_friends").addClass("selected-tab");
     }
   }
 
   componentWillReceiveProps() {
     const activityFeed = $("a.activity_feed");
     const dashboard = $("a.dashboard");
-    const friends = $("a.friends");
+    const friends = $("a.my_friends");
 
     const { location } = this.props;
     if (location === "/home/activity_feed") {
