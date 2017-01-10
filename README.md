@@ -20,7 +20,7 @@ MapMyTrot is a full-stack web application clone of MapMyRun. It utilizes Ruby on
 
 ### Dashboard/Activity Feed
 
-  For my dashboard, it is a pull of the users three most recent routes and four most recent trots. The activity feed fetches all the activities of the current users friend organized by time created, including the user.
+  For my dashboard, I render a pull of the users three most recent routes and four most recent trots. The activity feed fetches all the activities of the current users friend organized by time created, including the user.
 
   On the backend, I have an `activity` joint table that has columns for `user_id`, `activatable_id`, and `activatable_type`. Through polymorphic association, activities are associated with routes and trots. When routes/trots are created, an activity is created through that association. The activities route serves back the activity with its comments and users nested beneath.
 

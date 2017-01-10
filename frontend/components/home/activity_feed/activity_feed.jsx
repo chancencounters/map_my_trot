@@ -12,6 +12,7 @@ class ActivityFeed extends React.Component {
     this.onClick = this.onClick.bind(this);
     this.handlePostComment = this.handlePostComment.bind(this)
     this.renderActivity = this.renderActivity.bind(this);
+    this.renderMsg = this.renderMsg.bind(this);
   }
 
   componentDidMount() {
@@ -48,6 +49,16 @@ class ActivityFeed extends React.Component {
     }
   }
 
+  renderMsg() {
+    if (this.props.activities.length === 0) {
+      return (
+        <div className="no_activities_message">
+          <p>You have no recent activity. Start adding friends, creating routes and logging your activity!</p>
+        </div>
+      )
+    }
+  }
+
   renderActivity(activity, idx) {
     if (activity.activatable_type === "Route") {
       return (
@@ -81,6 +92,7 @@ class ActivityFeed extends React.Component {
           );
         })}
         </ul>
+        { this.renderMsg() };
       </div>
     );
   }
