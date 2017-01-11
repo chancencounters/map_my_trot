@@ -37,7 +37,6 @@ class TrotActivity extends React.Component {
           <div className="user_activity_img" style={ { backgroundImage: `url(${ activity.user.image_url })`} }></div>
         </div>
         <div className="trot_activity">
-          <div className="activity_name">{ activity.name }</div>
           <div className="activity_description">
             { userName } trotted { activity.distance } miles
           </div>

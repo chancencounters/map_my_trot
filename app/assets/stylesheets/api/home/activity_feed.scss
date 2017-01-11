@@ -40,9 +40,9 @@
         background-color: #f8f8f8;
 
         .activity_description {
-          line-height: 50px;
+          padding-top: 10px;
+          padding-bottom: 10px;
           padding-left: 10px;
-          font-size: 18px;
           white-space: nowrap;
           overflow: hidden;
           color: #444444;
@@ -174,18 +174,10 @@
           overflow: hidden;
           color: #444444;
           padding-bottom: 10px;
+          padding-top: 10px;
           border-bottom: 1px solid #cdcdcd;
           background: #ffffff;
           line-height: 20px;
-        }
-
-        .activity_name {
-          padding-top: 10px;
-          display: block;
-          background: #fff;
-          padding-left: 10px;
-          font-size: 18px;
-          color: #444444;
         }
 
         .activity_detail {

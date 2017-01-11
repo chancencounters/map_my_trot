@@ -1,6 +1,7 @@
 import React from 'react';
 import RouteActivity from './route_activity';
 import TrotActivity from './trot_activity';
+var Infinite = require('react-infinite');
 
 class ActivityFeed extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class ActivityFeed extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchActivities();
+    this.props.fetchActivities()
   }
 
   handlePostComment(comment) {
@@ -85,13 +86,14 @@ class ActivityFeed extends React.Component {
 
     return (
       <div className="activity_feed_container">
-        <ul className="activity_feed">
+        <Infinite className="activity_feed" elementHeight={290}
+          useWindowAsScrollContainer>
           { activities.map((activity, idx) => {
           return (
             this.renderActivity(activity, idx)
           );
         })}
-        </ul>
+        </Infinite>
         { this.renderMsg() };
       </div>
     );
