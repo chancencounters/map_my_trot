@@ -1,7 +1,7 @@
 import React from 'react';
 import RouteActivity from './route_activity';
 import TrotActivity from './trot_activity';
-var Infinite = require('react-infinite');
+import Infinite from 'react-infinite';
 
 class ActivityFeed extends React.Component {
   constructor(props) {

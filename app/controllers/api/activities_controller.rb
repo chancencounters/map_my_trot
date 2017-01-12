@@ -2,7 +2,6 @@ class Api::ActivitiesController < ApplicationController
 
   def index
     @activities = current_user.activities
-    
     render :index
   end
 
