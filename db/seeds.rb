@@ -2,339 +2,70 @@ require 'faker'
 
 User.destroy_all
 
-zack = User.create!(
-first_name: "Zack",
-last_name: "Yu",
-avatar: Faker::Avatar.image,
-email: "demo_account@admin.com",
-password: "password"
-)
+10.times do |i|
+  user1 = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  avatar: Faker::Avatar.image,
+  email: Faker::Internet.email,
+  password: "password",
+  )
+end
 
-michael = User.create!(
-first_name: "Michael",
-last_name: "East",
-avatar: Faker::Avatar.image,
-email: "blue@gmail.com",
-password: "password"
-)
-
-lucy = User.create!(
-first_name: "Lucy",
-last_name: "Blanc",
-avatar: Faker::Avatar.image,
-email: "lucy@gmail.com",
-password: "password"
-)
-
-irene = User.create!(
-first_name: "Irene",
-last_name: "Grigio",
-avatar: Faker::Avatar.image,
-email: "irene@gmail.com",
-password: "password"
-)
-
-fabio = User.create!(
-first_name: "Fabio",
-avatar: Faker::Avatar.image,
-last_name: "Pinot",
-email: "fabbio@gmail.com",
-password: "password"
-)
-
-max = User.create!(
-first_name: "Max",
-last_name: "Hempfling-san",
-avatar: Faker::Avatar.image,
-email: "max@gmail.com",
-password: "password",
-)
-
-bruce = User.create!(
-first_name: "Bruce",
-last_name: "Wang",
-avatar: Faker::Avatar.image,
-email: "bruce@gmail.com",
-password: "password"
-)
+zack = User.create!( first_name: "Zack", last_name: "Yu", avatar: Faker::Avatar.image, email: "demo_account@admin.com", password: "password" )
+michael = User.create!( first_name: "Michael", last_name: "East", avatar: Faker::Avatar.image, email: "blue@gmail.com", password: "password" )
+lucy = User.create!( first_name: "Lucy", last_name: "Blanc", avatar: Faker::Avatar.image, email: "lucy@gmail.com", password: "password" )
+irene = User.create!( first_name: "Irene", last_name: "Grigio", avatar: Faker::Avatar.image, email: "irene@gmail.com", password: "password" )
+fabio = User.create!( first_name: "Fabio", avatar: Faker::Avatar.image, last_name: "Pinot", email: "fabbio@gmail.com", password: "password" )
+max = User.create!( first_name: "Max", last_name: "Hempfling-san", email: "max@gmail.com", password: "password", )
+bruce = User.create!( first_name: "Bruce", last_name: "Wang", avatar: Faker::Avatar.image, email: "bruce@gmail.com", password: "password" )
+kinko = User.create!( first_name: "Kinko", last_name: "Want", avatar: Faker::Avatar.image, email: "kinko@gmail.com", password: "password" )
+robb = User.create!( first_name: "Robb", last_name: "Veltman", email: "robb@gmail.com", password: "password" )
+daniel = User.create!( first_name: "Daniel", last_name: "Veltman", avatar: Faker::Avatar.image, email: "daniel@gmail.com", password: "password" )
+megan = User.create!( first_name: "Megan", last_name: "Eagle", avatar: Faker::Avatar.image, email: "megan@gmail.com", password: "password" )
+catherine = User.create!( first_name: "Catherine", last_name: "Eagle", email: "catherine@gmail.com", password: "password" )
+fannie = User.create!( first_name: "Fannie", last_name: "Chan", avatar: Faker::Avatar.image, email: "fannie@gmail.com", password: "password" )
+agnes = User.create!( first_name: "Agnes", last_name: "Wan", avatar: Faker::Avatar.image, email: "agnes@gmail.com", password: "password" )
+scarlet = User.create!( first_name: "Scarlet", last_name: "Johansson", avatar: Faker::Avatar.image, email: "scarlet@gmail.com", password: "password" )
+jessica = User.create!( first_name: "Jessica", last_name: "Biel", avatar: Faker::Avatar.image, email: "jessica@gmail.com", password: "password" )
+mila = User.create!( first_name: "Mila", last_name: "Kunis", email: "mila@gmail.com", password: "password" )
+emmanuelle = User.create!( first_name: "Emmanuelle", last_name: "Chriqui", avatar: Faker::Avatar.image, email: "emmanuelle@gmail.com", password: "password" )
+hodor = User.create!( first_name: "Hodor", last_name: "Holdthedor", email: "hodor@gmail.com", password: "password" )
+christina = User.create!( first_name: "Christina", last_name: "Johansson", avatar: Faker::Avatar.image, email: "christina@gmail.com", password: "password" )
+eva = User.create!( first_name: "Eva", last_name: "Mendes", email: "eva@gmail.com", password: "password" )
+olivia = User.create!( first_name: "Olivia", last_name: "Wilde", email: "olivia@gmail.com", password: "password" )
+meagan = User.create!( first_name: "Meagan", last_name: "Good", avatar: Faker::Avatar.image, email: "meagan@gmail.com", password: "password" )
+bethany = User.create!( first_name: "Bethany", last_name: "Mango", avatar: Faker::Avatar.image, email: "forgetthemango@gmail.com", password: "password", )
+christian = User.create!( first_name: "Christian", last_name: "Tang", avatar: Faker::Avatar.image, email: "christian@gmail.com", password: "password", )
 
 max.update(avatar: File.open("app/assets/images/max.jpg"))
-
-kinko = User.create!(
-first_name: "Kinko",
-last_name: "Want",
-avatar: Faker::Avatar.image,
-email: "kinko@gmail.com",
-password: "password"
-)
-
-robb = User.create!(
-first_name: "Robb",
-last_name: "Veltman",
-avatar: Faker::Avatar.image,
-email: "robb@gmail.com",
-password: "password"
-)
-
 robb.update(avatar: File.open("app/assets/images/rob.jpg"))
-
-daniel = User.create!(
-first_name: "Daniel",
-last_name: "Veltman",
-avatar: Faker::Avatar.image,
-email: "daniel@gmail.com",
-password: "password"
-)
-
-megan = User.create!(
-first_name: "Megan",
-last_name: "Eagle",
-avatar: Faker::Avatar.image,
-email: "megan@gmail.com",
-password: "password"
-)
-
-catherine = User.create!(
-  first_name: "Catherine",
-  last_name: "Eagle",
-  email: "catherine@gmail.com",
-  password: "password"
-)
-
-fannie = User.create!(
-  first_name: "Fannie",
-  last_name: "Chan",
-  avatar: Faker::Avatar.image,
-  email: "fannie@gmail.com",
-  password: "password"
-)
-
-agnes = User.create!(
-  first_name: "Agnes",
-  last_name: "Wan",
-  avatar: Faker::Avatar.image,
-  email: "agnes@gmail.com",
-  password: "password"
-)
-
-scarlet = User.create!(
-  first_name: "Scarlet",
-  last_name: "Johansson",
-  avatar: Faker::Avatar.image,
-  email: "scarlet@gmail.com",
-  password: "password"
-)
-
-jessica = User.create!(
-  first_name: "Jessica",
-  last_name: "Biel",
-  avatar: Faker::Avatar.image,
-  email: "jessica@gmail.com",
-  password: "password"
-)
-
-mila = User.create!(
-  first_name: "Mila",
-  last_name: "Kunis",
-  avatar: Faker::Avatar.image,
-  email: "mila@gmail.com",
-  password: "password"
-)
-
 mila.update(avatar: File.open("app/assets/images/mila.jpg"))
-
-emmanuelle = User.create!(
-  first_name: "Emmanuelle",
-  last_name: "Chriqui",
-  avatar: Faker::Avatar.image,
-  email: "emmanuelle@gmail.com",
-  password: "password"
-)
-
-hodor = User.create!(
-  first_name: "Hodor",
-  last_name: "Holdthedor",
-  avatar: Faker::Avatar.image,
-  email: "hodor@gmail.com",
-  password: "password"
-)
-
 hodor.update(avatar: File.open("app/assets/images/hodor.jpg"))
-
-christina = User.create!(
-  first_name: "Christina",
-  last_name: "Johansson",
-  avatar: Faker::Avatar.image,
-  email: "christina@gmail.com",
-  password: "password"
-)
-
-eva = User.create!(
-  first_name: "Eva",
-  last_name: "Mendes",
-  avatar: Faker::Avatar.image,
-  email: "eva@gmail.com",
-  password: "password"
-)
-
 eva.update(avatar: File.open("app/assets/images/eva.jpg"))
-
-olivia = User.create!(
-  first_name: "Olivia",
-  last_name: "Wilde",
-  avatar: Faker::Avatar.image,
-  email: "olivia@gmail.com",
-  password: "password"
-)
-
 olivia.update(avatar: File.open("app/assets/images/olivia.jpeg"))
 
-meagan = User.create!(
-  first_name: "Meagan",
-  last_name: "Good",
-  avatar: Faker::Avatar.image,
-  email: "meagan@gmail.com",
-  password: "password"
-)
-
-bethany = User.create!(
-  first_name: "Bethany",
-  last_name: "Mango",
-  avatar: Faker::Avatar.image,
-  email: "forgetthemango@gmail.com",
-  password: "password",
-)
-
-christian = User.create!(
-  first_name: "Christian",
-  last_name: "Tang",
-  avatar: Faker::Avatar.image,
-  email: "christian@gmail.com",
-  password: "password",
-)
-
-
 Friendship.destroy_all
-
-Friendship.create!(
-  user: zack,
-  friend: michael,
-  status: 'accepted'
-)
-
-Friendship.create!(
-  user: zack,
-  friend: lucy,
-  status: 'accepted'
-)
-
-Friendship.create!(
-  user: irene,
-  friend: zack,
-  status: 'accepted'
-)
-
-Friendship.create!(
-  user: fabio,
-  friend: zack,
-  status: 'accepted'
-)
-
-Friendship.create!(
-  user: bruce,
-  friend: zack,
-  status: 'accepted'
-)
-
-Friendship.create!(
-  user: kinko,
-  friend: zack,
-  status: 'accepted'
-)
-
-Friendship.create!(
-  user: bethany,
-  friend: zack,
-  status: 'accepted',
-)
-
-Friendship.create!(
-  user: max,
-  friend: zack,
-  status: 'accepted'
-)
-
-Friendship.create!(
-  user: robb,
-  friend: zack,
-  status: 'accepted'
-)
-
-Friendship.create!(
-  user: daniel,
-  friend: zack,
-  status: 'pending'
-)
-
-Friendship.create!(
-  user: megan,
-  friend: zack,
-  status: 'pending'
-)
-
-Friendship.create!(
-  user: scarlet,
-  friend: zack,
-  status: 'pending'
-)
-
-Friendship.create!(
-  user: jessica,
-  friend: zack,
-  status: 'pending'
-)
-
-Friendship.create!(
-  user: mila,
-  friend: zack,
-  status: 'pending'
-)
-
-Friendship.create!(
-  user: emmanuelle,
-  friend: zack,
-  status: 'pending'
-)
-
-Friendship.create!(
-  user: christina,
-  friend: zack,
-  status: 'accepted'
-)
-
-Friendship.create!(
-  user: eva,
-  friend: zack,
-  status: 'accepted'
-)
-
-Friendship.create!(
-  user: olivia,
-  friend: zack,
-  status: 'accepted'
-)
-
-Friendship.create!(
-  user: meagan,
-  friend: zack,
-  status: 'pending'
-)
-
-Friendship.create!(
-  user: christian,
-  friend: zack,
-  status: 'accepted'
-)
+Friendship.create!(user: zack, friend: michael, status: 'accepted')
+Friendship.create!(user: zack, friend: lucy, status: 'accepted')
+Friendship.create!(user: irene, friend: zack, status: 'accepted')
+Friendship.create!(user: fabio, friend: zack, status: 'accepted')
+Friendship.create!(user: bruce, friend: zack, status: 'accepted')
+Friendship.create!(user: kinko, friend: zack, status: 'accepted')
+Friendship.create!(user: bethany, friend: zack, status: 'accepted')
+Friendship.create!(user: max, friend: zack, status: 'accepted')
+Friendship.create!(user: robb, friend: zack, status: 'accepted')
+Friendship.create!(user: daniel, friend: zack, status: 'pending')
+Friendship.create!(user: megan, friend: zack, status: 'pending')
+Friendship.create!(user: scarlet, friend: zack, status: 'pending')
+Friendship.create!(user: jessica, friend: zack, status: 'pending')
+Friendship.create!(user: mila, friend: zack, status: 'pending')
+Friendship.create!(user: emmanuelle, friend: zack, status: 'pending')
+Friendship.create!(user: christina, friend: zack, status: 'accepted')
+Friendship.create!(user: eva, friend: zack, status: 'accepted')
+Friendship.create!(user: olivia, friend: zack, status: 'accepted')
+Friendship.create!(user: meagan, friend: zack, status: 'pending')
+Friendship.create!(user: christian, friend: zack, status: 'accepted')
 
 Route.destroy_all
 Trot.destroy_all
@@ -351,22 +82,6 @@ pokehunt = Route.create!(
   bounds: "{\"south\":26.13807947730626,\"west\":-80.29455780656815,\"north\":26.141450506670363,\"east\":-80.28910219343186}",
 )
 
-pokehunt.comments.create!(
-  body: "Did you catch anything?!",
-  user_id: zack.id,
-)
-
-pokehunt.comments.create!(
-  body: "I caught 5 caterpies...",
-  user_id: olivia.id,
-)
-
-pokehunt.comments.create!(
-  body: "Hahaha",
-  user_id: max.id,
-)
-
-
 aa = Route.create!(
   user_id: zack.id,
   name: "A/A Route",
@@ -379,11 +94,7 @@ aa = Route.create!(
    "{\"south\":40.71901960261797,\"west\":-74.0166450531006,\"north\":40.75153796013855,\"east\":-73.96600494689943}",
 )
 
-Activity.create!(
-  user_id: zack.id,
-  activatable_id: aa.id,
-  activatable_type: "Route",
-)
+Activity.create!(user_id: zack.id, activatable_id: aa.id, activatable_type: "Route")
 
 prospect_park = Route.create!(
  user_id: zack.id,
@@ -397,11 +108,7 @@ prospect_park = Route.create!(
   "{\"south\":40.6542111264627,\"west\":-73.98329502655031,\"north\":40.6704881156263,\"east\":-73.95797497344972}",
 )
 
-Activity.create!(
-  user_id: zack.id,
-  activatable_id: prospect_park.id,
-  activatable_type: "Route",
-)
+Activity.create!(user_id: zack.id, activatable_id: prospect_park.id, activatable_type: "Route")
 
 india = Route.create!(
   user_id: zack.id,
@@ -704,14 +411,3 @@ Comment.create!(body: "Did you find any eggs? HAHAHHAHA", user_id: zack.id, comm
 Comment.create!(body: "That was in poor taste.. sorry..", user_id: zack.id, commentable_id: easter_island_trek.id, commentable_type: "Route")
 Comment.create!(body: "This is why we don't hang out anymore...", user_id: eva.id, commentable_id: easter_island_trek.id, commentable_type: "Route")
 Comment.create!(body: ":(", user_id: zack.id, commentable_id: easter_island_trek.id, commentable_type: "Route")
-
-
-10.times do |i|
-  user1 = User.create!(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  avatar: Faker::Avatar.image,
-  email: Faker::Internet.email,
-  password: "password",
-  )
-end

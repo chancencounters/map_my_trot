@@ -16,7 +16,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'kaminari'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -46,13 +45,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'annotate'
   gem 'factory_girl_rails'
-  gem 'rspec-rails'
-end
-
-group :test do
-  gem 'capybara'
-  gem 'guard-rspec'
-  gem 'launchy'
 end
 
 group :development do
