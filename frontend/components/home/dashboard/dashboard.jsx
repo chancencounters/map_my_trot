@@ -5,7 +5,8 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleTrotClick = this.handleTrotClick.bind(this);
+    this.handleRouteClick = this.handleRouteClick.bind(this);
     this.renderRecentRoutes = this.renderRecentRoutes.bind(this);
     this.renderRecentTrotouts = this.renderRecentTrotouts.bind(this);
   }
@@ -15,8 +16,12 @@ class Dashboard extends React.Component {
     this.props.fetchTrots();
   }
 
-  handleClick(routeId) {
+  handleRouteClick(routeId) {
     this.props.router.push(`/route/${routeId}`);
+  }
+
+  handleTrotClick(trotId) {
+    this.props.router.push(`/trot/${trotId}`);
   }
 
   renderTrotsMessage() {
@@ -53,7 +58,7 @@ class Dashboard extends React.Component {
           { recentTrots.map((trot) => {
             const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=weight:3%7Ccolor:red%7Cenc:${ trot.route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
             return (
-              <li className="recent_trotout_item group" key={ trot.id }>
+              <li className="recent_trotout_item group" key={ trot.id } onClick={ () => this.handleTrotClick(trot.id) }>
                 <img src={ staticMap }/>
                 <div className="recent_trotout_name_container">
                   <span className="recent_trotout_name">{ trot.name }</span>
@@ -92,7 +97,7 @@ class Dashboard extends React.Component {
             const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=weight:3%7Ccolor:red%7Cenc:${ route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
             return (
               <li className="recent_routes_item" key={ route.id }>
-                <img src={ staticMap } onClick={ () => this.handleClick(route.id) }>
+                <img src={ staticMap } onClick={ () => this.handleRouteClick(route.id) }>
 
                 </img>
               </li>
