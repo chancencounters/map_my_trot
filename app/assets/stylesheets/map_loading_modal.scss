@@ -11,14 +11,16 @@
 
 .modal-content {
   position: absolute;
-  top: 180px;
-  right: 300px;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 300px;
+  margin-left: -200px;
+  margin-top: -150px;
+  padding-top: 10px;
   border: 1px solid #eee;
   background-color: #afaeae;
   z-index: 10;
-  width: 400px;
-  height: 300px;
-  padding-top: 10px;
 
   .map_loading_container {
     margin: auto;

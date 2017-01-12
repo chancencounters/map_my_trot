@@ -78,7 +78,7 @@ class SessionForm extends React.Component {
 
     if (this.props.formType === 'login') {
       return (
-        <div className="session_form_body">
+        <div className="session_form_body" style={ { backgroundImage: `url(https://s3.amazonaws.com/mapmytrot-prod/bg_image_s.jpg)`} }>
           <form onSubmit={ this.handleSubmit }>
             <input type="text"
               value={ this.state.email }

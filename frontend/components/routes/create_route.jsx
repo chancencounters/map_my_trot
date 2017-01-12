@@ -51,12 +51,12 @@ class CreateRoute extends React.Component {
     this.handleTrotSubmit = this.handleTrotSubmit.bind(this);
   }
 
-  closeModal() {
-    this.setState({ modalOpen: false });
-  }
-
   openModal() {
     this.setState({ modalOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ modalOpen: false });
   }
 
   update(field) {
@@ -202,7 +202,6 @@ class CreateRoute extends React.Component {
   }
 
   handleTrotSubmit() {
-    // Posts to routes and then posts a trot.
     this.setState(
       this.RouteManager.getRouteInfo(),
       () => this.props.postRoute(this.state)
