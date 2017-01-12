@@ -86,7 +86,8 @@ class ActivityFeed extends React.Component {
 
     return (
       <div className="activity_feed_container">
-        <Infinite className="activity_feed" elementHeight={290}
+        <Infinite className="activity_feed"
+          elementHeight={290}
           useWindowAsScrollContainer>
           { activities.map((activity, idx) => {
           return (

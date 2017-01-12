@@ -1,7 +1,7 @@
 class Api::RoutesController < ApplicationController
 
   def index
-    @routes = current_user.routes.includes(:comments).page(params[:page]).per(5)
+    @routes = current_user.routes.includes(:comments)
     render :index
   end
 
@@ -33,7 +33,7 @@ class Api::RoutesController < ApplicationController
     params
       .require(:route)
       .permit(
-        :name, :origin, :destination, :distance, :polyline, :bounds, :page
+        :name, :origin, :destination, :distance, :polyline, :bounds
       )
   end
 end
