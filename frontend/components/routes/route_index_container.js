@@ -5,11 +5,11 @@ import { fetchRoutes, deleteRoute } from '../../actions/route_actions';
 import { clearErrors } from '../../actions/error_actions';
 
 const mapStateToProps = ({ routes }) => ({
-  routes: Object.keys(routes).map(key => routes[key]),
+  routes: Object.keys(routes).reverse().map(key => routes[key]),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchRoutes: () => dispatch(fetchRoutes()),
+  fetchRoutes: (offset) => dispatch(fetchRoutes(offset)),
   deleteRoute: (id) => dispatch(deleteRoute(id)),
 });
 

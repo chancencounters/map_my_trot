@@ -1,7 +1,8 @@
-export const fetchRoutes = () => {
+export const fetchRoutes = (offset) => {
   return $.ajax({
     method: 'GET',
     url: '/api/routes',
+    data: { offset }
   });
 };
 

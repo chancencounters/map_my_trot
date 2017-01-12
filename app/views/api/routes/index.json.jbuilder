@@ -1,5 +1,6 @@
 @routes.each do |route|
   json.set! route.id do
+    json.total_count @count
     json.id route.id
     json.name route.name
     json.distance route.distance

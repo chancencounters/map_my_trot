@@ -25,9 +25,9 @@ export const removeRoute = (id) => ({
   id
 });
 
-export function fetchRoutes() {
+export function fetchRoutes(data) {
   return (dispatch) => {
-    return Util.fetchRoutes().then(
+    return Util.fetchRoutes(data).then(
       (routes) => dispatch(receiveAllRoutes(routes))
     );
   };

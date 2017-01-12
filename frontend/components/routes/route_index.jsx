@@ -1,16 +1,41 @@
 import React from 'react';
 import RouteIndexItem from './route_index_item';
 import { Link } from 'react-router';
+import ReactPaginate from 'react-paginate';
 
 class RouteIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      offset: 0,
+      pageCount: 0,
+    }
+
+    this.handlePageClick = this.handlePageClick.bind(this);
     this.renderMessage = this.renderMessage.bind(this);
+    this.pageCount = this.pageCount.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchRoutes();
+    this.props.fetchRoutes(0).then(
+      this.setState({ pageCount: this.pageCount() })
+    );
   }
+
+  pageCount() {
+    if (this.props.routes.length !== 0) {
+      return Math.ceil(this.props.routes[0].total_count / 5);
+    }
+  }
+
+  handlePageClick(e) {
+    let selected = e.selected;
+    let offset = Math.ceil(selected * 5);
+
+    this.setState({offset: offset}, () => {
+      this.props.fetchRoutes(this.state.offset)
+    });
+  };
 
   renderMessage() {
     if (this.props.routes.length === 0) {
@@ -51,6 +76,17 @@ class RouteIndex extends React.Component {
           </tbody>
         </table>
         { this.renderMessage() }
+        <ReactPaginate previousLabel={"<"}
+                       nextLabel={">"}
+                       breakLabel={<div>...</div>}
+                       breakClassName={"break-me"}
+                       pageCount={this.pageCount()}
+                       marginPagesDisplayed={1}
+                       pageRangeDisplayed={1}
+                       onPageChange={this.handlePageClick}
+                       containerClassName={"pagination"}
+                       subContainerClassName={"pages pagination"}
+                       activeClassName={"active"} />
       </div>
     );
   }
