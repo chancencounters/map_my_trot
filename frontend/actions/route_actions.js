@@ -15,6 +15,7 @@ export const receiveRoute = (route) => ({
   type: RECEIVE_ROUTE,
   route
 });
+
 export const receiveNewRoute = (route) => ({
   type: RECEIVE_NEW_ROUTE,
   route

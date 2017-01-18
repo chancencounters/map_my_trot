@@ -54,7 +54,9 @@ class ActivityFeed extends React.Component {
     if (this.props.activities.length === 0) {
       return (
         <div className="no_activities_message">
-          <p>You have no recent activity. Start adding friends, creating routes and logging your activity!</p>
+          <p>You have no recent activity. Start adding friends, creating routes 
+            and logging your activity!
+          </p>
         </div>
       )
     }
