@@ -28,6 +28,11 @@ class Api::TrotsController < ApplicationController
     render json: @trot.id
   end
 
+  def total_distance
+    @total_distance = Trot.joins(:route).sum(:distance)
+    render :total_distance
+  end
+
   private
 
   def trot_params

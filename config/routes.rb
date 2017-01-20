@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
   get 'api/friends', :to => 'api/users#friends'
   get 'api/friendships', :to => 'api/users#friendships'
+  get 'api/totaldistance', :to => 'api/trots#total_distance'
 
 end
