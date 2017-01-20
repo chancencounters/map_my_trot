@@ -1,7 +1,7 @@
 import React from 'react';
 import { merge } from 'lodash';
 import { withRouter } from 'react-router';
-import RouteManager from '../../util/route_manager';
+import RouteManager from './route_manager';
 import moment from 'moment';
 import Modal from 'react-modal';
 
