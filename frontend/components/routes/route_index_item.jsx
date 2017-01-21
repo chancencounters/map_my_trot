@@ -8,7 +8,6 @@ class RouteIndexItem extends React.Component {
   }
 
   handleClick(e) {
-    debugger
     this.props.router.push(`/route/${this.props.route.id}`);
   }
 

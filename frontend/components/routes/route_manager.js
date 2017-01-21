@@ -24,7 +24,6 @@ export default class RouteManager {
       }, (response, status) => {
         if (status === 'OK') {
           this.directionsDisplay.setDirections(response);
-          debuggerd
           const route = response.routes[0];
           const dist = route.legs[0].distance.value;
           this.polyline = route.overview_polyline;
