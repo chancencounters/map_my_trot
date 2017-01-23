@@ -1,42 +1,47 @@
 require 'faker'
 
+prof_pics = HTTParty.get('https://pixabay.com/api/?key=4344837-c3843e1eaace1a794994042ae&q=person+running&image_type=photo')
+urls = prof_pics["hits"].map { |pic| pic["webformatURL"] }
+
 User.destroy_all
 
-# 10.times do |i|
-#   user1 = User.create!(
-#   first_name: Faker::Name.first_name,
-#   last_name: Faker::Name.last_name,
-#   avatar: Faker::Avatar.image,
-#   email: Faker::Internet.email,
-#   password: "password",
-#   )
-# end
+10.times do |i|
+  user1 = User.create!(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  avatar: open(urls.sample),
+  email: Faker::Internet.email,
+  password: "password",
+  )
+end
 
-zack = User.create!( first_name: "Zack", last_name: "Yu", email: "demo_account@admin.com", password: "password" )
-michael = User.create!( first_name: "Michael", last_name: "East", email: "blue@gmail.com", password: "password" )
-lucy = User.create!( first_name: "Lucy", last_name: "Blanc", email: "lucy@gmail.com", password: "password" )
-irene = User.create!( first_name: "Irene", last_name: "Grigio", email: "irene@gmail.com", password: "password" )
-fabio = User.create!( first_name: "Fabio", last_name: "Pinot", email: "fabbio@gmail.com", password: "password" )
-max = User.create!( first_name: "Max", last_name: "Hempfling-san", email: "max@gmail.com", password: "password", )
-bruce = User.create!( first_name: "Bruce", last_name: "Wang", email: "bruce@gmail.com", password: "password" )
-kinko = User.create!( first_name: "Kinko", last_name: "Want", email: "kinko@gmail.com", password: "password" )
-robb = User.create!( first_name: "Robb", last_name: "Veltman", email: "robb@gmail.com", password: "password" )
-daniel = User.create!( first_name: "Daniel", last_name: "Veltman", email: "daniel@gmail.com", password: "password" )
-megan = User.create!( first_name: "Megan", last_name: "Eagle", email: "megan@gmail.com", password: "password" )
-catherine = User.create!( first_name: "Catherine", last_name: "Eagle", email: "catherine@gmail.com", password: "password" )
-fannie = User.create!( first_name: "Fannie", last_name: "Chan", email: "fannie@gmail.com", password: "password" )
-agnes = User.create!( first_name: "Agnes", last_name: "Wan", email: "agnes@gmail.com", password: "password" )
-scarlet = User.create!( first_name: "Scarlet", last_name: "Johansson", email: "scarlet@gmail.com", password: "password" )
-jessica = User.create!( first_name: "Jessica", last_name: "Biel", email: "jessica@gmail.com", password: "password" )
-mila = User.create!( first_name: "Mila", last_name: "Kunis", email: "mila@gmail.com", password: "password" )
-emmanuelle = User.create!( first_name: "Emmanuelle", last_name: "Chriqui", email: "emmanuelle@gmail.com", password: "password" )
-hodor = User.create!( first_name: "Hodor", last_name: "Holdthedor", email: "hodor@gmail.com", password: "password" )
-christina = User.create!( first_name: "Christina", last_name: "Johansson", email: "christina@gmail.com", password: "password" )
-eva = User.create!( first_name: "Eva", last_name: "Mendes", email: "eva@gmail.com", password: "password" )
-olivia = User.create!( first_name: "Olivia", last_name: "Wilde", email: "olivia@gmail.com", password: "password" )
-meagan = User.create!( first_name: "Meagan", last_name: "Good", email: "meagan@gmail.com", password: "password" )
-bethany = User.create!( first_name: "Bethany", last_name: "Mango", email: "forgetthemango@gmail.com", password: "password", )
-christian = User.create!( first_name: "Christian", last_name: "Tang", email: "christian@gmail.com", password: "password", )
+
+
+zack = User.create!( first_name: "Zack", last_name: "Yu", email: "demo_account@admin.com", password: "password", avatar: open(urls.sample))
+michael = User.create!( first_name: "Michael", last_name: "East", email: "blue@gmail.com", password: "password", avatar: open(urls.sample))
+lucy = User.create!( first_name: "Lucy", last_name: "Blanc", email: "lucy@gmail.com", password: "password", avatar: open(urls.sample))
+irene = User.create!( first_name: "Irene", last_name: "Grigio", email: "irene@gmail.com", password: "password", avatar: open(urls.sample))
+fabio = User.create!( first_name: "Fabio", last_name: "Pinot", email: "fabbio@gmail.com", password: "password", avatar: open(urls.sample))
+max = User.create!( first_name: "Max", last_name: "Hempfling-san", email: "max@gmail.com", password: "password")
+bruce = User.create!( first_name: "Bruce", last_name: "Wang", email: "bruce@gmail.com", password: "password", avatar: open(urls.sample))
+kinko = User.create!( first_name: "Kinko", last_name: "Want", email: "kinko@gmail.com", password: "password", avatar: open(urls.sample))
+robb = User.create!( first_name: "Robb", last_name: "Veltman", email: "robb@gmail.com", password: "password")
+daniel = User.create!( first_name: "Daniel", last_name: "Veltman", email: "daniel@gmail.com", password: "password", avatar: open(urls.sample) )
+megan = User.create!( first_name: "Megan", last_name: "Eagle", email: "megan@gmail.com", password: "password", avatar: open(urls.sample) )
+catherine = User.create!( first_name: "Catherine", last_name: "Eagle", email: "catherine@gmail.com", password: "password", avatar: open(urls.sample) )
+fannie = User.create!( first_name: "Fannie", last_name: "Chan", email: "fannie@gmail.com", password: "password", avatar: open(urls.sample) )
+agnes = User.create!( first_name: "Agnes", last_name: "Wan", email: "agnes@gmail.com", password: "password", avatar: open(urls.sample) )
+scarlet = User.create!( first_name: "Scarlet", last_name: "Johansson", email: "scarlet@gmail.com", password: "password", avatar: open(urls.sample) )
+jessica = User.create!( first_name: "Jessica", last_name: "Biel", email: "jessica@gmail.com", password: "password", avatar: open(urls.sample) )
+mila = User.create!( first_name: "Mila", last_name: "Kunis", email: "mila@gmail.com", password: "password", avatar: open(urls.sample) )
+emmanuelle = User.create!( first_name: "Emmanuelle", last_name: "Chriqui", email: "emmanuelle@gmail.com", password: "password", avatar: open(urls.sample) )
+hodor = User.create!( first_name: "Hodor", last_name: "Holdthedor", email: "hodor@gmail.com", password: "password", avatar: open(urls.sample) )
+christina = User.create!( first_name: "Christina", last_name: "Johansson", email: "christina@gmail.com", password: "password", avatar: open(urls.sample) )
+eva = User.create!( first_name: "Eva", last_name: "Mendes", email: "eva@gmail.com", password: "password", avatar: open(urls.sample) )
+olivia = User.create!( first_name: "Olivia", last_name: "Wilde", email: "olivia@gmail.com", password: "password", avatar: open(urls.sample) )
+meagan = User.create!( first_name: "Meagan", last_name: "Good", email: "meagan@gmail.com", password: "password", avatar: open(urls.sample) )
+bethany = User.create!( first_name: "Bethany", last_name: "Mango", email: "forgetthemango@gmail.com", password: "password", avatar: open(urls.sample) )
+christian = User.create!( first_name: "Christian", last_name: "Tang", email: "christian@gmail.com", password: "password", avatar: open(urls.sample) )
 
 max.update(avatar: File.open("app/assets/images/max.jpg"))
 robb.update(avatar: File.open("app/assets/images/rob.jpg"))
