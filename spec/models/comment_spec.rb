@@ -11,8 +11,11 @@
 #  updated_at       :datetime         not null
 #
 
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "is not valid without a user"
+  it "is not valid without a body"
+  it "is not valid without a commentable id"
+  it "is not valid without a commentable type"
 end

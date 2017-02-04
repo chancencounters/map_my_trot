@@ -47,6 +47,9 @@ group :development, :test do
   gem 'pry-rails'
   gem 'annotate'
   gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
 
 group :development do
