@@ -14,8 +14,8 @@
 require 'spec_helper'
 
 RSpec.describe Comment, type: :model do
-  it "is not valid without a user"
-  it "is not valid without a body"
-  it "is not valid without a commentable id"
-  it "is not valid without a commentable type"
+  # it "is not valid without a user"
+  # it "is not valid without a body"
+  # it "is not valid without a commentable id"
+  # it "is not valid without a commentable type"
 end
