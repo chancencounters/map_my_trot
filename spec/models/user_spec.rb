@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  subject { build(:user, email: "test@gmail.com", password: "123456") }
+
   it 'has a valid factory' do
-    expect(build(:user)).to be_valid
+    expect(subject).to be_valid
   end
 
   describe 'validations' do
@@ -24,5 +26,32 @@ RSpec.describe User, type: :model do
     it { should have_many(:comments) }
     it { should have_many(:routes) }
     it { should have_many(:trots) }
+  end
+
+  before do
+    subject.save!
+  end
+
+  describe '#find_by_credentials' do
+    context 'given good credentials' do
+      it 'should return correct user' do
+        found_user = User.find_by_credentials("test@gmail.com", "123456")
+        expect(subject).to eq(found_user)
+      end
+    end
+  end
+
+  describe '.valid_password' do
+    context 'given valid password' do
+      it 'should return true' do
+        expect(subject.valid_password?("123456")).to eq true
+      end
+
+    context 'should return false' do
+      it 'should return false' do
+        expect(subject.valid_password?("12346")).to eq false
+      end
+    end
+    end
   end
 end
