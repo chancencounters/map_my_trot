@@ -54,4 +54,13 @@ RSpec.describe User, type: :model do
     end
     end
   end
+
+  describe '.reset_token!' do
+    it 'should reset session token' do
+      old_token = subject.session_token
+      new_token = subject.reset_token!
+
+      expect(old_token).not_to eq(new_token)
+    end
+  end
 end
