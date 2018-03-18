@@ -91,8 +91,9 @@ class RouteDropdown extends React.Component {
     return (
       <button
         className="clear_button"
-        onClick={ this.handleClear }
-      >X CLEAR ROUTE</button>
+        onClick={ this.handleClear }>
+        X CLEAR ROUTE
+      </button>
     );
   }
 

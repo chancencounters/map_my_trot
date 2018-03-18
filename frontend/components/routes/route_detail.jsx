@@ -17,9 +17,8 @@ class RouteDetail extends React.Component {
     const { route } = this.props;
     const coords = JSON.parse(route.bounds);
     const bounds = new google.maps.LatLngBounds();
-    const decodedPath = google.maps.geometry
-    .encoding
-    .decodePath(route.polyline);
+    const decodedPath = google.maps.geometry.encoding.decodePath(route.polyline);
+
     this.map = new google.maps.Map(this.mapNode, {
       center: { lat: coords.north, lng: coords.east },
       zoom: 15,
@@ -86,9 +85,15 @@ class RouteDetail extends React.Component {
           <div id='route_detail_map' ref={ map => this.mapNode = map }/>
         </div>
         <aside className="route_detail_aside">
-          <Link to="/create_route" className="create_route_button">CREATE A ROUTE</Link>
-          <Link to="/log_trot" className="log_workout_button">LOG THIS WORKOUT</Link>
-          <button className="delete_route_button" onClick={ () => this.handleDelete(route.id) }>DELETE ROUTE</button>
+          <Link to="/create_route" className="create_route_button">
+            CREATE A ROUTE
+          </Link>
+          <Link to="/log_trot" className="log_workout_button">
+            LOG THIS WORKOUT
+          </Link>
+          <button className="delete_route_button"
+            onClick={ () => this.handleDelete(route.id) }>DELETE ROUTE
+          </button>
         </aside>
         <CommentsContainer route={ route }/>
       </div>

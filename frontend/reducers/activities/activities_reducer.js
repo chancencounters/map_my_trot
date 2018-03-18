@@ -14,11 +14,10 @@ const ActivitiesReducer = (state = {}, action) => {
       Object.keys(state).forEach((key) => {
         let activity = state[key];
         if (activity.user.id === action.currentUser.id) {
-          let newActivity = Object.assign({}, activity, { user: action.currentUser });
-          activities = Object.assign(activities, { [key]: newActivity} );
-        } else {
-          activities = Object.assign(activities, { [key]: activity});
+          activity = Object.assign({}, activity, { user: action.currentUser });
         }
+
+        activities = Object.assign(activities, { [key]: activity});
       });
       return activities;
     case RECEIVE_NEW_COMMENT:

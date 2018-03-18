@@ -34,7 +34,10 @@ class TrotActivity extends React.Component {
     return (
       <li className="trot_activity_container" key="{ activity.id }">
         <div className="trot_activity_avatar">
-          <div className="user_activity_img" style={ { backgroundImage: `url(${ activity.user.image_url })`} }></div>
+          <div
+            className="user_activity_img"
+            style={ { backgroundImage: `url(${ activity.user.image_url })`} }>
+          </div>
         </div>
         <div className="trot_activity">
           <div className="activity_description">
@@ -52,8 +55,12 @@ class TrotActivity extends React.Component {
             <img className="activity_map" src={ staticMap }/>
           </div>
           <div className="activity_comment_footer">
-            <div className="activity_time">Posted { moment(activity.created_at).format("MMMM Do YYYY, h:mm a") }</div>
-            <div className="message_icon" onClick={ () => this.props.onClick(activity.id) }/>
+            <div className="activity_time">
+              Posted { moment(activity.created_at).format("MMMM Do YYYY, h:mm a") }
+            </div>
+            <div
+              className="message_icon"
+              onClick={ () => this.props.onClick(activity.id) }/>
             <div className="num_of_comments">{ asArray(comments).length }</div>
           </div>
           <div className="trot_activity_comments">

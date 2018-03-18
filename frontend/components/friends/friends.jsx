@@ -9,13 +9,10 @@ class Friends extends React.Component {
 
   componentDidMount() {
     const { fetchFriends,
-      fetchFriendships,
-      fetchPotentialFriends
+      fetchFriendships
     } = this.props;
 
-    fetchFriends().then(
-      () => fetchFriendships()).then(
-        () => fetchPotentialFriends() );
+    fetchFriends().then(() => fetchFriendships())
   }
 
   render() {

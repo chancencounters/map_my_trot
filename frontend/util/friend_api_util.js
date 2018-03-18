@@ -1,7 +1,8 @@
-export const fetchPotentialFriends = () => {
+export const fetchPotentialFriends = (search) => {
   return $.ajax({
     method: 'GET',
     url: '/api/users',
+    data: { search }
   });
 };
 

@@ -47,11 +47,11 @@ class User < ActiveRecord::Base
     return User.where("id IN (?)", hips.pluck(:user_id))
   end
 
-  def potential_friends
+  def potential_friends(search)
     ships = Friendship.where("user_id = :id OR friend_id = :id", id: id)
     ids = ships.pluck(:user_id).concat(ships.pluck(:friend_id))
 
-    return User.where.not(id: ids)
+    return User.where.not(id: ids).where("first_name LIKE :search OR last_name LIKE :search OR email LIKE :search", search: "%#{search}%")
   end
 
   def activities

@@ -9,7 +9,6 @@
     width: 400px;
     height: 100%;
     background: #ffffff;
-    border-right: 1px solid #999;
     color: #555555;
 
     input[type="text"]:focus {
@@ -223,6 +222,8 @@
 
 #create_route_map {
   height: auto;
+  min-height: 600px;
   width: 70%;
   flex-grow: 1;
+  border-left: 1px solid #999;
 }

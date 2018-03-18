@@ -5,14 +5,12 @@ import { fetchRoutes } from '../../actions/route_actions';
 import { postTrot } from '../../actions/trot_actions';
 import { clearErrors } from '../../actions/error_actions';
 
-const mapStateToProps = (store) => {
-  return({
+const mapStateToProps = (store) => ({
     currentUser: store.session.currentUser,
     routeDetail: store.routeDetail,
     routesList: store.routes,
     errors: store.errors.trot,
-  });
-};
+});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchRoutes: () => dispatch(fetchRoutes()),

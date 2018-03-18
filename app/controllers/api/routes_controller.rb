@@ -1,7 +1,7 @@
 class Api::RoutesController < ApplicationController
 
   def index
-    @all_routes = current_user.routes.includes(:comments)
+    @all_routes = current_user.routes.includes({ comments: [:user] })
     @count = @all_routes.length
     @routes = @all_routes.limit(5).offset(params[:offset])
     render :index

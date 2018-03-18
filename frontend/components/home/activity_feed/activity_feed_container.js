@@ -8,11 +8,11 @@ import { postRouteComment, postTrotComment } from '../../../actions/comment_acti
 
 const mapStateToProps = (store) => ({
   currentUser: store.session.currentUser,
-  activities: asArray(store.activities).reverse(),
+  activities: asArray(store.activities),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchActivities: (activities) => dispatch(fetchActivities(activities)),
+  fetchActivities: (limit) => dispatch(fetchActivities(limit)),
   postRouteComment: (comment, routeId) => dispatch(postRouteComment(comment, routeId)),
   postTrotComment: (comment, trotId) => dispatch(postTrotComment(comment, trotId)),
 });

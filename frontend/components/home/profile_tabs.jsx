@@ -4,54 +4,29 @@ import { Link } from 'react-router';
 class ProfileTabs extends React.Component {
   constructor(props) {
     super(props);
+    this.isSelectedTab = this.isSelectedTab.bind(this);
   }
 
-  componentDidMount() {
+  isSelectedTab(tabName) {
     const { location } = this.props;
-
-    if (location === "/home/activity_feed") {
-      $("a.activity_feed").addClass("selected-tab");
-    } else if (location === "/home/dashboard") {
-      $("a.dashboard").addClass("selected-tab");
-    } else {
-      $("a.my_friends").addClass("selected-tab");
-    }
-  }
-
-  componentWillReceiveProps() {
-    const activityFeed = $("a.activity_feed");
-    const dashboard = $("a.dashboard");
-    const friends = $("a.my_friends");
-
-    const { location } = this.props;
-    if (location === "/home/activity_feed") {
-      activityFeed.addClass("selected-tab");
-      dashboard.removeClass("selected-tab");
-      friends.removeClass("selected-tab");
-    } else if (location === "/home/dashboard") {
-      activityFeed.removeClass("selected-tab");
-      dashboard.addClass("selected-tab");
-      friends.removeClass("selected-tab");
-    } else {
-      activityFeed.removeClass("selected-tab");
-      dashboard.removeClass("selected-tab");
-      friends.addClass("selected-tab");
-    }
+    return location === tabName ?  "selected" : ""
   }
 
   render() {
+    const { isSelectedTab } = this;
+
     return (
       <div className="profile_tabs">
         <Link
-          className='activity_feed'
+          className={`activity_feed ${ isSelectedTab("/home/activity_feed") }`}
           to='/home/activity_feed'
           >ACTIVITY FEED</Link>
         <Link
-          className='dashboard'
+          className={`dashboard ${ isSelectedTab("/home/dashboard") }`}
           to='/home/dashboard'
           >MY DASHBOARD</Link>
         <Link
-          className='my_friends'
+          className={`my_friends ${ isSelectedTab("/home/my_friends") }`}
           to='/home/my_friends'
           >MY FRIENDS</Link>
         <div className="placeholder"/>

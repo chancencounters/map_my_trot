@@ -4,6 +4,7 @@
       route = activity.activatable
       json.id activity.id
       json.activatable_type activity.activatable_type
+      json.created_at activity.created_at
       json.set! :route do
         json.partial! 'api/routes/route', route: route
       end
@@ -16,6 +17,7 @@
       json.activatable_type activity.activatable_type
       json.distance trot.route.distance
       json.polyline trot.route.polyline
+      json.created_at activity.created_at
       json.set! :trot do
         json.partial! 'api/trots/trot', trot: trot
       end

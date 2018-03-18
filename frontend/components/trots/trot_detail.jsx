@@ -16,9 +16,8 @@ class TrotDetail extends React.Component {
     const { trot } = this.props;
     const coords = JSON.parse(trot.route.bounds);
     const bounds = new google.maps.LatLngBounds();
-    const decodedPath = google.maps.geometry
-    .encoding
-    .decodePath(trot.route.polyline);
+    const decodedPath = google.maps.geometry.encoding.decodePath(trot.route.polyline);
+
     this.map = new google.maps.Map(this.mapNode, {
       center: { lat: coords.north, lng: coords.east },
       zoom: 15,
@@ -83,9 +82,12 @@ class TrotDetail extends React.Component {
           <div id='trot_detail_map' ref={ map => this.mapNode = map }/>
         </div>
         <aside className="trot_detail_aside">
-          <Link to="/create_route" className="create_trot_button">CREATE A ROUTE</Link>
-          <Link to="/log_trot" className="log_workout_button">LOG THIS WORKOUT</Link>
-          <button className="log_workout_button" onClick={ () => this.handleDelete(trot.id) }>DELETE WORKOUT</button>
+          <Link to="/create_route" className="create_trot_button">
+            CREATE A ROUTE</Link>
+          <Link to="/log_trot" className="log_workout_button">
+            LOG THIS WORKOUT</Link>
+          <button className="log_workout_button" onClick={ () => this.handleDelete(trot.id) }>
+            DELETE WORKOUT</button>
         </aside>
       </div>
     );

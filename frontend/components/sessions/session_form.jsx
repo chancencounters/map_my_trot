@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
 
   renderSignUpForm() {
     const { errors } = this.props;
-
+    
     if (this.props.formType === 'signup') {
       return (
         <div className="session_form_body" style={ { backgroundImage: `url(https://s3.amazonaws.com/mapmytrot-prod/bg_image_s.jpg)`} }>

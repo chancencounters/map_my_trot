@@ -5,7 +5,6 @@ import {
   fetchFriends, fetchFriendships, fetchPotentialFriends
 } from '../../actions/friend_actions';
 
-
 const mapDispatchToProps = (dispatch) => ({
   fetchFriends: () => dispatch(fetchFriends()),
   fetchFriendships: () => dispatch(fetchFriendships()),

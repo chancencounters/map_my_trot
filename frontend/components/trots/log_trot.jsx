@@ -24,15 +24,39 @@ class LogTrot extends React.Component {
     this.update = this.update.bind(this);
   }
 
-  update(field) {
-		return e => {
-      this.setState({
-			[field]: e.currentTarget.value
-		});};
-	}
-
   componentDidMount() {
     this.props.fetchRoutes();
+  }
+
+  _duration() {
+    let { hours, minutes, seconds } = this.state;
+    hours = hours === "" ? "00" : this.state.hours;
+    minutes = minutes === "" ?  "00" : this.state.minutes;
+    seconds = seconds === "" ?  "00" : this.state.seconds;
+
+    if (hours === "00" && minutes === "00") return "--";
+    return hours + ":" + minutes + ":" + seconds;
+  }
+
+  update(field) {
+    return e => {
+      const val = e.currentTarget.value;
+      if (!(field === "seconds" && parseInt(val) >= 60) && !(field === "minutes" && parseInt(val) >= 60)) {
+        this.setState({
+          [field]: e.currentTarget.value
+        });
+      }
+
+
+    }
+  }
+
+  handleSubmit(routeId) {
+    this.setState({ route_id: routeId, duration: this._duration()},
+      () => this.props.postTrot(this.state)
+        .then(() => this.props.router.push("/trots"))
+        .then(() => this.props.clearErrors())
+    );
   }
 
   renderTrotForm() {
@@ -107,24 +131,6 @@ class LogTrot extends React.Component {
           </div>
         </div>
       </form>
-    );
-  }
-
-  _duration() {
-    let { hours, minutes, seconds } = this.state;
-    hours = hours === "" ? "00" : this.state.hours;
-    minutes = minutes === "" ?  "00" : this.state.minutes;
-    seconds = seconds === "" ?  "00" : this.state.seconds;
-
-    if (hours === "00" && minutes === "00") return "--";
-    return hours + ":" + minutes + ":" + seconds;
-  }
-
-  handleSubmit(routeId) {
-    this.setState({ route_id: routeId, duration: this._duration()},
-      () => this.props.postTrot(this.state)
-        .then(() => this.props.router.push("/trots"))
-        .then(() => this.props.clearErrors())
     );
   }
 

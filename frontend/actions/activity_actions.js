@@ -7,9 +7,9 @@ export const receiveActivities = (activities) => ({
   activities
 });
 
-export function fetchActivities() {
+export function fetchActivities(limit) {
   return (dispatch) => {
-    return Util.fetchActivities().then(
+    return Util.fetchActivities(limit).then(
       (activities) => dispatch(receiveActivities(activities))
     );
   };

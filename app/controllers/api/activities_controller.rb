@@ -1,7 +1,10 @@
 class Api::ActivitiesController < ApplicationController
 
   def index
-    @activities = current_user.activities
+    @activities = current_user.activities.includes(
+      {activatable: [:comments]}, :user).order(
+      created_at: :desc).limit(
+      params[:limit].to_i * 4)
     render :index
   end
 
@@ -14,6 +17,6 @@ class Api::ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.permit(:activity).require(:activatable_id, :activatable_type)
+    params.permit(:activity).require(:activatable_id, :activatable_type, :limit)
   end
 end

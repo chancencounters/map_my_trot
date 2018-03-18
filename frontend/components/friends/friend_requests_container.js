@@ -7,11 +7,9 @@ import {
   deleteFriendship, fetchFriends, fetchFriendships, approveFriendship
 } from '../../actions/friend_actions';
 
-const mapStateToProps = (store) => {
-  return (
-  { friendRequests: friendRequestsArray(store.friendships, store.session.currentUser)
-  }
-);};
+const mapStateToProps = (store) => ({
+  friendRequests: friendRequestsArray(store.friendships, store.session.currentUser)
+});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchFriendships: () => dispatch(fetchFriendships()),

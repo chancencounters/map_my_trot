@@ -58,7 +58,10 @@ class Dashboard extends React.Component {
           { recentTrots.map((trot) => {
             const staticMap = `https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=weight:3%7Ccolor:red%7Cenc:${ trot.route.polyline }&key=AIzaSyA7uwvLREd5yloeRCH3FdgsJvG8D_glP7w`;
             return (
-              <li className="recent_trotout_item group" key={ trot.id } onClick={ () => this.handleTrotClick(trot.id) }>
+              <li
+                className="recent_trotout_item group"
+                key={ trot.id }
+                onClick={ () => this.handleTrotClick(trot.id) }>
                 <img src={ staticMap }/>
                 <div className="recent_trotout_name_container">
                   <span className="recent_trotout_name">{ trot.name }</span>

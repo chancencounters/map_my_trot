@@ -9,15 +9,21 @@ class ActivityFeed extends React.Component {
     this.state = {
       selectedId: null,
       imageFile: null,
+      limit: 1,
+      infiniteLoading: false,
+      initialLoad: true,
     };
     this.onClick = this.onClick.bind(this);
     this.handlePostComment = this.handlePostComment.bind(this)
     this.renderActivity = this.renderActivity.bind(this);
     this.renderMsg = this.renderMsg.bind(this);
+    this.handleInfiniteLoad = this.handleInfiniteLoad.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchActivities()
+    setTimeout(() => {
+      this.setState({ initialLoad: false })
+    }, 1000)
   }
 
   handlePostComment(comment) {
@@ -50,11 +56,22 @@ class ActivityFeed extends React.Component {
     }
   }
 
+  handleInfiniteLoad() {
+    if (!this.state.infiniteLoading) {
+      this.setState({ infiniteLoading: true });
+
+      this.props.fetchActivities(this.state.limit + 1)
+      setTimeout(() => {
+          this.setState({ limit: this.state.limit + 1, infiniteLoading: false })
+      }, 100)
+    }
+  }
+
   renderMsg() {
-    if (this.props.activities.length === 0) {
+    if (this.props.activities.length === 0 && !this.state.initialLoad) {
       return (
         <div className="no_activities_message">
-          <p>You have no recent activity. Start adding friends, creating routes 
+          <p>You have no recent activity. Start adding friends, creating routes
             and logging your activity!
           </p>
         </div>
@@ -90,12 +107,14 @@ class ActivityFeed extends React.Component {
       <div className="activity_feed_container">
         <Infinite className="activity_feed"
           elementHeight={290}
-          useWindowAsScrollContainer>
+          useWindowAsScrollContainer
+          onInfiniteLoad={this.handleInfiniteLoad}
+          infiniteLoadBeginEdgeOffset={-200}
+          timeScrollStateLastsForAfterUserScrolls={0}
+          >
           { activities.map((activity, idx) => {
-          return (
-            this.renderActivity(activity, idx)
-          );
-        })}
+            return (this.renderActivity(activity, idx));
+          })}
         </Infinite>
         { this.renderMsg() };
       </div>

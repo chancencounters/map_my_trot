@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def index
-    @users = current_user.potential_friends
+    @users = current_user.potential_friends(params[:search])
     render :index
   end
 
@@ -37,6 +37,8 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :first_name, :last_name, :avatar)
+    params
+      .require(:user)
+      .permit(:email, :password, :first_name, :last_name, :avatar, :search)
   end
 end

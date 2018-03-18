@@ -6,14 +6,11 @@ import moment from 'moment';
 import Modal from 'react-modal';
 
 const _getMapOptions = (pos) => ({
-  center: {
-    lat: pos.coords.latitude,
-    lng: pos.coords.longitude
-  },
+  center: { lat: pos.coords.latitude, lng: pos.coords.longitude },
   zoom: 17
 });
 
-let _defaultMapOptions = {
+const _defaultMapOptions = {
   center: {lat: 37.773972 , lng: -122.431297},
   zoom: 17
 };
@@ -51,6 +48,16 @@ class CreateRoute extends React.Component {
     this.handleTrotSubmit = this.handleTrotSubmit.bind(this);
   }
 
+  componentDidMount() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((pos) => {
+        this.initMap(_getMapOptions(pos));
+      });
+    } else {
+      this.initMap(_defaultMapOptions);
+    }
+  }
+
   openModal() {
     this.setState({ modalOpen: true });
   }
@@ -66,22 +73,22 @@ class CreateRoute extends React.Component {
 	}
 
   updateTrot(field) {
-    return e => this.setState({
-			trot: merge({}, this.state.trot, {[field]: e.currentTarget.value})
-		});
-  }
-
-  componentDidMount() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((pos) => {
-      this.initMap(_getMapOptions(pos));
-    });
-    } else {
-      this.initMap(_defaultMapOptions);
+    return e => {
+      const val = e.currentTarget.value;
+      if (!(field === "seconds" && parseInt(val) >= 60) && !(field === "minutes" && parseInt(val) >= 60)) {
+        this.setState({
+    			trot: merge({}, this.state.trot, {[field]: e.currentTarget.value})
+    		});
+      }
     }
   }
 
- initMap(mapOptions) {
+  _duration() {
+    const { hours, minutes, seconds } = this.state.trot;
+    return hours + ":" + minutes + ":" + seconds;
+  }
+
+  initMap(mapOptions) {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.directionsService = new google.maps.DirectionsService;
     this.directionsDisplay = new google.maps.DirectionsRenderer({
@@ -103,6 +110,46 @@ class CreateRoute extends React.Component {
     this.map.addListener('idle', (e) => {
       this.closeModal();
     });
+  }
+
+  handleTrotSubmit() {
+    this.setState(
+      this.RouteManager.getRouteInfo(),
+      () => this.props.postRoute(this.state)
+        .then(() => this.setState({
+          trot:
+            merge(
+              {}, this.state.trot,
+              { duration: this._duration(),
+                route_id: this.props.route_id,
+                name: this.state.name
+              })
+          },
+          () => this.props.postTrot(this.state.trot)
+          .then(() => this.props.router.push("/routes"))
+    )));
+
+    this.props.clearErrors();
+  }
+
+  handleSearch() {
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode({'address': this.state.search}, (results, status) =>
+      this.map.setCenter(results[0].geometry.location)
+    );
+
+    this.setState( {search: ""} );
+    this.props.clearErrors();
+  }
+
+  handleRouteSubmit() {
+    this.setState(
+      this.RouteManager.getRouteInfo(),
+      () => this.props.postRoute(this.state)
+        .then(() => this.props.router.push("/routes"))
+    );
+
+    this.props.clearErrors();
   }
 
   searchLocForm() {
@@ -135,7 +182,8 @@ class CreateRoute extends React.Component {
           placeholder='Name this map'
         />
         <span>*</span>
-        { (Boolean(routeErrors.name)) ? <div className="error_message">* Name is required</div> : "" }
+        { (Boolean(routeErrors.name)) ?
+          <div className="error_message">* Name is required</div> : "" }
         <input type='submit'
           onClick={ this.handleRouteSubmit }
           value='Save Route'/>
@@ -187,58 +235,14 @@ class CreateRoute extends React.Component {
             value={ this.state.trot.date }
             onChange={ this.updateTrot('date') }
           />
-        { (Boolean(trotErrors.date)) ? <div className="error_message">* Date is required</div> : "" }
+        { (Boolean(trotErrors.date)) ?
+          <div className="error_message">* Date is required</div> : "" }
         </div>
         <input type='submit'
           onClick={ this.handleTrotSubmit }
           value='Save Route with Trot'/>
       </form>
     );
-  }
-
-  _duration() {
-    const { hours, minutes, seconds } = this.state.trot;
-    return hours + ":" + minutes + ":" + seconds;
-  }
-
-  handleTrotSubmit() {
-    this.setState(
-      this.RouteManager.getRouteInfo(),
-      () => this.props.postRoute(this.state)
-        .then(() => this.setState({
-          trot:
-            merge(
-              {}, this.state.trot,
-              { duration: this._duration(),
-                route_id: this.props.route_id,
-                name: this.state.name
-              })
-          },
-          () => this.props.postTrot(this.state.trot)
-          .then(() => this.props.router.push("/routes"))
-    )));
-
-    this.props.clearErrors();
-  }
-
-  handleSearch() {
-    const geocoder = new google.maps.Geocoder();
-    geocoder.geocode({'address': this.state.search}, (results, status) =>
-      this.map.setCenter(results[0].geometry.location)
-    );
-
-    this.setState( {search: ""} );
-    this.props.clearErrors();
-  }
-
-  handleRouteSubmit() {
-    this.setState(
-      this.RouteManager.getRouteInfo(),
-      () => this.props.postRoute(this.state)
-        .then(() => this.props.router.push("/routes"))
-    );
-
-    this.props.clearErrors();
   }
 
   render() {

@@ -40,9 +40,9 @@ export const removeFriendship = (friendship) => ({
 });
 
 
-export function fetchPotentialFriends() {
+export function fetchPotentialFriends(search) {
   return (dispatch) => {
-    return Util.fetchPotentialFriends().then(
+    return Util.fetchPotentialFriends(search).then(
       (potentialFriends) => dispatch(receiveAllPotentialFriends(potentialFriends)),
       (errors) => dispatch(receiveFriendErrors(errors.responseJSON))
     );

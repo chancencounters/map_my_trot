@@ -13,7 +13,7 @@ class TrotIndexItem extends React.Component {
 
   render() {
     const { trot } = this.props;
-
+    
     return (
       <li className="trot_index_item" onClick={ this.handleClick }>
         <div className="trot_index_item_details">

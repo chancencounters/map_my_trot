@@ -29,11 +29,11 @@ gem 'httparty'
 # gem 'capistrano-rails', group: :development
 gem 'bcrypt'
 
-gem 'paperclip', '~> 5.0.0'
+gem 'paperclip', '~> 5.2.1'
 
 gem 'figaro'
 
-gem 'aws-sdk'
+gem 'aws-sdk', '< 3.0'
 
 gem 'faker'
 
@@ -46,7 +46,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
-  gem 'factory_girl_rails'
+  # gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'database_cleaner'

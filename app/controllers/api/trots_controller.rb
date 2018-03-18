@@ -1,7 +1,8 @@
 class Api::TrotsController < ApplicationController
 
   def index
-    @trots = current_user.trots.includes(:route, :comments)
+    @trots = current_user.trots.includes(
+      {route: [{comments: [:user]}]}, { comments: [:user] }).order(date: :desc)
     render :index
   end
 
